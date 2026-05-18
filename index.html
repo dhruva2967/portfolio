@@ -1,0 +1,832 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dhruva | Video Editor & Motion Designer</title>
+    <meta name="description"
+        content="Premium portfolio of Dhruva Balyapelly - Transforming Raw Footage into Cinematic Stories. Specialized in Video Editing and Motion Design.">
+
+    <!-- Local Fonts (Offline) -->
+    <link rel="stylesheet" href="fonts.css">
+
+    <!-- Tailwind CSS (Local) -->
+    <script src="libs/tailwind.min.js"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#00e5ff', // Electric Cyan
+                        secondary: '#00b8d4', // Deep Teal/Cyan
+                        dark: '#050507', // Deep Charcoal Black
+                        surface: '#111216', // Dashboard Navy
+                        neutral: '#8a8d98',
+                        accent: '#00e5ff',
+                    },
+                    fontFamily: {
+                        sans: ['Outfit', 'sans-serif'],
+                        display: ['Outfit', 'sans-serif'],
+                    },
+                    backdropBlur: {
+                        xs: '2px',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="bg-black text-white font-sans antialiased overflow-x-hidden">
+
+
+    <!-- Navigation -->
+    <nav id="navbar"
+        class="fixed top-6 md:top-8 left-1/2 -translate-x-1/2 w-[92%] max-w-6xl z-50 bg-black border border-white/10 py-2.5 md:py-3 rounded-full px-6 md:px-10 shadow-2xl">
+        <div class="nav-inner flex items-center justify-between w-full">
+            <!-- Left: Logo -->
+            <div class="nav-logo flex items-center">
+                <a href="#" class="flex items-center gap-0 hover:opacity-80 transition-opacity duration-300">
+                    <img src="logos/logo.png" alt="Logo" class="h-6 w-auto opacity-90 relative z-0">
+                    <span
+                        class="sf-pro-text font-bold text-xl tracking-tighter text-white ml-[-5px] relative z-10">hruva</span>
+                </a>
+            </div>
+
+            <!-- Rotation Button (visible when scrolled) -->
+            <div class="rotation-btn-wrapper" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+                <div class="rotation-btn">
+                    <svg viewBox="0 0 100 100">
+                        <defs>
+                            <path id="circlePath" d="M 50,50 m -37,0 a 37,37 0 1,1 74,0 a 37,37 0 1,1 -74,0" />
+                        </defs>
+                        <text fill="white" font-size="9.5" font-weight="700" letter-spacing="3"
+                            text-transform="uppercase">
+                            <textPath href="#circlePath">DHRUVA • EDITOR • MOTION •</textPath>
+                        </text>
+                    </svg>
+                    <div class="rotation-btn-dot"></div>
+                </div>
+            </div>
+
+            <!-- Right: Menu and Toggle -->
+            <div class="flex items-center space-x-2 sm:space-x-4 md:space-x-8">
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center space-x-8 text-[10px] font-bold uppercase tracking-[0.2em]">
+                    <a href="#showreel" class="text-white/70 hover:text-white transition-colors">Showreel</a>
+                    <a href="#services" class="text-white/70 hover:text-white transition-colors">Services</a>
+                    <a href="#portfolio" class="text-white/70 hover:text-white transition-colors">Portfolio</a>
+                    <a href="#testimonials" class="text-white/70 hover:text-white transition-colors">Reviews</a>
+                </div>
+
+                <!-- Contact Button -->
+                <a href="#contact"
+                    class="text-[10px] font-bold uppercase tracking-[0.2em] bg-white text-black px-4 py-2 sm:px-5 sm:py-2.5 rounded-full hover:bg-gray-200 transition-colors whitespace-nowrap">Contact</a>
+
+                <!-- Mobile Menu Toggle -->
+                <button class="md:hidden p-1 sm:p-2 text-white flex items-center justify-center">
+                    <span class="text-2xl">☰</span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Floating Nav Container -->
+    <div id="floating-nav-container"
+        class="fixed bottom-6 right-6 z-[100] flex items-center transform translate-y-24 scale-0 transition-all duration-500 origin-bottom-right">
+        <!-- Expanded Menu -->
+        <div id="floating-nav-menu"
+            class="bg-[#0f0f11]/90 backdrop-blur-md border border-white/10 rounded-full px-3 py-2 flex items-center space-x-1 mr-4 opacity-0 pointer-events-none transform translate-x-10 transition-all duration-500 shadow-[0_0_30px_rgba(0,0,0,0.8)]">
+            <a href="#showreel"
+                class="group flex items-center px-3 py-2 rounded-full hover:bg-white/5 hover:shadow-[inset_0_0_15px_rgba(0,229,255,0.1)] transition-all duration-500">
+                <span
+                    class="text-2xl hollow-icon text-white/70 group-hover:text-primary">◻</span>
+                <span
+                    class="max-w-0 overflow-hidden group-hover:max-w-[100px] transition-all duration-500 cubic-bezier(0.16, 1, 0.3, 1) text-white text-[10px] font-bold uppercase tracking-widest whitespace-nowrap group-hover:ml-2 opacity-0 group-hover:opacity-100">Showreel</span>
+            </a>
+            <a href="#services"
+                class="group flex items-center px-3 py-2 rounded-full hover:bg-white/5 hover:shadow-[inset_0_0_15px_rgba(0,229,255,0.1)] transition-all duration-500">
+                <span
+                    class="text-2xl hollow-icon text-white/70 group-hover:text-primary">⚙</span>
+                <span
+                    class="max-w-0 overflow-hidden group-hover:max-w-[100px] transition-all duration-500 cubic-bezier(0.16, 1, 0.3, 1) text-white text-[10px] font-bold uppercase tracking-widest whitespace-nowrap group-hover:ml-2 opacity-0 group-hover:opacity-100">Services</span>
+            </a>
+            <a href="#portfolio"
+                class="group flex items-center px-3 py-2 rounded-full hover:bg-white/5 hover:shadow-[inset_0_0_15px_rgba(0,229,255,0.1)] transition-all duration-500">
+                <span
+                    class="text-2xl hollow-icon text-white/70 group-hover:text-primary">⊞</span>
+                <span
+                    class="max-w-0 overflow-hidden group-hover:max-w-[100px] transition-all duration-500 cubic-bezier(0.16, 1, 0.3, 1) text-white text-[10px] font-bold uppercase tracking-widest whitespace-nowrap group-hover:ml-2 opacity-0 group-hover:opacity-100">Portfolio</span>
+            </a>
+            <a href="#testimonials"
+                class="group flex items-center px-3 py-2 rounded-full hover:bg-white/5 hover:shadow-[inset_0_0_15px_rgba(0,229,255,0.1)] transition-all duration-500">
+                <span
+                    class="text-2xl hollow-icon text-white/70 group-hover:text-primary">💬</span>
+                <span
+                    class="max-w-0 overflow-hidden group-hover:max-w-[100px] transition-all duration-500 cubic-bezier(0.16, 1, 0.3, 1) text-white text-[10px] font-bold uppercase tracking-widest whitespace-nowrap group-hover:ml-2 opacity-0 group-hover:opacity-100">Reviews</span>
+            </a>
+            <a href="#contact"
+                class="group flex items-center px-3 py-2 rounded-full hover:bg-white/5 hover:shadow-[inset_0_0_15px_rgba(0,229,255,0.1)] transition-all duration-500">
+                <span
+                    class="text-2xl hollow-icon text-white/70 group-hover:text-primary">✉</span>
+                <span
+                    class="max-w-0 overflow-hidden group-hover:max-w-[100px] transition-all duration-500 cubic-bezier(0.16, 1, 0.3, 1) text-white text-[10px] font-bold uppercase tracking-widest whitespace-nowrap group-hover:ml-2 opacity-0 group-hover:opacity-100">Contact</span>
+            </a>
+        </div>
+
+        <!-- Nav Hint Arrow -->
+        <div id="nav-hint"
+            class="absolute -top-6 -right-1.5 flex flex-col items-center opacity-0 transition-all duration-700 pointer-events-none translate-y-4">
+            <span
+                class="text-primary text-lg animate-bounce-gentle">▼</span>
+        </div>
+
+        <!-- Toggle Icon -->
+        <div id="floating-nav-toggle"
+            class="group w-12 h-12 rounded-full bg-[#111216] border border-white/20 flex items-center justify-center cursor-pointer shadow-[0_0_20px_rgba(0,229,255,0.15)] hover:shadow-[0_0_30px_rgba(0,229,255,0.3)] hover:border-primary/50 transition-all duration-500 z-50">
+            <img src="logos/logo.png" alt="Icon"
+                class="h-5 w-5 object-contain opacity-80 group-hover:opacity-100 group-hover:scale-110 transition-all duration-500">
+        </div>
+    </div>
+
+    <!-- Scroll Progress Bar -->
+    <div class="fixed bottom-0 left-0 w-full h-1 bg-black/5 dark:bg-white/5 z-[60]">
+        <div id="scroll-progress" class="h-full bg-primary w-0 transition-all duration-100"></div>
+    </div>
+
+    <main id="main-content" class="relative z-10 bg-black overflow-hidden">
+        <!-- Global Noise Overlay -->
+        <div class="fixed inset-0 pointer-events-none z-[100] opacity-[0.03] mix-blend-screen noise-bg"></div>
+        <!-- Hero Section -->
+        <section id="hero-section"
+            class="relative w-full min-h-[100svh] overflow-hidden flex flex-col items-center justify-center bg-black">
+
+            <!-- Star Background -->
+            <div class="absolute inset-0 z-0 pointer-events-none bg-[#050507] overflow-hidden">
+                <!-- Bottom Left Glow -->
+                <div
+                    class="absolute -bottom-1/4 -left-1/4 w-[80vw] h-[80vw] bg-[radial-gradient(circle_at_center,rgba(217,249,157,0.25)_0%,transparent_70%)] rounded-full blur-[100px] pointer-events-none mix-blend-screen">
+                </div>
+
+                <!-- Intense Grain Overlay -->
+                <div class="absolute inset-0 opacity-[0.03] mix-blend-screen noise-bg"></div>
+            </div>
+
+            <!-- Orbit Rings -->
+            <div
+                class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[90vw] h-[90vw] sm:w-[600px] sm:h-[600px] md:w-[800px] md:h-[800px] pointer-events-none z-10 opacity-60">
+                <div class="absolute inset-0 rounded-full border border-primary/20 orbit-ring-1"></div>
+                <div class="absolute inset-[15%] rounded-full border border-primary/30 orbit-ring-2"></div>
+                <div class="absolute inset-[30%] rounded-full border border-primary/10 orbit-ring-3 border-dashed">
+                </div>
+
+                <!-- Small orbiting dots -->
+                <div class="absolute inset-0 orbit-ring-1">
+                    <div
+                        class="absolute top-0 left-1/2 w-3 h-3 bg-primary rounded-full -translate-x-1/2 -translate-y-1/2 shadow-[0_0_15px_#00e5ff]">
+                    </div>
+                </div>
+                <div class="absolute inset-[15%] orbit-ring-2">
+                    <div
+                        class="absolute bottom-0 left-1/2 w-2 h-2 bg-white rounded-full -translate-x-1/2 translate-y-1/2 shadow-[0_0_10px_white]">
+                    </div>
+                </div>
+                <div class="absolute inset-[30%] orbit-ring-3">
+                    <div
+                        class="absolute top-1/2 left-0 w-2 h-2 bg-primary rounded-full -translate-x-1/2 -translate-y-1/2 shadow-[0_0_10px_#00e5ff]">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Side Labels (Vertical) -->
+            <div class="absolute left-8 top-1/2 -translate-y-1/2 hidden lg:block z-20">
+                <span
+                    class="text-[10px] font-bold uppercase tracking-[0.5em] text-white/20 vertical-text side-label-left">Video
+                    Editor</span>
+            </div>
+            <div class="absolute right-8 top-1/2 -translate-y-1/2 hidden lg:block z-20">
+                <span
+                    class="text-[10px] font-bold uppercase tracking-[0.5em] text-white/20 vertical-text side-label-right">Motion
+                    Designer</span>
+            </div>
+
+            <div class="hero-stage relative z-10 w-full max-w-7xl px-6 flex flex-col items-center justify-center">
+                <!-- Text Content -->
+                <div class="hero-copy relative z-20 flex flex-col items-center text-center w-full">
+                    <!-- Overlapping Text Container -->
+                    <div class="relative flex flex-col items-center w-full select-none mb-4">
+                        <!-- CRAFTING behind -->
+                        <div class="relative z-10">
+                            <h1
+                                class="wave-text hero-title-top text-6xl sm:text-8xl md:text-[10rem] font-display font-medium tracking-tight leading-[0.9] text-white/90">
+                                CRAFTING
+                            </h1>
+                        </div>
+                        <!-- frames. in front, overlapping -->
+                        <div class="relative z-20 -mt-6 sm:-mt-10 md:-mt-14">
+                            <h1
+                                class="wave-text hero-title-bot text-7xl sm:text-9xl md:text-[11.5rem] script-text tracking-tight leading-[0.8] text-white">
+                                frames.
+                            </h1>
+                        </div>
+                    </div>
+
+                    <!-- Subtitle / Note below -->
+                    <div class="hero-note max-w-[280px] text-center hidden md:block mt-2 mb-12">
+                        <p class="text-[10px] text-white/50 leading-relaxed uppercase tracking-wider font-medium">
+                            A high-end visual architect specializing in premium video editing and motion design for
+                            global brands.
+                        </p>
+                    </div>
+
+                    <!-- CTA Buttons -->
+                    <div class="hero-ctas flex flex-col sm:flex-row items-center justify-center gap-6 mt-4 w-full">
+                        <a href="#showreel"
+                            class="px-10 py-4 bg-white text-black font-bold uppercase text-[10px] tracking-[0.3em] rounded-full transition-all duration-500 hover:scale-105">
+                            View Showreel
+                        </a>
+                        <a href="#contact"
+                            class="px-10 py-4 border border-white/20 text-white font-bold uppercase text-[10px] tracking-[0.3em] rounded-full hover:bg-white hover:text-black hover:border-white transition-all duration-500 hover:scale-105">
+                            Start a Project
+                        </a>
+                    </div>
+                </div>
+
+
+
+            </div>
+        </section>
+
+        <!-- Showreel Section -->
+        <section id="showreel" class="py-32 px-6 relative light-section overflow-hidden">
+            <!-- Light Soft Blue Gradient Blobs -->
+            <div
+                class="absolute -top-40 -left-40 w-[600px] h-[600px] bg-[radial-gradient(circle_at_center,rgba(56,189,248,0.22)_0%,transparent_70%)] rounded-full blur-[100px] pointer-events-none z-0">
+            </div>
+            <div
+                class="absolute -bottom-40 -right-40 w-[700px] h-[700px] bg-[radial-gradient(circle_at_center,rgba(14,165,233,0.18)_0%,transparent_70%)] rounded-full blur-[120px] pointer-events-none z-0">
+            </div>
+            <div
+                class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-[radial-gradient(circle_at_center,rgba(186,230,253,0.15)_0%,transparent_60%)] rounded-full blur-[100px] pointer-events-none z-0">
+            </div>
+
+            <div class="max-w-7xl mx-auto relative z-10">
+                <div
+                    class="flex flex-col md:flex-row items-center md:items-end justify-between mb-20 gap-6 showreel-header">
+                    <div class="space-y-4 text-center md:text-left">
+                        <span class="text-[10px] font-bold uppercase tracking-[0.4em] text-neutral">Project
+                            Archive</span>
+                        <h2 class="typing-text text-4xl sm:text-5xl md:text-7xl font-display font-black tracking-[-0.04em]">Showreel
+                        </h2>
+                    </div>
+                    <p class="text-neutral max-w-md text-center md:text-left">
+                        A visual journey through my latest cinematic edits and motion design work.
+                    </p>
+                </div>
+
+                <!-- Video Player Container -->
+                <div onclick="openVideoModal('Videos/Showreel.mp4')"
+                    class="relative aspect-video rounded-3xl overflow-hidden glass-dark group cursor-pointer border border-sky-400/20 showreel-video shadow-[0_0_50px_rgba(14,165,233,0.08)] hover:shadow-[0_0_60px_rgba(14,165,233,0.22)] hover:border-sky-400/40 transition-all duration-700">
+                    <!-- Placeholder Thumbnail (Grayscale to Color) -->
+                    <div class="absolute inset-0 bg-neutral/20 grayscale group-hover:grayscale-0 transition-all duration-700 bg-cover bg-center"
+                        style="background-image: url('Thumbnails/Showreel.png');">
+                    </div>
+
+                    <!-- Overlay with Play Button -->
+                    <div
+                        class="absolute inset-0 flex items-center justify-center bg-black/40 group-hover:bg-black/20 transition-all duration-700">
+                        <div
+                            class="w-20 h-20 md:w-28 md:h-28 rounded-full flex items-center justify-center bg-black/30 backdrop-blur-xl border border-white/10 group-hover:scale-110 group-hover:border-sky-400 group-hover:shadow-[0_0_40px_rgba(14,165,233,0.4)] transition-all duration-500">
+                            <span
+                                class="text-white text-4xl md:text-6xl translate-x-1">▶</span>
+                        </div>
+                    </div>
+
+                    <!-- Video ID Label -->
+                    <div class="absolute bottom-8 left-8 text-white/50 text-xs font-mono tracking-widest uppercase">
+                        SRC_REEL_2024_V1.0
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Combined Services & Process Section -->
+        <section id="services" class="py-32 px-6 relative">
+            <!-- Star Background -->
+            <div class="absolute inset-0 z-0 pointer-events-none bg-[#050507] overflow-hidden">
+                <!-- Bottom Left Glow -->
+                <div
+                    class="absolute -bottom-1/4 -left-1/4 w-[80vw] h-[80vw] bg-[radial-gradient(circle_at_center,rgba(217,249,157,0.25)_0%,transparent_70%)] rounded-full blur-[100px] pointer-events-none mix-blend-screen">
+                </div>
+
+
+
+
+
+                <!-- Intense Grain Overlay -->
+                <div class="absolute inset-0 opacity-[0.03] mix-blend-screen noise-bg"></div>
+            </div>
+
+            <div class="max-w-7xl mx-auto relative z-10">
+
+                <div class="text-center space-y-6 mb-24">
+                    <span class="text-[10px] font-bold uppercase tracking-[0.4em] text-neutral">What I Do</span>
+                    <h2
+                        class="rotate-scale-text text-5xl sm:text-6xl md:text-8xl font-display font-black tracking-[-0.04em] leading-tight">
+                        MY SERVICES
+                    </h2>
+                </div>
+
+                <!-- About & Tools Section Integrated -->
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 md:gap-24 items-center mb-32">
+                    <!-- Left: About Me -->
+                    <div class="space-y-8 text-center md:text-left">
+                    <div class="space-y-4">
+                        <span class="text-[10px] font-bold uppercase tracking-[0.4em] text-neutral">Introduction</span>
+                        <h3 class="color-scale-text text-4xl md:text-6xl font-black leading-[1.1]">About Me
+                        </h3>
+                    </div>
+                    <p class="text-lg text-neutral leading-relaxed max-w-xl mx-auto md:mx-0">
+                        I'm Dhruva, a specialized video editor and motion designer dedicated to high-impact visual
+                        storytelling. I don't just cut footage; I craft narratives that capture attention and evoke
+                        emotion. Whether it's high-retention short-form content or cinematic brand films, my goal is
+                        to make every project an exceptional visual experience.
+                    </p>
+                </div>
+
+                <!-- Right: Tools Section -->
+                <div
+                    class="glass-dark p-12 md:p-16 rounded-[3rem] border-t border-l border-white/10 border-r-0 border-b-0 shadow-[20px_20px_60px_rgba(0,0,0,0.5)] relative overflow-hidden group">
+                    <!-- Subtle Background Glow -->
+                    <div
+                        class="absolute -top-24 -right-24 w-48 h-48 bg-primary/20 rounded-full blur-[80px] pointer-events-none transition-all duration-700 group-hover:bg-secondary/20">
+                    </div>
+
+                    <div class="relative z-10 space-y-12">
+                        <div class="flex flex-col md:flex-row md:items-end justify-between gap-8">
+                            <div class="text-center md:text-left">
+                                <span class="text-[10px] font-bold uppercase tracking-[0.4em] text-neutral">The
+                                    Arsenal</span>
+                                <h4 class="text-2xl font-black mt-2">Professional Stack</h4>
+                            </div>
+                            <div class="flex items-center justify-center md:justify-end gap-12">
+                                <div class="text-center">
+                                    <p class="text-3xl font-black text-primary">2</p>
+                                    <p class="text-[10px] font-bold uppercase tracking-widest text-neutral">Years
+                                        Exp.</p>
+                                </div>
+                                <div class="text-center">
+                                    <p class="text-3xl font-black text-primary">20+</p>
+                                    <p class="text-[10px] font-bold uppercase tracking-widest text-neutral">Projects
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Software Tools Grid -->
+                        <div class="flex justify-center md:justify-start pt-4 gap-6">
+                            <div class="flex flex-col items-center group/tool">
+                                <div class="w-24 h-24 md:w-32 md:h-32 rounded-2xl bg-[#0F0F0F] flex items-center justify-center border border-white/20 p-5 shadow-2xl transition-all duration-500 group-hover/tool:scale-110 group-hover/tool:border-primary/50">
+                                    <img src="logos/davinci.png" class="w-full h-full object-contain" alt="DaVinci Resolve">
+                                </div>
+                                <p class="text-[9px] font-black tracking-[0.2em] text-primary mt-3 text-center">DAVINCI</p>
+                            </div>
+                            <div class="flex flex-col items-center group/tool">
+                                <div class="w-24 h-24 md:w-32 md:h-32 rounded-2xl bg-[#1d1d1b] flex items-center justify-center border border-white/20 p-5 shadow-2xl transition-all duration-500 group-hover/tool:scale-110 group-hover/tool:border-primary/50">
+                                    <img src="logos/ps.png" class="w-full h-full object-contain" alt="Photoshop">
+                                </div>
+                                <p class="text-[9px] font-black tracking-[0.2em] text-primary mt-3 text-center">PHOTOSHOP</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Core Services Grid -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 mb-32">
+                <!-- Short-form -->
+                <div class="service-card-flip group">
+                    <div class="service-card-inner">
+                        <div class="service-card-front">
+                            <div
+                                class="card-image"
+                                style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);"></div>
+                            <div class="card-overlay"></div>
+                            <h3 class="silk-text uppercase">Short-form <br> Edits</h3>
+                            <span
+                                class="absolute bottom-4 left-1/2 -translate-x-1/2 text-[8px] font-bold tracking-widest text-white uppercase z-10 group-hover:opacity-0 transition-opacity whitespace-nowrap">(Click
+                                to Flip)</span>
+                        </div>
+                        <div class="service-card-back gradient-1">
+                            <p>High-retention edits for Reels, TikToks, and Shorts. Focused on engagement and
+                                fast-paced storytelling.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- YouTube -->
+                <div class="service-card-flip group">
+                    <div class="service-card-inner">
+                        <div class="service-card-front">
+                            <div
+                                class="card-image"
+                                style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);"></div>
+                            <div class="card-overlay"></div>
+                            <h3 class="silk-text uppercase">YouTube <br> Content</h3>
+                            <span
+                                class="absolute bottom-4 left-1/2 -translate-x-1/2 text-[8px] font-bold tracking-widest text-white uppercase z-10 group-hover:opacity-0 transition-opacity whitespace-nowrap">(Click
+                                to Flip)</span>
+                        </div>
+                        <div class="service-card-back gradient-2">
+                            <p>Comprehensive storytelling and engagement for long-form series. Optimizing for
+                                retention and viewer loyalty.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Motion Graphics -->
+                <div class="service-card-flip group">
+                    <div class="service-card-inner">
+                        <div class="service-card-front">
+                            <div
+                                class="card-image"
+                                style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);"></div>
+                            <div class="card-overlay"></div>
+                            <h3 class="silk-text uppercase">Motion <br> Graphics</h3>
+                            <span
+                                class="absolute bottom-4 left-1/2 -translate-x-1/2 text-[8px] font-bold tracking-widest text-white uppercase z-10 group-hover:opacity-0 transition-opacity whitespace-nowrap">(Click
+                                to Flip)</span>
+                        </div>
+                        <div class="service-card-back gradient-3">
+                            <p>Sleek 2D/3D animations that bring static elements to life. Custom transitions and
+                                visual effects.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Commercial -->
+                <div class="service-card-flip group">
+                    <div class="service-card-inner">
+                        <div class="service-card-front">
+                            <div
+                                class="card-image"
+                                style="background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);"></div>
+                            <div class="card-overlay"></div>
+                            <h3 class="silk-text uppercase">Brand <br> Films</h3>
+                            <span
+                                class="absolute bottom-4 left-1/2 -translate-x-1/2 text-[8px] font-bold tracking-widest text-white uppercase z-10 group-hover:opacity-0 transition-opacity whitespace-nowrap">(Click
+                                to Flip)</span>
+                        </div>
+                        <div class="service-card-back gradient-4">
+                            <p>Professional brand storytelling for ads and corporate films. High-production value
+                                and impact.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Color & Sound -->
+                <div class="service-card-flip group">
+                    <div class="service-card-inner">
+                        <div class="service-card-front">
+                            <div
+                                class="card-image"
+                                style="background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);"></div>
+                            <div class="card-overlay"></div>
+                            <h3 class="silk-text uppercase">Color & <br> Sound</h3>
+                            <span
+                                class="absolute bottom-4 left-1/2 -translate-x-1/2 text-[8px] font-bold tracking-widest text-white uppercase z-10 group-hover:opacity-0 transition-opacity whitespace-nowrap">(Click
+                                to Flip)</span>
+                        </div>
+                        <div class="service-card-back gradient-5">
+                            <p>Immersive soundscapes and cinematic grading for that final polish. Elevating the mood
+                                and atmosphere.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </section>
+
+        <!-- Portfolio Section -->
+        <section id="portfolio" class="py-32 px-6 relative light-section overflow-hidden">
+            <!-- Light Soft Blue Gradient Blobs -->
+            <div
+                class="absolute -top-40 -left-40 w-[600px] h-[600px] bg-[radial-gradient(circle_at_center,rgba(56,189,248,0.22)_0%,transparent_70%)] rounded-full blur-[100px] pointer-events-none z-0">
+            </div>
+            <div
+                class="absolute -bottom-40 -right-40 w-[700px] h-[700px] bg-[radial-gradient(circle_at_center,rgba(14,165,233,0.18)_0%,transparent_70%)] rounded-full blur-[120px] pointer-events-none z-0">
+            </div>
+            <div
+                class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-[radial-gradient(circle_at_center,rgba(186,230,253,0.15)_0%,transparent_60%)] rounded-full blur-[100px] pointer-events-none z-0">
+            </div>
+
+            <div class="max-w-7xl mx-auto relative z-10">
+                <div class="flex flex-col md:flex-row items-center md:items-end justify-between mb-20 gap-6">
+                    <div class="space-y-4 text-center md:text-left">
+                        <span class="text-[10px] font-bold uppercase tracking-[0.4em] text-neutral">Selected
+                            Works</span>
+                        <h2 class="skew-slide-text text-4xl sm:text-5xl md:text-7xl font-display font-black tracking-[-0.04em]">
+                            Portfolio</h2>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-4 md:gap-6">
+                    <!-- Project 6: Horizontal (SaaS Explainer) -->
+                    <div onclick="openVideoModal('Videos/Saas explainer.mp4')"
+                        class="group relative md:col-span-2 aspect-[16/9] overflow-hidden rounded-3xl glass border border-white/10 cursor-pointer">
+                        <img src="Thumbnails/saas.png" alt="SaaS Explainer"
+                            class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 grayscale group-hover:grayscale-0">
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-8 text-white">
+                            <span
+                                class="text-[10px] font-bold uppercase tracking-widest text-primary mb-2">Horizontal</span>
+                            <h3 class="text-2xl font-black">SaaS Explainer</h3>
+                        </div>
+                    </div>
+
+                    <!-- Project 4: Horizontal (Color Grading) -->
+                    <div onclick="openVideoModal('Videos/Color grading.mp4')"
+                        class="group relative md:col-span-2 aspect-[16/9] overflow-hidden rounded-3xl glass border border-white/10 cursor-pointer">
+                        <img src="Thumbnails/color.png" alt="Color Grading"
+                            class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 grayscale group-hover:grayscale-0">
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-8 text-white">
+                            <span
+                                class="text-[10px] font-bold uppercase tracking-widest text-primary mb-2">Horizontal</span>
+                            <h3 class="text-2xl font-black">Color Grading</h3>
+                        </div>
+                    </div>
+
+                    <!-- Project 1: Vertical (The Podcast Edit) -->
+                    <div onclick="openVideoModal('Videos/The Podcast edit.mp4')"
+                        class="group relative md:row-span-2 aspect-[9/16] overflow-hidden rounded-3xl glass border border-white/10 cursor-pointer">
+                        <img src="Thumbnails/the podcast edit.png" alt="The Podcast Edit"
+                            class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 grayscale group-hover:grayscale-0">
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-6 text-white">
+                            <span
+                                class="text-[8px] font-bold uppercase tracking-widest text-primary mb-1">Vertical</span>
+                            <h3 class="text-xl font-black leading-tight">The Podcast <br> Edit</h3>
+                        </div>
+                    </div>
+
+                    <!-- Project 5: Horizontal (McLaren 720S) -->
+                    <div onclick="openVideoModal('Videos/Mclaren 720S - a cinematic edit.mp4')"
+                        class="group relative md:col-span-2 aspect-[16/9] overflow-hidden rounded-3xl glass border border-white/10 cursor-pointer">
+                        <img src="Thumbnails/mclaren.png" alt="McLaren 720S"
+                            class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 grayscale group-hover:grayscale-0">
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-8 text-white">
+                            <span
+                                class="text-[10px] font-bold uppercase tracking-widest text-primary mb-2">Horizontal</span>
+                            <h3 class="text-2xl font-black">McLaren 720S</h3>
+                        </div>
+                    </div>
+
+                    <!-- Project 3: Vertical (Talking Head Edit) -->
+                    <div onclick="openVideoModal('Videos/Talking head edit.mp4')"
+                        class="group relative md:row-span-2 aspect-[9/16] overflow-hidden rounded-3xl glass border border-white/10 cursor-pointer">
+                        <img src="Thumbnails/talking head edit.png" alt="Talking Head Edit"
+                            class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 grayscale group-hover:grayscale-0">
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-6 text-white">
+                            <span
+                                class="text-[8px] font-bold uppercase tracking-widest text-primary mb-1">Vertical</span>
+                            <h3 class="text-xl font-black leading-tight">The Podcast <br> Edit</h3>
+                        </div>
+                    </div>
+
+                    <!-- Project 2: Horizontal (Event Highlights) -->
+                    <div onclick="openVideoModal('Videos/RV(gradient).mp4')"
+                        class="group relative md:col-span-2 aspect-[16/9] overflow-hidden rounded-3xl glass border border-white/10 cursor-pointer">
+                        <img src="Thumbnails/event.png" alt="Event Highlights"
+                            class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 grayscale group-hover:grayscale-0">
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-8 text-white">
+                            <span
+                                class="text-[10px] font-bold uppercase tracking-widest text-primary mb-2">Horizontal</span>
+                            <h3 class="text-2xl font-black">Event Highlights</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section id="testimonials" class="py-32 px-6 relative">
+            <!-- Star Background -->
+            <div class="absolute inset-0 z-0 pointer-events-none bg-[#050507] overflow-hidden">
+                <!-- Bottom Left Glow -->
+                <div
+                    class="absolute -bottom-1/4 -left-1/4 w-[80vw] h-[80vw] bg-[radial-gradient(circle_at_center,rgba(217,249,157,0.25)_0%,transparent_70%)] rounded-full blur-[100px] pointer-events-none mix-blend-screen">
+                </div>
+
+
+
+
+
+                <!-- Intense Grain Overlay -->
+                <div class="absolute inset-0 opacity-[0.03] mix-blend-screen noise-bg"></div>
+            </div>
+
+            <div class="max-w-7xl mx-auto relative z-10">
+                <div class="text-center space-y-4 mb-20">
+                    <span class="text-[10px] font-bold uppercase tracking-[0.4em] text-neutral">Testimonials</span>
+                    <h2 class="word-fade-rise-text text-5xl md:text-7xl font-display font-black tracking-[-0.04em]">Client Verdicts</h2>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8" style="perspective: 2000px;">
+                    <!-- Testimonial 1 -->
+                    <div
+                        class="glass-dark p-10 rounded-3xl space-y-8 relative border-t border-l border-white/10 border-r-0 border-b-0 shadow-[10px_10px_30px_rgba(0,0,0,0.5)] hover:shadow-[0_0_30px_rgba(0,229,255,0.05)] transition-shadow duration-500">
+                        <span
+                            class="text-6xl absolute top-6 right-8 text-white/10">"</span>
+                        <p class="text-lg leading-relaxed italic text-neutral">
+                            "Dhruva has an incredible eye for pacing and emotional capture. Our latest brand film
+                            exceeded all expectations."
+                        </p>
+                        <div class="flex items-center space-x-4">
+                            <div
+                                class="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center border border-white/5">
+                                <span class="text-white/40 text-2xl">👤</span>
+                            </div>
+                            <div>
+                                <p class="font-bold">Sarah Jenkins</p>
+                                <p class="text-xs">Creative Director, Apex</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Testimonial 2 -->
+                    <div
+                        class="glass-dark p-10 rounded-3xl space-y-8 relative border-t border-l border-white/10 border-r-0 border-b-0 shadow-[10px_10px_30px_rgba(0,0,0,0.5)] hover:shadow-[0_0_30px_rgba(0,229,255,0.05)] transition-shadow duration-500">
+                        <span
+                            class="text-6xl absolute top-6 right-8 text-white/10">"</span>
+                        <p class="text-lg leading-relaxed italic text-neutral">
+                            "The video edits for ROBOVEDA'25 publicity done by Dhruva were excellent and highly
+                            professional. His talent in video editing greatly contributed to the event's publicity and
+                            overall presentation."
+                        </p>
+                        <div class="flex items-center space-x-4">
+                            <div
+                                class="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center border border-white/5">
+                                <span class="text-white/40 text-2xl">👤</span>
+                            </div>
+                            <div>
+                                <p class="font-bold">Aditi Joshi</p>
+                                <p class="text-xs">Vice President, TRC</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Testimonial 3 -->
+                    <div
+                        class="glass-dark p-10 rounded-3xl space-y-8 relative border-t border-l border-white/10 border-r-0 border-b-0 shadow-[10px_10px_30px_rgba(0,0,0,0.5)] hover:shadow-[0_0_30px_rgba(0,229,255,0.05)] transition-shadow duration-500">
+                        <span
+                            class="text-6xl absolute top-6 right-8 text-white/10">"</span>
+                        <p class="text-lg leading-relaxed italic text-neutral">
+                            "I really enjoyed working with Dhruva. Even though he is still growing in the field, his creativity and editing sense are really good. He listens to feedback well and puts genuine effort into making the content better. I liked the smooth cuts, clean transitions, and overall flow of the video."
+                        </p>
+                        <div class="flex items-center space-x-4">
+                            <div
+                                class="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center border border-white/5">
+                                <span class="text-white/40 text-2xl">👤</span>
+                            </div>
+                            <div>
+                                <p class="font-bold">Ravish Chillappa</p>
+                                <p class="text-xs">Content Creator</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-32 px-6 relative light-section overflow-hidden">
+        <!-- Light Soft Blue Gradient Blobs -->
+        <div
+            class="absolute -top-40 -left-40 w-[600px] h-[600px] bg-[radial-gradient(circle_at_center,rgba(56,189,248,0.22)_0%,transparent_70%)] rounded-full blur-[100px] pointer-events-none z-0">
+        </div>
+        <div
+            class="absolute -bottom-40 -right-40 w-[700px] h-[700px] bg-[radial-gradient(circle_at_center,rgba(14,165,233,0.18)_0%,transparent_70%)] rounded-full blur-[120px] pointer-events-none z-0">
+        </div>
+        <div
+            class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-[radial-gradient(circle_at_center,rgba(186,230,253,0.15)_0%,transparent_60%)] rounded-full blur-[100px] pointer-events-none z-0">
+        </div>
+
+        <div class="max-w-7xl mx-auto relative z-10">
+            <div class="text-center space-y-4 mb-20">
+                <span class="text-[10px] font-bold uppercase tracking-[0.4em]">Get in Touch</span>
+                <h2 class="fade-rise-text text-5xl md:text-7xl font-display font-black tracking-[-0.04em]">Contact</h2>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-20">
+                <div class="space-y-8">
+                    <h2 class="text-5xl md:text-8xl font-display font-black tracking-[-0.04em] leading-[0.9]">
+                        Let's create <br>
+                        <span class="wall-break-word contact-highlight"><span>Something</span></span> <br>
+                        Exceptional
+                    </h2>
+                    <p class="text-xl text-neutral max-w-md">
+                        Currently available for select freelance projects and creative collaborations worldwide.
+                    </p>
+
+                    <div class="space-y-6 pt-10">
+                        <div class="flex items-center space-x-4 reveal-none">
+                            <div class="w-12 h-12 rounded-full glass flex items-center justify-center">
+                                <span class="text-primary text-2xl">✉</span>
+                            </div>
+                            <div>
+                                <p class="text-[10px] uppercase tracking-widest text-neutral font-bold">Email</p>
+                                <p class="text-xl font-bold">studio.dhruva@gmail.com</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center space-x-4 reveal-none">
+                            <div class="w-12 h-12 rounded-full glass flex items-center justify-center">
+                                <span class="text-primary text-2xl">🌐</span>
+                            </div>
+                            <div>
+                                <p class="text-[10px] uppercase tracking-widest text-neutral font-bold">Location</p>
+                                <p class="text-xl font-bold">Global / Remote</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact Form -->
+                <div id="contact-form-container"
+                    class="glass-dark p-10 md:p-14 rounded-[3rem] border-t border-l border-white/10 border-r-0 border-b-0 shadow-[20px_20px_60px_rgba(0,0,0,0.5)] relative text-white">
+                    <div
+                        class="absolute -top-24 -left-24 w-48 h-48 bg-primary/10 rounded-full blur-[80px] pointer-events-none">
+                    </div>
+                    <form id="contact-form" class="space-y-8 relative z-10">
+                        <div class="space-y-2">
+                            <label class="text-xs font-bold uppercase tracking-widest text-neutral ml-1">Full
+                                Name</label>
+                            <input type="text" name="user_name" placeholder="John Doe"
+                                class="w-full bg-transparent border-b border-white/10 py-4 focus:border-primary outline-none transition-colors text-lg"
+                                required>
+                        </div>
+                        <div class="space-y-2">
+                            <label class="text-xs font-bold uppercase tracking-widest text-neutral ml-1">Email
+                                Address</label>
+                            <input type="email" name="user_email" placeholder="john@example.com"
+                                class="w-full bg-transparent border-b border-white/10 py-4 focus:border-primary outline-none transition-colors text-lg"
+                                required>
+                        </div>
+                        <div class="space-y-2">
+                            <label class="text-xs font-bold uppercase tracking-widest text-neutral ml-1">Your
+                                Message</label>
+                            <textarea rows="4" name="message" placeholder="Tell me about your project..."
+                                class="w-full bg-transparent border-b border-white/10 py-4 focus:border-primary outline-none transition-colors text-lg resize-none"
+                                required></textarea>
+                        </div>
+                        <button type="submit"
+                            class="w-full py-4 bg-primary text-black font-bold rounded-full hover:scale-[1.02] transition-transform shadow-xl shadow-primary/20 text-lg uppercase tracking-widest">
+                            Send Inquiry
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <div id="cursor-follower"></div>
+
+    <!-- Video Modal -->
+    <div id="video-modal"
+        class="fixed inset-0 z-[200] bg-black/50 backdrop-brightness-50 backdrop-blur-sm hidden flex items-center justify-center opacity-0 transition-opacity duration-500 pointer-events-none">
+        <button onclick="closeVideoModal()"
+            class="absolute top-6 right-6 text-white hover:text-primary transition-colors z-[210] p-2 bg-black/50 rounded-full hover:bg-black/80">
+            <span class="text-4xl">✕</span>
+        </button>
+        <div
+            class="relative w-full max-w-[75vw] max-h-[80vh] aspect-video flex items-center justify-center rounded-2xl overflow-hidden shadow-[0_0_80px_rgba(0,0,0,0.9)] border border-white/10 transition-all duration-500 transform scale-95 opacity-0">
+            <!-- Loader -->
+            <div id="video-loader" class="absolute inset-0 flex flex-col items-center justify-center bg-black/50 z-10">
+                <div class="w-12 h-12 border-4 border-primary/30 border-t-primary rounded-full animate-spin"></div>
+                <span class="text-white/70 text-xs mt-4 uppercase tracking-widest font-bold">Loading media</span>
+            </div>
+            <video id="modal-video" class="w-full h-full object-contain bg-black outline-none" controls playsinline>
+                <source src="" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+    </div>
+
+    <!-- Local Scripts (Offline) -->
+    <script src="libs/gsap.min.js"></script>
+    <script src="libs/ScrollTrigger.min.js"></script>
+    <!-- EmailJS -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/index.min.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
