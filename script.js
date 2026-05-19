@@ -114,7 +114,8 @@ window.addEventListener('DOMContentLoaded', () => {
         scrollTrigger: {
             trigger: ".fade-rise-text",
             start: "top 85%",
-            markers: false
+            markers: false,
+            once: true
         },
         duration: 1,
         opacity: 1,
@@ -137,32 +138,52 @@ window.addEventListener('DOMContentLoaded', () => {
 
     // 2. Showreel Reveal
     gsap.from(".showreel-header", {
-        scrollTrigger: { trigger: "#showreel", start: "top 80%" },
+        scrollTrigger: { trigger: "#showreel", start: "top 80%", once: true },
         duration: 1.2, y: 50, opacity: 0, ease: "power4.out"
     });
 
 
     // 3. Services Animation
     gsap.from("#services .grid > div", {
-        scrollTrigger: { trigger: "#services", start: "top 75%" },
+        scrollTrigger: { trigger: "#services", start: "top 75%", once: true },
         duration: 1.2, y: 60, opacity: 0, stagger: 0.2, ease: "power4.out"
     });
 
     // 4. Portfolio Cards Animation
     gsap.from("#portfolio .group", {
-        scrollTrigger: { trigger: "#portfolio", start: "top 80%" },
+        scrollTrigger: { trigger: "#portfolio", start: "top 80%", once: true },
         duration: 1.2, y: 80, opacity: 0, stagger: 0.1, ease: "power4.out"
     });
 
     // 5. Testimonials Animation (Slide Up)
     gsap.from("#testimonials .glass-dark", {
-        scrollTrigger: { trigger: "#testimonials", start: "top 80%" },
+        scrollTrigger: { trigger: "#testimonials", start: "top 80%", once: true },
         duration: 1.2,
         x: 100,
         opacity: 0,
         stagger: 0.2,
         ease: "power4.out",
         clearProps: "all"
+    });
+
+    // === LIGHTWEIGHT LAZY LOADING ===
+    // One-time Intersection Observer for image reveal animations
+    const imageObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const img = entry.target;
+                // Trigger a subtle fade-in animation
+                gsap.to(img, { duration: 0.6, opacity: 1, ease: "power2.out" });
+                // Stop observing after first intersection
+                imageObserver.unobserve(img);
+            }
+        });
+    }, { threshold: 0.1, rootMargin: "50px" });
+
+    // Observe all lazy-loaded images
+    document.querySelectorAll("img[loading='lazy']").forEach(img => {
+        img.style.opacity = "0.7"; // Start slightly transparent for fade-in effect
+        imageObserver.observe(img);
     });
 
 });
@@ -278,11 +299,18 @@ if (mobileMenuBtn && menuIcon) {
         if (isMenuOpen) {
             desktopMenu.classList.remove('hidden');
             desktopMenu.classList.add('flex', 'flex-col', 'absolute', 'top-full', 'left-0', 'w-full', 'bg-white', 'dark:bg-black', 'p-6', 'space-y-4', 'border-t', 'border-black/5', 'dark:border-white/5', 'animate-fade-in');
-            menuIcon.textContent = 'close';
         } else {
             desktopMenu.classList.add('hidden');
             desktopMenu.classList.remove('flex', 'flex-col', 'absolute', 'top-full', 'left-0', 'w-full', 'bg-white', 'dark:bg-black', 'p-6', 'space-y-4', 'border-t', 'border-black/5', 'dark:border-white/5', 'animate-fade-in');
-            menuIcon.textContent = 'menu';
+        }
+    });
+
+    // Close menu when clicking outside
+    document.addEventListener('click', (e) => {
+        const isMenuOpen = !desktopMenu.classList.contains('hidden');
+        if (isMenuOpen && !desktopMenu.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
+            desktopMenu.classList.add('hidden');
+            desktopMenu.classList.remove('flex', 'flex-col', 'absolute', 'top-full', 'left-0', 'w-full', 'bg-white', 'dark:bg-black', 'p-6', 'space-y-4', 'border-t', 'border-black/5', 'dark:border-white/5', 'animate-fade-in');
         }
     });
 }
@@ -414,15 +442,23 @@ if (videoModal) {
 }
 
 // EmailJS Configuration
-// Wait for EmailJS to be available, then initialize
+const EMAILJS_PUBLIC_KEY = 'hDpbMRc9OyxkZFUh6';
+const EMAILJS_SERVICE_ID = 'service_185sr4c';
+const EMAILJS_TEMPLATE_ID = 'template_r1gubmc';
+let emailJSRetryCount = 0;
+
+// Wait for EmailJS to be available, then initialize.
 function initializeEmailJS() {
     if (typeof emailjs !== 'undefined') {
-        emailjs.init('hDpbMRc9OyxkZFUh6');
+        emailjs.init(EMAILJS_PUBLIC_KEY);
         console.log('EmailJS initialized');
         setupContactForm();
-    } else {
-        // Retry if EmailJS hasn't loaded yet
+    } else if (emailJSRetryCount < 50) {
+        emailJSRetryCount += 1;
         setTimeout(initializeEmailJS, 100);
+    } else {
+        console.error('EmailJS failed to load. Check your internet connection or CDN script URL.');
+        setupContactFormUnavailable();
     }
 }
 
@@ -430,6 +466,11 @@ function initializeEmailJS() {
 function setupContactForm() {
     const contactForm = document.getElementById('contact-form');
     if (contactForm) {
+        if (contactForm.dataset.emailjsBound === 'true') {
+            return;
+        }
+        contactForm.dataset.emailjsBound = 'true';
+
         contactForm.addEventListener('submit', function(event) {
             event.preventDefault();
             
@@ -441,17 +482,26 @@ function setupContactForm() {
             }
             
             const submitButton = this.querySelector('button[type="submit"]');
+            const statusMessage = document.getElementById('contact-form-status');
             const originalText = submitButton.textContent;
             submitButton.textContent = 'Sending...';
             submitButton.disabled = true;
+            if (statusMessage) {
+                statusMessage.textContent = '';
+                statusMessage.className = 'hidden text-sm font-semibold text-center';
+            }
             
-            console.log('Sending with service_185sr4c and template_r1gubmc');
+            console.log(`Sending with ${EMAILJS_SERVICE_ID} and ${EMAILJS_TEMPLATE_ID}`);
             
-            emailjs.sendForm('service_185sr4c', 'template_r1gubmc', this)
+            emailjs.sendForm(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, this)
                 .then((response) => {
                     console.log('Email sent successfully!', response);
-                    submitButton.textContent = 'Message Sent! ✓';
+                    submitButton.textContent = 'Message Sent! \u2713';
                     submitButton.style.backgroundColor = '#00c853';
+                    if (statusMessage) {
+                        statusMessage.textContent = 'Your message was sent successfully. I will get back to you soon.';
+                        statusMessage.className = 'text-sm font-semibold text-center text-[#00c853]';
+                    }
                     this.reset();
                     
                     setTimeout(() => {
@@ -463,9 +513,12 @@ function setupContactForm() {
                     console.error('EmailJS error:', error);
                     console.error('Error status:', error.status);
                     console.error('Full error:', JSON.stringify(error));
-                    alert('Error: ' + (error.text || error.message || 'Failed to send email'));
                     submitButton.textContent = 'Failed to Send';
                     submitButton.style.backgroundColor = '#ff1744';
+                    if (statusMessage) {
+                        statusMessage.textContent = 'Sorry, the message could not be sent. Please try again.';
+                        statusMessage.className = 'text-sm font-semibold text-center text-[#ff1744]';
+                    }
                     
                     setTimeout(() => {
                         submitButton.textContent = originalText;
@@ -477,6 +530,19 @@ function setupContactForm() {
     } else {
         console.error('Contact form not found!');
     }
+}
+
+function setupContactFormUnavailable() {
+    const contactForm = document.getElementById('contact-form');
+    if (!contactForm || contactForm.dataset.emailjsBound === 'true') {
+        return;
+    }
+
+    contactForm.dataset.emailjsBound = 'true';
+    contactForm.addEventListener('submit', function(event) {
+        event.preventDefault();
+        alert('Email service is not available. Please check your internet connection and try again.');
+    });
 }
 
 // Initialize EmailJS when DOM is ready

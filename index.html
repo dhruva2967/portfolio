@@ -236,7 +236,7 @@
                     </div>
 
                     <!-- Subtitle / Note below -->
-                    <div class="hero-note max-w-[280px] text-center hidden md:block mt-2 mb-12">
+                    <div class="hero-note max-w-[280px] mx-auto text-center mt-2 mb-6 md:mb-12">
                         <p class="text-[10px] text-white/50 leading-relaxed uppercase tracking-wider font-medium">
                             A high-end visual architect specializing in premium video editing and motion design for
                             global brands.
@@ -289,11 +289,11 @@
                 </div>
 
                 <!-- Video Player Container -->
-                <div onclick="openVideoModal('Videos/Showreel.mp4')"
+                <div onclick="openVideoModal('https://res.cloudinary.com/dqipo8g2g/video/upload/Showreel_gcfwif.mp4')"
                     class="relative aspect-video rounded-3xl overflow-hidden glass-dark group cursor-pointer border border-sky-400/20 showreel-video shadow-[0_0_50px_rgba(14,165,233,0.08)] hover:shadow-[0_0_60px_rgba(14,165,233,0.22)] hover:border-sky-400/40 transition-all duration-700">
                     <!-- Placeholder Thumbnail (Grayscale to Color) -->
                     <div class="absolute inset-0 bg-neutral/20 grayscale group-hover:grayscale-0 transition-all duration-700 bg-cover bg-center"
-                        style="background-image: url('Thumbnails/Showreel.png');">
+                        style="background-image: url('Thumbnails/Showreel.webp');">
                     </div>
 
                     <!-- Overlay with Play Button -->
@@ -390,13 +390,13 @@
                         <div class="flex justify-center md:justify-start pt-4 gap-6">
                             <div class="flex flex-col items-center group/tool">
                                 <div class="w-24 h-24 md:w-32 md:h-32 rounded-2xl bg-[#0F0F0F] flex items-center justify-center border border-white/20 p-5 shadow-2xl transition-all duration-500 group-hover/tool:scale-110 group-hover/tool:border-primary/50">
-                                    <img src="logos/davinci.png" class="w-full h-full object-contain" alt="DaVinci Resolve">
+                                    <img src="logos/davinci.png" class="w-full h-full object-contain" alt="DaVinci Resolve" loading="lazy">
                                 </div>
                                 <p class="text-[9px] font-black tracking-[0.2em] text-primary mt-3 text-center">DAVINCI</p>
                             </div>
                             <div class="flex flex-col items-center group/tool">
                                 <div class="w-24 h-24 md:w-32 md:h-32 rounded-2xl bg-[#1d1d1b] flex items-center justify-center border border-white/20 p-5 shadow-2xl transition-all duration-500 group-hover/tool:scale-110 group-hover/tool:border-primary/50">
-                                    <img src="logos/ps.png" class="w-full h-full object-contain" alt="Photoshop">
+                                    <img src="logos/ps.png" class="w-full h-full object-contain" alt="Photoshop" loading="lazy">
                                 </div>
                                 <p class="text-[9px] font-black tracking-[0.2em] text-primary mt-3 text-center">PHOTOSHOP</p>
                             </div>
@@ -528,16 +528,16 @@
                     <div class="space-y-4 text-center md:text-left">
                         <span class="text-[10px] font-bold uppercase tracking-[0.4em] text-neutral">Selected
                             Works</span>
-                        <h2 class="skew-slide-text text-4xl sm:text-5xl md:text-7xl font-display font-black tracking-[-0.04em]">
+                        <h2 class="text-4xl sm:text-5xl md:text-7xl font-display font-black tracking-[-0.04em]">
                             Portfolio</h2>
                     </div>
                 </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-4 gap-4 md:gap-6">
                     <!-- Project 6: Horizontal (SaaS Explainer) -->
-                    <div onclick="openVideoModal('Videos/Saas explainer.mp4')"
+                    <div onclick="openVideoModal('https://res.cloudinary.com/dqipo8g2g/video/upload/Saas_explainer_lrairm.mp4')"
                         class="group relative md:col-span-2 aspect-[16/9] overflow-hidden rounded-3xl glass border border-white/10 cursor-pointer">
-                        <img src="Thumbnails/saas.png" alt="SaaS Explainer"
+                        <img src="Thumbnails/saas.webp" alt="SaaS Explainer" loading="lazy"
                             class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 grayscale group-hover:grayscale-0">
                         <div
                             class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-8 text-white">
@@ -548,9 +548,9 @@
                     </div>
 
                     <!-- Project 4: Horizontal (Color Grading) -->
-                    <div onclick="openVideoModal('Videos/Color grading.mp4')"
+                    <div onclick="openVideoModal('https://res.cloudinary.com/dqipo8g2g/video/upload/Color_grading_zck4ih.mp4')"
                         class="group relative md:col-span-2 aspect-[16/9] overflow-hidden rounded-3xl glass border border-white/10 cursor-pointer">
-                        <img src="Thumbnails/color.png" alt="Color Grading"
+                        <img src="Thumbnails/color.webp" alt="Color Grading" loading="lazy"
                             class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 grayscale group-hover:grayscale-0">
                         <div
                             class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-8 text-white">
@@ -561,9 +561,9 @@
                     </div>
 
                     <!-- Project 1: Vertical (The Podcast Edit) -->
-                    <div onclick="openVideoModal('Videos/The Podcast edit.mp4')"
+                    <div onclick="openVideoModal('https://res.cloudinary.com/dqipo8g2g/video/upload/The_Podcast_edit_k8qtq1.mp4')"
                         class="group relative md:row-span-2 aspect-[9/16] overflow-hidden rounded-3xl glass border border-white/10 cursor-pointer">
-                        <img src="Thumbnails/the podcast edit.png" alt="The Podcast Edit"
+                        <img src="Thumbnails/the podcast edit.webp" alt="The Podcast Edit" loading="lazy"
                             class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 grayscale group-hover:grayscale-0">
                         <div
                             class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-6 text-white">
@@ -574,9 +574,9 @@
                     </div>
 
                     <!-- Project 5: Horizontal (McLaren 720S) -->
-                    <div onclick="openVideoModal('Videos/Mclaren 720S - a cinematic edit.mp4')"
+                    <div onclick="openVideoModal('https://res.cloudinary.com/dqipo8g2g/video/upload/Mclaren_720S_-_a_cinematic_edit_cinljv.mp4')"
                         class="group relative md:col-span-2 aspect-[16/9] overflow-hidden rounded-3xl glass border border-white/10 cursor-pointer">
-                        <img src="Thumbnails/mclaren.png" alt="McLaren 720S"
+                        <img src="Thumbnails/mclaren.webp" alt="McLaren 720S" loading="lazy"
                             class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 grayscale group-hover:grayscale-0">
                         <div
                             class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-8 text-white">
@@ -587,9 +587,9 @@
                     </div>
 
                     <!-- Project 3: Vertical (Talking Head Edit) -->
-                    <div onclick="openVideoModal('Videos/Talking head edit.mp4')"
+                    <div onclick="openVideoModal('https://res.cloudinary.com/dqipo8g2g/video/upload/Talking_head_edit_pay4ic.mp4')"
                         class="group relative md:row-span-2 aspect-[9/16] overflow-hidden rounded-3xl glass border border-white/10 cursor-pointer">
-                        <img src="Thumbnails/talking head edit.png" alt="Talking Head Edit"
+                        <img src="Thumbnails/talking head edit.webp" alt="Talking Head Edit" loading="lazy"
                             class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 grayscale group-hover:grayscale-0">
                         <div
                             class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-6 text-white">
@@ -600,9 +600,9 @@
                     </div>
 
                     <!-- Project 2: Horizontal (Event Highlights) -->
-                    <div onclick="openVideoModal('Videos/RV(gradient).mp4')"
+                    <div onclick="openVideoModal('https://res.cloudinary.com/dqipo8g2g/video/upload/RV_gradient_vai2j7.mp4')"
                         class="group relative md:col-span-2 aspect-[16/9] overflow-hidden rounded-3xl glass border border-white/10 cursor-pointer">
-                        <img src="Thumbnails/event.png" alt="Event Highlights"
+                        <img src="Thumbnails/event.webp" alt="Event Highlights" loading="lazy"
                             class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 grayscale group-hover:grayscale-0">
                         <div
                             class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-8 text-white">
@@ -723,7 +723,7 @@
         <div class="max-w-7xl mx-auto relative z-10">
             <div class="text-center space-y-4 mb-20">
                 <span class="text-[10px] font-bold uppercase tracking-[0.4em]">Get in Touch</span>
-                <h2 class="fade-rise-text text-5xl md:text-7xl font-display font-black tracking-[-0.04em]">Contact</h2>
+                <h2 class="text-5xl md:text-7xl font-display font-black tracking-[-0.04em]">Contact</h2>
             </div>
 
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-20">
@@ -791,6 +791,7 @@
                             class="w-full py-4 bg-primary text-black font-bold rounded-full hover:scale-[1.02] transition-transform shadow-xl shadow-primary/20 text-lg uppercase tracking-widest">
                             Send Inquiry
                         </button>
+                        <p id="contact-form-status" class="hidden text-sm font-semibold text-center" role="status" aria-live="polite"></p>
                     </form>
                 </div>
             </div>
@@ -814,7 +815,7 @@
                 <div class="w-12 h-12 border-4 border-primary/30 border-t-primary rounded-full animate-spin"></div>
                 <span class="text-white/70 text-xs mt-4 uppercase tracking-widest font-bold">Loading media</span>
             </div>
-            <video id="modal-video" class="w-full h-full object-contain bg-black outline-none" controls playsinline>
+            <video id="modal-video" class="w-full h-full object-contain bg-black outline-none" controls playsinline preload="none">
                 <source src="" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
@@ -825,7 +826,7 @@
     <script src="libs/gsap.min.js"></script>
     <script src="libs/ScrollTrigger.min.js"></script>
     <!-- EmailJS -->
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/index.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     <script src="script.js"></script>
 </body>
 
