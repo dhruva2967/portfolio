@@ -332,9 +332,9 @@ h4 {
     height: 60px;
 }
 
-@media (hover: none) and (pointer: coarse) {
+@media (hover: none) and (pointer: coarse), (max-width: 1023px) {
     #cursor-follower {
-        display: none;
+        display: none !important;
     }
 }
 

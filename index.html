@@ -5,8 +5,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dhruva | Video Editor & Motion Designer</title>
+    <link rel="icon" type="image/png" href="logos/logi.png">
     <meta name="description"
-        content="Premium portfolio of Dhruva Balyapelly - Transforming Raw Footage into Cinematic Stories. Specialized in Video Editing and Motion Design.">
+        content="Transforming Raw Footage into Cinematic Stories.">
+
+    <!-- Preload Fonts & Key Images to ensure everything is instantly loaded at start -->
+    <link rel="preload" href="fonts/outfit-400.ttf" as="font" type="font/ttf" crossorigin>
+    <link rel="preload" href="fonts/outfit-500.ttf" as="font" type="font/ttf" crossorigin>
+    <link rel="preload" href="fonts/outfit-700.ttf" as="font" type="font/ttf" crossorigin>
+    <link rel="preload" href="fonts/outfit-900.ttf" as="font" type="font/ttf" crossorigin>
+    <link rel="preload" href="fonts/greatvibes-regular.ttf" as="font" type="font/ttf" crossorigin>
+    
+    <!-- Preload Logos and Thumbnails at start -->
+    <link rel="preload" href="logos/logo.png" as="image">
+    <link rel="preload" href="logos/davinci.png" as="image">
+    <link rel="preload" href="logos/ps.png" as="image">
+    <link rel="preload" href="Thumbnails/Showreel.webp" as="image">
+    <link rel="preload" href="Thumbnails/saas.webp" as="image">
+    <link rel="preload" href="Thumbnails/color.webp" as="image">
+    <link rel="preload" href="Thumbnails/the podcast edit.webp" as="image">
+    <link rel="preload" href="Thumbnails/mclaren.webp" as="image">
+    <link rel="preload" href="Thumbnails/talking head edit.webp" as="image">
+    <link rel="preload" href="Thumbnails/event.webp" as="image">
 
     <!-- Local Fonts (Offline) -->
     <link rel="stylesheet" href="fonts.css">
@@ -148,8 +168,7 @@
         <!-- Toggle Icon -->
         <div id="floating-nav-toggle"
             class="group w-12 h-12 rounded-full bg-[#111216] border border-white/20 flex items-center justify-center cursor-pointer shadow-[0_0_20px_rgba(0,229,255,0.15)] hover:shadow-[0_0_30px_rgba(0,229,255,0.3)] hover:border-primary/50 transition-all duration-500 z-50">
-            <img src="logos/logo.png" alt="Icon"
-                class="h-5 w-5 object-contain opacity-80 group-hover:opacity-100 group-hover:scale-110 transition-all duration-500">
+            <span class="text-xl text-white/80 group-hover:text-primary group-hover:scale-110 transition-all duration-500 select-none">☰</span>
         </div>
     </div>
 
@@ -390,13 +409,13 @@
                         <div class="flex justify-center md:justify-start pt-4 gap-6">
                             <div class="flex flex-col items-center group/tool">
                                 <div class="w-24 h-24 md:w-32 md:h-32 rounded-2xl bg-[#0F0F0F] flex items-center justify-center border border-white/20 p-5 shadow-2xl transition-all duration-500 group-hover/tool:scale-110 group-hover/tool:border-primary/50">
-                                    <img src="logos/davinci.png" class="w-full h-full object-contain" alt="DaVinci Resolve" loading="lazy">
+                                    <img src="logos/davinci.png" class="w-full h-full object-contain" alt="DaVinci Resolve">
                                 </div>
                                 <p class="text-[9px] font-black tracking-[0.2em] text-primary mt-3 text-center">DAVINCI</p>
                             </div>
                             <div class="flex flex-col items-center group/tool">
                                 <div class="w-24 h-24 md:w-32 md:h-32 rounded-2xl bg-[#1d1d1b] flex items-center justify-center border border-white/20 p-5 shadow-2xl transition-all duration-500 group-hover/tool:scale-110 group-hover/tool:border-primary/50">
-                                    <img src="logos/ps.png" class="w-full h-full object-contain" alt="Photoshop" loading="lazy">
+                                    <img src="logos/ps.png" class="w-full h-full object-contain" alt="Photoshop">
                                 </div>
                                 <p class="text-[9px] font-black tracking-[0.2em] text-primary mt-3 text-center">PHOTOSHOP</p>
                             </div>
@@ -537,7 +556,7 @@
                     <!-- Project 6: Horizontal (SaaS Explainer) -->
                     <div onclick="openVideoModal('https://res.cloudinary.com/dqipo8g2g/video/upload/Saas_explainer_lrairm.mp4')"
                         class="group relative md:col-span-2 aspect-[16/9] overflow-hidden rounded-3xl glass border border-white/10 cursor-pointer">
-                        <img src="Thumbnails/saas.webp" alt="SaaS Explainer" loading="lazy"
+                        <img src="Thumbnails/saas.webp" alt="SaaS Explainer"
                             class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 grayscale group-hover:grayscale-0">
                         <div
                             class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-8 text-white">
@@ -550,7 +569,7 @@
                     <!-- Project 4: Horizontal (Color Grading) -->
                     <div onclick="openVideoModal('https://res.cloudinary.com/dqipo8g2g/video/upload/Color_grading_zck4ih.mp4')"
                         class="group relative md:col-span-2 aspect-[16/9] overflow-hidden rounded-3xl glass border border-white/10 cursor-pointer">
-                        <img src="Thumbnails/color.webp" alt="Color Grading" loading="lazy"
+                        <img src="Thumbnails/color.webp" alt="Color Grading"
                             class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 grayscale group-hover:grayscale-0">
                         <div
                             class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-8 text-white">
@@ -563,7 +582,7 @@
                     <!-- Project 1: Vertical (The Podcast Edit) -->
                     <div onclick="openVideoModal('https://res.cloudinary.com/dqipo8g2g/video/upload/The_Podcast_edit_k8qtq1.mp4')"
                         class="group relative md:row-span-2 aspect-[9/16] overflow-hidden rounded-3xl glass border border-white/10 cursor-pointer">
-                        <img src="Thumbnails/the podcast edit.webp" alt="The Podcast Edit" loading="lazy"
+                        <img src="Thumbnails/the podcast edit.webp" alt="The Podcast Edit"
                             class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 grayscale group-hover:grayscale-0">
                         <div
                             class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-6 text-white">
@@ -576,7 +595,7 @@
                     <!-- Project 5: Horizontal (McLaren 720S) -->
                     <div onclick="openVideoModal('https://res.cloudinary.com/dqipo8g2g/video/upload/Mclaren_720S_-_a_cinematic_edit_cinljv.mp4')"
                         class="group relative md:col-span-2 aspect-[16/9] overflow-hidden rounded-3xl glass border border-white/10 cursor-pointer">
-                        <img src="Thumbnails/mclaren.webp" alt="McLaren 720S" loading="lazy"
+                        <img src="Thumbnails/mclaren.webp" alt="McLaren 720S"
                             class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 grayscale group-hover:grayscale-0">
                         <div
                             class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-8 text-white">
@@ -589,7 +608,7 @@
                     <!-- Project 3: Vertical (Talking Head Edit) -->
                     <div onclick="openVideoModal('https://res.cloudinary.com/dqipo8g2g/video/upload/Talking_head_edit_pay4ic.mp4')"
                         class="group relative md:row-span-2 aspect-[9/16] overflow-hidden rounded-3xl glass border border-white/10 cursor-pointer">
-                        <img src="Thumbnails/talking head edit.webp" alt="Talking Head Edit" loading="lazy"
+                        <img src="Thumbnails/talking head edit.webp" alt="Talking Head Edit"
                             class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 grayscale group-hover:grayscale-0">
                         <div
                             class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-6 text-white">
@@ -602,7 +621,7 @@
                     <!-- Project 2: Horizontal (Event Highlights) -->
                     <div onclick="openVideoModal('https://res.cloudinary.com/dqipo8g2g/video/upload/RV_gradient_vai2j7.mp4')"
                         class="group relative md:col-span-2 aspect-[16/9] overflow-hidden rounded-3xl glass border border-white/10 cursor-pointer">
-                        <img src="Thumbnails/event.webp" alt="Event Highlights" loading="lazy"
+                        <img src="Thumbnails/event.webp" alt="Event Highlights"
                             class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 grayscale group-hover:grayscale-0">
                         <div
                             class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-8 text-white">

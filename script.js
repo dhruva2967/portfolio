@@ -345,29 +345,34 @@ let mouseX = 0;
 let mouseY = 0;
 
 if (cursor) {
-    window.addEventListener('mousemove', (e) => {
-        mouseX = e.clientX;
-        mouseY = e.clientY;
+    // Only enable cursor follower on desktop (screen width >= 1024px and not touch-only devices)
+    const isMobileDevice = window.matchMedia('(pointer: coarse)').matches || window.innerWidth < 1024;
+    
+    if (!isMobileDevice) {
+        window.addEventListener('mousemove', (e) => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
 
-        if (cursor.style.opacity === '0' || cursor.style.opacity === '') {
-            cursor.style.opacity = '1';
-        }
+            if (cursor.style.opacity === '0' || cursor.style.opacity === '') {
+                cursor.style.opacity = '1';
+            }
 
-        gsap.to(cursor, {
-            x: mouseX, y: mouseY,
-            xPercent: -50, yPercent: -50,
-            duration: 0.1, ease: "none"
+            gsap.to(cursor, {
+                x: mouseX, y: mouseY,
+                xPercent: -50, yPercent: -50,
+                duration: 0.1, ease: "none"
+            });
         });
-    });
 
-    const pushCursorHover = () => cursor.classList.add('cursor-hover');
-    const popCursorHover = () => cursor.classList.remove('cursor-hover');
+        const pushCursorHover = () => cursor.classList.add('cursor-hover');
+        const popCursorHover = () => cursor.classList.remove('cursor-hover');
 
-    const interactiveElements = document.querySelectorAll('a, button, .glass, input, textarea, #floating-nav-toggle');
-    interactiveElements.forEach(el => {
-        el.addEventListener('mouseenter', pushCursorHover);
-        el.addEventListener('mouseleave', popCursorHover);
-    });
+        const interactiveElements = document.querySelectorAll('a, button, .glass, input, textarea, #floating-nav-toggle');
+        interactiveElements.forEach(el => {
+            el.addEventListener('mouseenter', pushCursorHover);
+            el.addEventListener('mouseleave', popCursorHover);
+        });
+    }
 }
 
 // --- Video Modal Logic ---
