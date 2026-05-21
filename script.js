@@ -186,6 +186,42 @@ window.addEventListener('DOMContentLoaded', () => {
         imageObserver.observe(img);
     });
 
+    // --- Inline Showreel Playback Logic ---
+    const showreelVideo = document.getElementById('inline-showreel-video');
+    const showreelOverlay = document.getElementById('inline-showreel-overlay');
+
+    if (showreelVideo && showreelOverlay) {
+        showreelOverlay.addEventListener('click', (e) => {
+            e.stopPropagation();
+            showreelVideo.play();
+        });
+
+        showreelVideo.addEventListener('play', () => {
+            showreelVideo.controls = true;
+            showreelOverlay.style.opacity = '0';
+            showreelOverlay.style.pointerEvents = 'none';
+            showreelVideo.classList.remove('grayscale');
+            showreelVideo.classList.add('grayscale-0');
+        });
+
+        showreelVideo.addEventListener('pause', () => {
+            showreelVideo.controls = false;
+            showreelOverlay.style.opacity = '1';
+            showreelOverlay.style.pointerEvents = 'auto';
+            showreelVideo.classList.add('grayscale');
+            showreelVideo.classList.remove('grayscale-0');
+        });
+
+        showreelVideo.addEventListener('ended', () => {
+            showreelVideo.controls = false;
+            showreelOverlay.style.opacity = '1';
+            showreelOverlay.style.pointerEvents = 'auto';
+            showreelVideo.classList.add('grayscale');
+            showreelVideo.classList.remove('grayscale-0');
+            showreelVideo.load(); // Reset to show the poster/thumbnail at the start
+        });
+    }
+
 });
 
 // Scroll Progress Bar & Navbar Transformation
@@ -204,24 +240,9 @@ window.addEventListener('scroll', () => {
     if (winScroll > heroHeight * 0.8) {
         navbar.style.transform = 'translate(-50%, -150%)';
         floatingContainer.style.transform = 'translateY(0) scale(1)';
-
-        // Show hint if menu is not open
-        const navHint = document.getElementById('nav-hint');
-        const floatingMenu = document.getElementById('floating-nav-menu');
-        if (navHint && (!floatingMenu || floatingMenu.style.opacity !== '1')) {
-            navHint.style.opacity = '1';
-            navHint.style.transform = 'translateY(0)';
-        }
     } else {
         navbar.style.transform = 'translate(-50%, 0)';
         floatingContainer.style.transform = 'translateY(24px) scale(0)';
-
-        // Hide hint
-        const navHint = document.getElementById('nav-hint');
-        if (navHint) {
-            navHint.style.opacity = '0';
-            navHint.style.transform = 'translateY(4px)';
-        }
 
         // Ensure menu closes if user scrolls back up
         const floatingMenu = document.getElementById('floating-nav-menu');
@@ -239,7 +260,6 @@ const floatingToggle = document.getElementById('floating-nav-toggle');
 const floatingMenu = document.getElementById('floating-nav-menu');
 
 if (floatingToggle && floatingMenu) {
-    const navHint = document.getElementById('nav-hint');
 
     floatingToggle.addEventListener('click', (e) => {
         e.stopPropagation(); // Prevent immediate close from document listener
@@ -263,28 +283,12 @@ if (floatingToggle && floatingMenu) {
         floatingMenu.style.opacity = '1';
         floatingMenu.style.pointerEvents = 'auto';
         floatingMenu.style.transform = 'translateX(0)';
-
-        // Hide hint when menu is open
-        if (navHint) {
-            navHint.style.opacity = '0';
-            navHint.style.transform = 'translateY(4px)';
-        }
     }
 
     function closeFloatingMenu() {
         floatingMenu.style.opacity = '0';
         floatingMenu.style.pointerEvents = 'none';
         floatingMenu.style.transform = 'translateX(10px)';
-
-        // Show hint again if past hero
-        const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-        const heroSection = document.getElementById('hero-section');
-        const heroHeight = heroSection?.offsetHeight || 600;
-
-        if (navHint && winScroll > heroHeight * 0.8) {
-            navHint.style.opacity = '1';
-            navHint.style.transform = 'translateY(0)';
-        }
     }
 }
 

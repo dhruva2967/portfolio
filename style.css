@@ -136,29 +136,6 @@ h4 {
     }
 }
 
-@keyframes bounce-gentle {
-
-    0%,
-    100% {
-        transform: translateY(0);
-    }
-
-    50% {
-        transform: translateY(-8px);
-    }
-}
-
-.animate-bounce-gentle {
-    animation: bounce-gentle 2s ease-in-out infinite;
-}
-
-#nav-hint {
-    filter: drop-shadow(0 0 10px rgba(0, 229, 255, 0.3));
-    z-index: 40;
-    width: 48px;
-    /* Match toggle width */
-    justify-content: center;
-}
 
 /* ======================== CINEMATIC LAYOUT ======================== */
 

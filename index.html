@@ -158,12 +158,6 @@
             </a>
         </div>
 
-        <!-- Nav Hint Arrow -->
-        <div id="nav-hint"
-            class="absolute -top-6 -right-1.5 flex flex-col items-center opacity-0 transition-all duration-700 pointer-events-none translate-y-4">
-            <span
-                class="text-primary text-lg animate-bounce-gentle">▼</span>
-        </div>
 
         <!-- Toggle Icon -->
         <div id="floating-nav-toggle"
@@ -308,26 +302,30 @@
                 </div>
 
                 <!-- Video Player Container -->
-                <div onclick="openVideoModal('https://res.cloudinary.com/dqipo8g2g/video/upload/Showreel_gcfwif.mp4')"
+                <div id="inline-showreel-container"
                     class="relative aspect-video rounded-3xl overflow-hidden glass-dark group cursor-pointer border border-sky-400/20 showreel-video shadow-[0_0_50px_rgba(14,165,233,0.08)] hover:shadow-[0_0_60px_rgba(14,165,233,0.22)] hover:border-sky-400/40 transition-all duration-700">
-                    <!-- Placeholder Thumbnail (Grayscale to Color) -->
-                    <div class="absolute inset-0 bg-neutral/20 grayscale group-hover:grayscale-0 transition-all duration-700 bg-cover bg-center"
-                        style="background-image: url('Thumbnails/Showreel.webp');">
-                    </div>
+                    <!-- Inline Showreel Video -->
+                    <video
+                        id="inline-showreel-video"
+                        playsinline
+                        webkit-playsinline
+                        preload="metadata"
+                        poster="Thumbnails/Showreel.webp"
+                        class="absolute inset-0 w-full h-full object-cover bg-neutral/20 grayscale group-hover:grayscale-0 transition-all duration-700">
+                        <source
+                            src="https://res.cloudinary.com/dqipo8g2g/video/upload/Showreel_gcfwif.mp4"
+                            type="video/mp4"
+                        >
+                    </video>
 
                     <!-- Overlay with Play Button -->
-                    <div
+                    <div id="inline-showreel-overlay"
                         class="absolute inset-0 flex items-center justify-center bg-black/40 group-hover:bg-black/20 transition-all duration-700">
                         <div
                             class="w-20 h-20 md:w-28 md:h-28 rounded-full flex items-center justify-center bg-black/30 backdrop-blur-xl border border-white/10 group-hover:scale-110 group-hover:border-sky-400 group-hover:shadow-[0_0_40px_rgba(14,165,233,0.4)] transition-all duration-500">
                             <span
                                 class="text-white text-4xl md:text-6xl translate-x-1">▶</span>
                         </div>
-                    </div>
-
-                    <!-- Video ID Label -->
-                    <div class="absolute bottom-8 left-8 text-white/50 text-xs font-mono tracking-widest uppercase">
-                        SRC_REEL_2024_V1.0
                     </div>
                 </div>
             </div>
@@ -556,8 +554,12 @@
                     <!-- Project 6: Horizontal (SaaS Explainer) -->
                     <div onclick="openVideoModal('https://res.cloudinary.com/dqipo8g2g/video/upload/Saas_explainer_lrairm.mp4')"
                         class="group relative md:col-span-2 aspect-[16/9] overflow-hidden rounded-3xl glass border border-white/10 cursor-pointer">
-                        <img src="Thumbnails/saas.webp" alt="SaaS Explainer"
-                            class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 grayscale group-hover:grayscale-0">
+                        <video
+                            preload="metadata"
+                            poster="Thumbnails/saas.webp"
+                            class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 grayscale group-hover:grayscale-0 pointer-events-none">
+                            <source src="https://res.cloudinary.com/dqipo8g2g/video/upload/Saas_explainer_lrairm.mp4" type="video/mp4">
+                        </video>
                         <div
                             class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-8 text-white">
                             <span
@@ -569,8 +571,12 @@
                     <!-- Project 4: Horizontal (Color Grading) -->
                     <div onclick="openVideoModal('https://res.cloudinary.com/dqipo8g2g/video/upload/Color_grading_zck4ih.mp4')"
                         class="group relative md:col-span-2 aspect-[16/9] overflow-hidden rounded-3xl glass border border-white/10 cursor-pointer">
-                        <img src="Thumbnails/color.webp" alt="Color Grading"
-                            class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 grayscale group-hover:grayscale-0">
+                        <video
+                            preload="metadata"
+                            poster="Thumbnails/color.webp"
+                            class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 grayscale group-hover:grayscale-0 pointer-events-none">
+                            <source src="https://res.cloudinary.com/dqipo8g2g/video/upload/Color_grading_zck4ih.mp4" type="video/mp4">
+                        </video>
                         <div
                             class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-8 text-white">
                             <span
@@ -582,8 +588,12 @@
                     <!-- Project 1: Vertical (The Podcast Edit) -->
                     <div onclick="openVideoModal('https://res.cloudinary.com/dqipo8g2g/video/upload/The_Podcast_edit_k8qtq1.mp4')"
                         class="group relative md:row-span-2 aspect-[9/16] overflow-hidden rounded-3xl glass border border-white/10 cursor-pointer">
-                        <img src="Thumbnails/the podcast edit.webp" alt="The Podcast Edit"
-                            class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 grayscale group-hover:grayscale-0">
+                        <video
+                            preload="metadata"
+                            poster="Thumbnails/the podcast edit.webp"
+                            class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 grayscale group-hover:grayscale-0 pointer-events-none">
+                            <source src="https://res.cloudinary.com/dqipo8g2g/video/upload/The_Podcast_edit_k8qtq1.mp4" type="video/mp4">
+                        </video>
                         <div
                             class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-6 text-white">
                             <span
@@ -595,8 +605,12 @@
                     <!-- Project 5: Horizontal (McLaren 720S) -->
                     <div onclick="openVideoModal('https://res.cloudinary.com/dqipo8g2g/video/upload/Mclaren_720S_-_a_cinematic_edit_cinljv.mp4')"
                         class="group relative md:col-span-2 aspect-[16/9] overflow-hidden rounded-3xl glass border border-white/10 cursor-pointer">
-                        <img src="Thumbnails/mclaren.webp" alt="McLaren 720S"
-                            class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 grayscale group-hover:grayscale-0">
+                        <video
+                            preload="metadata"
+                            poster="Thumbnails/mclaren.webp"
+                            class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 grayscale group-hover:grayscale-0 pointer-events-none">
+                            <source src="https://res.cloudinary.com/dqipo8g2g/video/upload/Mclaren_720S_-_a_cinematic_edit_cinljv.mp4" type="video/mp4">
+                        </video>
                         <div
                             class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-8 text-white">
                             <span
@@ -608,8 +622,12 @@
                     <!-- Project 3: Vertical (Talking Head Edit) -->
                     <div onclick="openVideoModal('https://res.cloudinary.com/dqipo8g2g/video/upload/Talking_head_edit_pay4ic.mp4')"
                         class="group relative md:row-span-2 aspect-[9/16] overflow-hidden rounded-3xl glass border border-white/10 cursor-pointer">
-                        <img src="Thumbnails/talking head edit.webp" alt="Talking Head Edit"
-                            class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 grayscale group-hover:grayscale-0">
+                        <video
+                            preload="metadata"
+                            poster="Thumbnails/talking head edit.webp"
+                            class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 grayscale group-hover:grayscale-0 pointer-events-none">
+                            <source src="https://res.cloudinary.com/dqipo8g2g/video/upload/Talking_head_edit_pay4ic.mp4" type="video/mp4">
+                        </video>
                         <div
                             class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-6 text-white">
                             <span
@@ -621,8 +639,12 @@
                     <!-- Project 2: Horizontal (Event Highlights) -->
                     <div onclick="openVideoModal('https://res.cloudinary.com/dqipo8g2g/video/upload/RV_gradient_vai2j7.mp4')"
                         class="group relative md:col-span-2 aspect-[16/9] overflow-hidden rounded-3xl glass border border-white/10 cursor-pointer">
-                        <img src="Thumbnails/event.webp" alt="Event Highlights"
-                            class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 grayscale group-hover:grayscale-0">
+                        <video
+                            preload="metadata"
+                            poster="Thumbnails/event.webp"
+                            class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 grayscale group-hover:grayscale-0 pointer-events-none">
+                            <source src="https://res.cloudinary.com/dqipo8g2g/video/upload/RV_gradient_vai2j7.mp4" type="video/mp4">
+                        </video>
                         <div
                             class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-8 text-white">
                             <span
