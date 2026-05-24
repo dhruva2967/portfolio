@@ -599,6 +599,24 @@ section>div {
         padding-right: 1.5rem;
     }
 
+    .noise-bg {
+        animation: none;
+    }
+
+    .glass,
+    .glass-dark,
+    #navbar,
+    #floating-nav-menu {
+        backdrop-filter: blur(6px);
+        -webkit-backdrop-filter: blur(6px);
+    }
+
+    .light-section .showreel-video,
+    .glass,
+    .glass-dark {
+        box-shadow: 0 10px 28px rgba(0, 0, 0, 0.18) !important;
+    }
+
 }
 
 /* ==========================================================================
