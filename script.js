@@ -36,6 +36,9 @@ function createVideoPlayer(src, options = {}) {
     const video = document.createElement('video');
     video.src = getOptimizedVideoUrl(src);
     video.controls = true;
+    video.controlsList = 'nodownload';
+    video.setAttribute('controlsList', 'nodownload');
+    video.setAttribute('oncontextmenu', 'return false;');
     video.playsInline = true;
     video.preload = options.autoplay ? 'auto' : 'metadata';
     video.className = 'w-full h-full bg-black object-contain outline-none';
