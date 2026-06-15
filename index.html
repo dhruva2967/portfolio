@@ -19,6 +19,7 @@
     <link rel="preload" href="logos/logo.png" as="image">
     <link rel="preload" href="logos/davinci.png" as="image">
     <link rel="preload" href="logos/ps.png" as="image">
+    <link rel="preload" href="logos/canva.png" as="image">
     <link rel="preload" href="Thumbnails/Showreel.webp" as="image">
     <link rel="preload" href="Thumbnails/saas.webp" as="image">
     <link rel="preload" href="Thumbnails/color.webp" as="image">
@@ -161,10 +162,7 @@
         </div>
     </div>
 
-    <!-- Scroll Progress Bar -->
-    <div class="fixed bottom-0 left-0 w-full h-1 bg-black/5 dark:bg-white/5 z-[60]">
-        <div id="scroll-progress" class="h-full bg-primary w-0 transition-all duration-100"></div>
-    </div>
+
 
     <main id="main-content" class="relative z-10 bg-black overflow-hidden">
         <!-- Global Noise Overlay -->
@@ -380,8 +378,6 @@
                         <div class="relative z-10 space-y-12">
                             <div class="flex flex-col md:flex-row md:items-end justify-between gap-8">
                                 <div class="text-center md:text-left">
-                                    <span class="text-[10px] font-bold uppercase tracking-[0.4em] text-neutral">The
-                                        Arsenal</span>
                                     <h4 class="text-2xl font-black mt-2">Creative Toolkit</h4>
                                 </div>
                                 <div class="flex items-center justify-center md:justify-end gap-12">
@@ -417,6 +413,15 @@
                                     <p class="text-[9px] font-black tracking-[0.2em] text-primary mt-3 text-center">
                                         PHOTOSHOP</p>
                                 </div>
+                                <div class="flex flex-col items-center group/tool">
+                                    <div
+                                        class="w-24 h-24 md:w-32 md:h-32 rounded-2xl bg-[#0F0F0F] flex items-center justify-center border border-white/20 p-5 shadow-2xl transition-all duration-500 group-hover/tool:scale-110 group-hover/tool:border-primary/50 overflow-hidden">
+                                        <img src="logos/canva.png" class="w-full h-full object-contain rounded-xl"
+                                            alt="Canva">
+                                    </div>
+                                    <p class="text-[9px] font-black tracking-[0.2em] text-primary mt-3 text-center">
+                                        CANVA</p>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -425,97 +430,82 @@
                 <!-- Core Services Grid -->
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 mb-32">
                     <!-- Short-form -->
-                    <div class="service-card-flip group">
-                        <div class="service-card-inner">
-                            <div class="service-card-front">
-                                <div class="card-image"
-                                    style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);"></div>
-                                <div class="card-overlay"></div>
-                                <h3 class="silk-text uppercase">Short-form <br> Edits</h3>
-                                <span
-                                    class="absolute bottom-4 left-1/2 -translate-x-1/2 text-[8px] font-bold tracking-widest text-white uppercase z-10 group-hover:opacity-0 transition-opacity whitespace-nowrap">(Click
-                                    to Flip)</span>
-                            </div>
-                            <div class="service-card-back gradient-1">
-                                <p>High-retention edits for Reels, TikToks, and Shorts. Focused on engagement and
-                                    fast-paced storytelling.</p>
-                            </div>
+                    <div
+                        class="group relative h-[300px] rounded-[1.5rem] overflow-hidden flex flex-col justify-center items-center text-center p-6 bg-[#050507] border border-primary/20 shadow-[0_0_15px_rgba(0,229,255,0.05)] transition-colors duration-500 hover:border-primary/50 hover:shadow-[0_0_25px_rgba(0,229,255,0.15)]">
+                        <div class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.08] filter grayscale-[80%] brightness-50 group-hover:grayscale-[30%] group-hover:brightness-75 z-0"
+                            style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);"></div>
+                        <div class="absolute inset-0 z-10"
+                            style="background: radial-gradient(circle, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.95) 100%);">
+                        </div>
+                        <div class="relative z-20 flex flex-col items-center">
+                            <h3 class="silk-text uppercase mb-4">Short-form <br> Edits</h3>
+                            <p class="text-[11px] uppercase tracking-[0.2em] leading-[1.6] font-normal text-white/90">
+                                High-retention edits for Reels, TikToks, and Shorts. Focused on engagement and
+                                fast-paced storytelling.</p>
                         </div>
                     </div>
 
                     <!-- YouTube -->
-                    <div class="service-card-flip group">
-                        <div class="service-card-inner">
-                            <div class="service-card-front">
-                                <div class="card-image"
-                                    style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);"></div>
-                                <div class="card-overlay"></div>
-                                <h3 class="silk-text uppercase">YouTube <br> Content</h3>
-                                <span
-                                    class="absolute bottom-4 left-1/2 -translate-x-1/2 text-[8px] font-bold tracking-widest text-white uppercase z-10 group-hover:opacity-0 transition-opacity whitespace-nowrap">(Click
-                                    to Flip)</span>
-                            </div>
-                            <div class="service-card-back gradient-2">
-                                <p>Comprehensive storytelling and engagement for long-form series. Optimizing for
-                                    retention and viewer loyalty.</p>
-                            </div>
+                    <div
+                        class="group relative h-[300px] rounded-[1.5rem] overflow-hidden flex flex-col justify-center items-center text-center p-6 bg-[#050507] border border-primary/20 shadow-[0_0_15px_rgba(0,229,255,0.05)] transition-colors duration-500 hover:border-primary/50 hover:shadow-[0_0_25px_rgba(0,229,255,0.15)]">
+                        <div class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.08] filter grayscale-[80%] brightness-50 group-hover:grayscale-[30%] group-hover:brightness-75 z-0"
+                            style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);"></div>
+                        <div class="absolute inset-0 z-10"
+                            style="background: radial-gradient(circle, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.95) 100%);">
+                        </div>
+                        <div class="relative z-20 flex flex-col items-center">
+                            <h3 class="silk-text uppercase mb-4">YouTube <br> Content</h3>
+                            <p class="text-[11px] uppercase tracking-[0.2em] leading-[1.6] font-normal text-white/90">
+                                Comprehensive storytelling and engagement for long-form series. Optimizing for retention
+                                and viewer loyalty.</p>
                         </div>
                     </div>
 
                     <!-- Motion Graphics -->
-                    <div class="service-card-flip group">
-                        <div class="service-card-inner">
-                            <div class="service-card-front">
-                                <div class="card-image"
-                                    style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);"></div>
-                                <div class="card-overlay"></div>
-                                <h3 class="silk-text uppercase">Motion <br> Graphics</h3>
-                                <span
-                                    class="absolute bottom-4 left-1/2 -translate-x-1/2 text-[8px] font-bold tracking-widest text-white uppercase z-10 group-hover:opacity-0 transition-opacity whitespace-nowrap">(Click
-                                    to Flip)</span>
-                            </div>
-                            <div class="service-card-back gradient-3">
-                                <p>Sleek 2D/3D animations that bring static elements to life. Custom transitions and
-                                    visual effects.</p>
-                            </div>
+                    <div
+                        class="group relative h-[300px] rounded-[1.5rem] overflow-hidden flex flex-col justify-center items-center text-center p-6 bg-[#050507] border border-primary/20 shadow-[0_0_15px_rgba(0,229,255,0.05)] transition-colors duration-500 hover:border-primary/50 hover:shadow-[0_0_25px_rgba(0,229,255,0.15)]">
+                        <div class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.08] filter grayscale-[80%] brightness-50 group-hover:grayscale-[30%] group-hover:brightness-75 z-0"
+                            style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);"></div>
+                        <div class="absolute inset-0 z-10"
+                            style="background: radial-gradient(circle, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.95) 100%);">
+                        </div>
+                        <div class="relative z-20 flex flex-col items-center">
+                            <h3 class="silk-text uppercase mb-4">Motion <br> Graphics</h3>
+                            <p class="text-[11px] uppercase tracking-[0.2em] leading-[1.6] font-normal text-white/90">
+                                Sleek 2D/3D animations that bring static elements to life. Custom transitions and visual
+                                effects.</p>
                         </div>
                     </div>
 
                     <!-- Commercial -->
-                    <div class="service-card-flip group">
-                        <div class="service-card-inner">
-                            <div class="service-card-front">
-                                <div class="card-image"
-                                    style="background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);"></div>
-                                <div class="card-overlay"></div>
-                                <h3 class="silk-text uppercase">Brand <br> Films</h3>
-                                <span
-                                    class="absolute bottom-4 left-1/2 -translate-x-1/2 text-[8px] font-bold tracking-widest text-white uppercase z-10 group-hover:opacity-0 transition-opacity whitespace-nowrap">(Click
-                                    to Flip)</span>
-                            </div>
-                            <div class="service-card-back gradient-4">
-                                <p>Professional brand storytelling for ads and corporate films. High-production value
-                                    and impact.</p>
-                            </div>
+                    <div
+                        class="group relative h-[300px] rounded-[1.5rem] overflow-hidden flex flex-col justify-center items-center text-center p-6 bg-[#050507] border border-primary/20 shadow-[0_0_15px_rgba(0,229,255,0.05)] transition-colors duration-500 hover:border-primary/50 hover:shadow-[0_0_25px_rgba(0,229,255,0.15)]">
+                        <div class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.08] filter grayscale-[80%] brightness-50 group-hover:grayscale-[30%] group-hover:brightness-75 z-0"
+                            style="background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);"></div>
+                        <div class="absolute inset-0 z-10"
+                            style="background: radial-gradient(circle, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.95) 100%);">
+                        </div>
+                        <div class="relative z-20 flex flex-col items-center">
+                            <h3 class="silk-text uppercase mb-4">Brand <br> Films</h3>
+                            <p class="text-[11px] uppercase tracking-[0.2em] leading-[1.6] font-normal text-white/90">
+                                Professional brand storytelling for ads and corporate films. High-production value and
+                                impact.</p>
                         </div>
                     </div>
 
                     <!-- Color & Sound -->
-                    <div class="service-card-flip group">
-                        <div class="service-card-inner">
-                            <div class="service-card-front">
-                                <div class="card-image"
-                                    style="background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);"></div>
-                                <div class="card-overlay"></div>
-                                <h3 class="silk-text uppercase">Color & <br> Sound</h3>
-                                <span
-                                    class="absolute bottom-4 left-1/2 -translate-x-1/2 text-[8px] font-bold tracking-widest text-white uppercase z-10 group-hover:opacity-0 transition-opacity whitespace-nowrap">(Click
-                                    to Flip)</span>
-                            </div>
-                            <div class="service-card-back gradient-5">
-                                <p>Immersive soundscapes and cinematic grading for that final polish. Elevating the mood
-                                    and atmosphere.</p>
-                            </div>
+                    <div
+                        class="group relative h-[300px] rounded-[1.5rem] overflow-hidden flex flex-col justify-center items-center text-center p-6 bg-[#050507] border border-primary/20 shadow-[0_0_15px_rgba(0,229,255,0.05)] transition-colors duration-500 hover:border-primary/50 hover:shadow-[0_0_25px_rgba(0,229,255,0.15)]">
+                        <div class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.08] filter grayscale-[80%] brightness-50 group-hover:grayscale-[30%] group-hover:brightness-75 z-0"
+                            style="background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);"></div>
+                        <div class="absolute inset-0 z-10"
+                            style="background: radial-gradient(circle, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.95) 100%);">
+                        </div>
+                        <div class="relative z-20 flex flex-col items-center">
+                            <h3 class="silk-text uppercase mb-4">Color & <br> Sound</h3>
+                            <p class="text-[11px] uppercase tracking-[0.2em] leading-[1.6] font-normal text-white/90">
+                                Immersive soundscapes and cinematic grading for that final polish. Elevating the mood
+                                and atmosphere.</p>
                         </div>
                     </div>
                 </div>
