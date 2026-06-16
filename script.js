@@ -207,6 +207,19 @@ window.addEventListener('DOMContentLoaded', () => {
     .from(".hero-ctas", { duration: 1, y: 30, opacity: 0, ease: "power4.out" }, "-=0.8")
     .to(".side-label-left, .side-label-right", { duration: 1, opacity: 1, stagger: 0.2, ease: "power3.out" }, "-=0.5");
 
+    // Parallax fade & shift for side labels only. Keep hero content fully visible.
+    gsap.to("#hero-section .side-label-left, #hero-section .side-label-right", {
+        scrollTrigger: {
+            trigger: "#hero-section",
+            start: "top top",
+            end: "bottom top",
+            scrub: true
+        },
+        y: 80,
+        opacity: 0.1,
+        ease: "none"
+    });
+
     // 2. Showreel Reveal
     gsap.from(".showreel-header", {
         scrollTrigger: { trigger: "#showreel", start: "top 80%", once: true },

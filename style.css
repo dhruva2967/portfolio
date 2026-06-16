@@ -42,21 +42,23 @@ h4 {
 }
 
 .glass {
-    background: rgba(255, 255, 255, 0.02);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.8);
+    background: rgba(255, 255, 255, 0.06);
+    backdrop-filter: blur(18px) saturate(140%);
+    -webkit-backdrop-filter: blur(18px) saturate(140%);
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    box-shadow: 0 18px 50px rgba(0, 0, 0, 0.45);
 }
 
 .glass-dark {
-    background: linear-gradient(135deg, rgba(0, 10, 15, 0.8) 0%, rgba(0, 0, 0, 0.95) 100%);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.09) 0%, rgba(255, 255, 255, 0.025) 100%);
+    backdrop-filter: blur(24px) saturate(145%);
+    -webkit-backdrop-filter: blur(24px) saturate(145%);
     backface-visibility: hidden;
     -webkit-backface-visibility: hidden;
     transform-style: preserve-3d;
+    border: 1px solid rgba(255, 255, 255, 0.16);
     border-radius: 3rem;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.12), 0 24px 70px rgba(0, 0, 0, 0.55);
 }
 
 /* ======================== NAVBAR STYLES ======================== */
@@ -141,7 +143,7 @@ h4 {
 
 #showreel {
     position: relative;
-    z-index: 10;
+    z-index: 20;
     background-color: transparent;
     color: #ffffff;
 }
@@ -332,6 +334,35 @@ main section:not(.light-section):not(#hero-section),
     background-image: none !important;
 }
 
+body,
+#main-content,
+main,
+section,
+#services,
+#testimonials,
+#contact {
+    background-color: #000000;
+}
+
+.text-primary,
+.light-section .group span.text-primary,
+.light-section input:focus,
+.light-section textarea:focus {
+    color: #ffffff !important;
+    border-color: rgba(255, 255, 255, 0.72) !important;
+}
+
+.text-neutral,
+p {
+    color: rgba(255, 255, 255, 0.62);
+}
+
+#services .absolute[class*="radial-gradient"],
+#testimonials .absolute[class*="radial-gradient"] {
+    opacity: 0.18;
+    filter: grayscale(1);
+}
+
 /* Light Section Theme */
 .light-section {
     background-color: #f8fafc !important;
@@ -412,7 +443,7 @@ main section:not(.light-section):not(#hero-section),
 
 .light-section input:focus,
 .light-section textarea:focus {
-    border-color: #00e5ff !important;
+    border-color: #ffffff !important;
 }
 
 .light-section input::placeholder,
@@ -423,6 +454,94 @@ main section:not(.light-section):not(#hero-section),
 .light-section #contact-form,
 .light-section #contact-form label {
     color: #ffffff !important;
+}
+
+#services [class*="h-[300px]"][class*="rounded-[1.5rem]"],
+#testimonials .glass-dark,
+#contact-form-container {
+    background: linear-gradient(145deg, rgba(12, 12, 12, 0.92), rgba(0, 0, 0, 0.78)) !important;
+    border: 1px solid rgba(255, 255, 255, 0.14) !important;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1), 0 28px 80px rgba(0, 0, 0, 0.35) !important;
+    backdrop-filter: blur(26px) saturate(140%);
+    -webkit-backdrop-filter: blur(26px) saturate(140%);
+}
+
+#services [class*="h-[300px]"][class*="rounded-[1.5rem]"]:hover,
+#testimonials .glass-dark:hover,
+#contact-form-container:hover {
+    border-color: rgba(255, 255, 255, 0.34) !important;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.16), 0 30px 90px rgba(0, 0, 0, 0.45) !important;
+}
+
+#services [class*="h-[300px]"][class*="rounded-[1.5rem]"]>div:first-child {
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.14), rgba(255, 255, 255, 0.02)) !important;
+    opacity: 0.72;
+    filter: grayscale(1) brightness(0.68) !important;
+}
+
+#services [class*="h-[300px]"][class*="rounded-[1.5rem]"]>div:nth-child(2) {
+    background: radial-gradient(circle at 50% 35%, rgba(255, 255, 255, 0.08), rgba(0, 0, 0, 0.86) 62%, rgba(0, 0, 0, 0.96) 100%) !important;
+}
+
+#services [class*="h-[300px]"][class*="rounded-[1.5rem]"] p,
+#testimonials .glass-dark p {
+    color: rgba(255, 255, 255, 0.72) !important;
+}
+
+#services [class*="h-[300px]"][class*="rounded-[1.5rem]"] .silk-text,
+#testimonials .glass-dark .font-bold,
+#contact-form-container label {
+    color: #ffffff !important;
+}
+
+#services .group\/tool {
+    flex: 1 1 0;
+    max-width: 10rem;
+}
+
+#services div:has(> .group\/tool) {
+    display: flex;
+    justify-content: space-evenly !important;
+    gap: clamp(1rem, 4vw, 3rem) !important;
+    width: 100%;
+}
+
+#services .group\/tool>div {
+    width: 100% !important;
+    aspect-ratio: 1;
+    height: auto !important;
+    background: rgba(255, 255, 255, 0.06) !important;
+    border-color: rgba(255, 255, 255, 0.18) !important;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1), 0 18px 45px rgba(0, 0, 0, 0.45) !important;
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+}
+
+#services .group\/tool:hover>div {
+    border-color: rgba(255, 255, 255, 0.38) !important;
+}
+
+#services .group\/tool p {
+    color: rgba(255, 255, 255, 0.8) !important;
+}
+
+#contact-form-container .absolute[class*="bg-primary"] {
+    background: rgba(255, 255, 255, 0.08) !important;
+}
+
+#contact .reveal-none:first-child .glass span {
+    color: #000000 !important;
+}
+
+#contact-form input,
+#contact-form textarea {
+    border-color: rgba(255, 255, 255, 0.18) !important;
+}
+
+#contact-form button {
+    background: #ffffff !important;
+    color: #000000 !important;
+    box-shadow: 0 18px 45px rgba(255, 255, 255, 0.12) !important;
 }
 
 section>div {
@@ -449,6 +568,10 @@ section>div {
 
 #hero-section {
     background-color: #000000;
+    background-image: url('bg.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 .noise-bg {
@@ -540,7 +663,7 @@ section>div {
     }
 }
 
-.hero-copy {
+.hero-copy:not(#hero-section .hero-copy) {
     max-width: 760px;
     margin: 0;
     text-align: left;
@@ -559,7 +682,7 @@ section>div {
         max-width: 820px;
     }
 
-    .hero-copy {
+    .hero-copy:not(#hero-section .hero-copy) {
         max-width: 860px;
         margin: 0;
         text-align: left;
