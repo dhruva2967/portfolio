@@ -228,7 +228,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
 
     // 3. Services Animation
-    gsap.from("#services .grid > div", {
+    gsap.from("#services .services-grid > .service-card", {
         scrollTrigger: { trigger: "#services", start: "top 75%", once: true },
         duration: 1.2, y: 60, opacity: 0, stagger: 0.2, ease: "power4.out"
     });
