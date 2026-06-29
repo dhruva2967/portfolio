@@ -42,7 +42,7 @@
                         primary: '#ffffff',
                         secondary: '#b5b5b5',
                         dark: '#050507', // Deep Charcoal Black
-                        surface: '#111216', // Dashboard Navy
+                        surface: '#111111', // Dashboard Navy
                         neutral: '#8a8d98',
                         accent: '#ffffff',
                     },
@@ -66,7 +66,7 @@
 
     <!-- Navigation -->
     <nav id="navbar"
-        class="fixed top-6 md:top-8 left-1/2 -translate-x-1/2 w-[92%] max-w-6xl z-50 bg-black border border-white/10 py-2.5 md:py-3 rounded-full px-6 md:px-10 shadow-2xl">
+        class="fixed top-0 left-0 w-full z-50 bg-black/95 border-b border-white/10 py-2.5 md:py-3 px-4 sm:px-6 md:px-8 shadow-[0_8px_30px_rgba(0,0,0,0.25)]">
         <div class="nav-inner flex items-center justify-between w-full">
             <!-- Left: Logo -->
             <div class="nav-logo flex items-center">
@@ -96,7 +96,7 @@
             <!-- Right: Menu and Toggle -->
             <div class="flex items-center space-x-2 sm:space-x-4 md:space-x-8">
                 <!-- Desktop Menu -->
-                <div class="hidden md:flex items-center space-x-8 text-[10px] font-bold uppercase tracking-[0.2em]">
+                <div class="hidden md:flex items-center space-x-6 text-[10px] font-medium uppercase tracking-[0.18em]">
                     <a href="#showreel" class="text-white/70 hover:text-white transition-colors">Showreel</a>
                     <a href="#services" class="text-white/70 hover:text-white transition-colors">Services</a>
                     <a href="#portfolio" class="text-white/70 hover:text-white transition-colors">Portfolio</a>
@@ -105,7 +105,7 @@
 
                 <!-- Contact Button -->
                 <a href="#contact"
-                    class="text-[10px] font-bold uppercase tracking-[0.2em] bg-white text-black px-4 py-2 sm:px-5 sm:py-2.5 rounded-full hover:bg-gray-200 transition-colors whitespace-nowrap">Contact</a>
+                    class="text-[10px] font-medium uppercase tracking-[0.18em] bg-white text-black px-3.5 py-2 sm:px-4 sm:py-2.5 rounded-full hover:bg-gray-200 transition-colors whitespace-nowrap">Contact</a>
 
                 <!-- Mobile Menu Toggle -->
                 <button class="md:hidden p-1 sm:p-2 text-white flex items-center justify-center">
@@ -122,31 +122,31 @@
         <div id="floating-nav-menu"
             class="bg-[#0f0f11]/90 backdrop-blur-md border border-white/10 rounded-full px-3 py-2 flex items-center space-x-1 mr-4 opacity-0 pointer-events-none transform translate-x-10 transition-all duration-500 shadow-[0_0_30px_rgba(0,0,0,0.8)]">
             <a href="#showreel"
-                class="group flex items-center px-3 py-2 rounded-full hover:bg-white/5 hover:shadow-[inset_0_0_15px_rgba(0,229,255,0.1)] transition-all duration-500">
+                class="group flex items-center px-3 py-2 rounded-full hover:bg-white/5 hover:shadow-[inset_0_0_15px_rgba(255,255,255,0.1)] transition-all duration-500">
                 <span class="text-2xl hollow-icon text-white/70 group-hover:text-primary">◻</span>
                 <span
                     class="max-w-0 overflow-hidden group-hover:max-w-[100px] transition-all duration-500 cubic-bezier(0.16, 1, 0.3, 1) text-white text-[10px] font-bold uppercase tracking-widest whitespace-nowrap group-hover:ml-2 opacity-0 group-hover:opacity-100">Showreel</span>
             </a>
             <a href="#services"
-                class="group flex items-center px-3 py-2 rounded-full hover:bg-white/5 hover:shadow-[inset_0_0_15px_rgba(0,229,255,0.1)] transition-all duration-500">
+                class="group flex items-center px-3 py-2 rounded-full hover:bg-white/5 hover:shadow-[inset_0_0_15px_rgba(255,255,255,0.1)] transition-all duration-500">
                 <span class="text-2xl hollow-icon text-white/70 group-hover:text-primary">⚙</span>
                 <span
                     class="max-w-0 overflow-hidden group-hover:max-w-[100px] transition-all duration-500 cubic-bezier(0.16, 1, 0.3, 1) text-white text-[10px] font-bold uppercase tracking-widest whitespace-nowrap group-hover:ml-2 opacity-0 group-hover:opacity-100">Services</span>
             </a>
             <a href="#portfolio"
-                class="group flex items-center px-3 py-2 rounded-full hover:bg-white/5 hover:shadow-[inset_0_0_15px_rgba(0,229,255,0.1)] transition-all duration-500">
+                class="group flex items-center px-3 py-2 rounded-full hover:bg-white/5 hover:shadow-[inset_0_0_15px_rgba(255,255,255,0.1)] transition-all duration-500">
                 <span class="text-2xl hollow-icon text-white/70 group-hover:text-primary">⊞</span>
                 <span
                     class="max-w-0 overflow-hidden group-hover:max-w-[100px] transition-all duration-500 cubic-bezier(0.16, 1, 0.3, 1) text-white text-[10px] font-bold uppercase tracking-widest whitespace-nowrap group-hover:ml-2 opacity-0 group-hover:opacity-100">Portfolio</span>
             </a>
             <a href="#testimonials"
-                class="group flex items-center px-3 py-2 rounded-full hover:bg-white/5 hover:shadow-[inset_0_0_15px_rgba(0,229,255,0.1)] transition-all duration-500">
+                class="group flex items-center px-3 py-2 rounded-full hover:bg-white/5 hover:shadow-[inset_0_0_15px_rgba(255,255,255,0.1)] transition-all duration-500">
                 <span class="text-2xl hollow-icon text-white/70 group-hover:text-primary">💬</span>
                 <span
                     class="max-w-0 overflow-hidden group-hover:max-w-[100px] transition-all duration-500 cubic-bezier(0.16, 1, 0.3, 1) text-white text-[10px] font-bold uppercase tracking-widest whitespace-nowrap group-hover:ml-2 opacity-0 group-hover:opacity-100">Reviews</span>
             </a>
             <a href="#contact"
-                class="group flex items-center px-3 py-2 rounded-full hover:bg-white/5 hover:shadow-[inset_0_0_15px_rgba(0,229,255,0.1)] transition-all duration-500">
+                class="group flex items-center px-3 py-2 rounded-full hover:bg-white/5 hover:shadow-[inset_0_0_15px_rgba(255,255,255,0.1)] transition-all duration-500">
                 <span class="text-2xl hollow-icon text-white/70 group-hover:text-primary">✉</span>
                 <span
                     class="max-w-0 overflow-hidden group-hover:max-w-[100px] transition-all duration-500 cubic-bezier(0.16, 1, 0.3, 1) text-white text-[10px] font-bold uppercase tracking-widest whitespace-nowrap group-hover:ml-2 opacity-0 group-hover:opacity-100">Contact</span>
@@ -156,7 +156,7 @@
 
         <!-- Toggle Icon -->
         <div id="floating-nav-toggle"
-            class="group w-12 h-12 rounded-full bg-[#111216] border border-white/20 flex items-center justify-center cursor-pointer shadow-[0_0_20px_rgba(0,229,255,0.15)] hover:shadow-[0_0_30px_rgba(0,229,255,0.3)] hover:border-primary/50 transition-all duration-500 z-50">
+            class="group w-12 h-12 rounded-full bg-[#111111] border border-white/20 flex items-center justify-center cursor-pointer shadow-[0_0_20px_rgba(255,255,255,0.15)] hover:shadow-[0_0_30px_rgba(255,255,255,0.3)] hover:border-primary/50 transition-all duration-500 z-50">
             <span
                 class="text-xl text-white/80 group-hover:text-primary group-hover:scale-110 transition-all duration-500 select-none">☰</span>
         </div>
@@ -317,9 +317,9 @@
                 <div class="services-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 mb-32">
                     <!-- Short-form -->
                     <div
-                        class="service-card group relative h-[300px] rounded-[1.5rem] overflow-hidden flex flex-col justify-center items-center text-center p-6 bg-[#050507] border border-primary/20 shadow-[0_0_15px_rgba(0,229,255,0.05)] transition-colors duration-500 hover:border-primary/50 hover:shadow-[0_0_25px_rgba(0,229,255,0.15)]">
+                        class="service-card group relative h-[300px] rounded-[1.5rem] overflow-hidden flex flex-col justify-center items-center text-center p-6 bg-[#050507] border border-primary/20 shadow-[0_0_15px_rgba(255,255,255,0.05)] transition-colors duration-500 hover:border-primary/50 hover:shadow-[0_0_25px_rgba(255,255,255,0.15)]">
                         <div class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.08] filter grayscale-[80%] brightness-50 group-hover:grayscale-[30%] group-hover:brightness-75 z-0"
-                            style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);"></div>
+                            style="background: linear-gradient(135deg, #222222 0%, #111111 100%);"></div>
                         <div class="absolute inset-0 z-10"
                             style="background: radial-gradient(circle, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.95) 100%);">
                         </div>
@@ -333,9 +333,9 @@
 
                     <!-- YouTube -->
                     <div
-                        class="service-card group relative h-[300px] rounded-[1.5rem] overflow-hidden flex flex-col justify-center items-center text-center p-6 bg-[#050507] border border-primary/20 shadow-[0_0_15px_rgba(0,229,255,0.05)] transition-colors duration-500 hover:border-primary/50 hover:shadow-[0_0_25px_rgba(0,229,255,0.15)]">
+                        class="service-card group relative h-[300px] rounded-[1.5rem] overflow-hidden flex flex-col justify-center items-center text-center p-6 bg-[#050507] border border-primary/20 shadow-[0_0_15px_rgba(255,255,255,0.05)] transition-colors duration-500 hover:border-primary/50 hover:shadow-[0_0_25px_rgba(255,255,255,0.15)]">
                         <div class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.08] filter grayscale-[80%] brightness-50 group-hover:grayscale-[30%] group-hover:brightness-75 z-0"
-                            style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);"></div>
+                            style="background: linear-gradient(135deg, #333333 0%, #1a1a1a 100%);"></div>
                         <div class="absolute inset-0 z-10"
                             style="background: radial-gradient(circle, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.95) 100%);">
                         </div>
@@ -349,9 +349,9 @@
 
                     <!-- Motion Graphics -->
                     <div
-                        class="service-card group relative h-[300px] rounded-[1.5rem] overflow-hidden flex flex-col justify-center items-center text-center p-6 bg-[#050507] border border-primary/20 shadow-[0_0_15px_rgba(0,229,255,0.05)] transition-colors duration-500 hover:border-primary/50 hover:shadow-[0_0_25px_rgba(0,229,255,0.15)]">
+                        class="service-card group relative h-[300px] rounded-[1.5rem] overflow-hidden flex flex-col justify-center items-center text-center p-6 bg-[#050507] border border-primary/20 shadow-[0_0_15px_rgba(255,255,255,0.05)] transition-colors duration-500 hover:border-primary/50 hover:shadow-[0_0_25px_rgba(255,255,255,0.15)]">
                         <div class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.08] filter grayscale-[80%] brightness-50 group-hover:grayscale-[30%] group-hover:brightness-75 z-0"
-                            style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);"></div>
+                            style="background: linear-gradient(135deg, #444444 0%, #222222 100%);"></div>
                         <div class="absolute inset-0 z-10"
                             style="background: radial-gradient(circle, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.95) 100%);">
                         </div>
@@ -365,9 +365,9 @@
 
                     <!-- Commercial -->
                     <div
-                        class="service-card group relative h-[300px] rounded-[1.5rem] overflow-hidden flex flex-col justify-center items-center text-center p-6 bg-[#050507] border border-primary/20 shadow-[0_0_15px_rgba(0,229,255,0.05)] transition-colors duration-500 hover:border-primary/50 hover:shadow-[0_0_25px_rgba(0,229,255,0.15)]">
+                        class="service-card group relative h-[300px] rounded-[1.5rem] overflow-hidden flex flex-col justify-center items-center text-center p-6 bg-[#050507] border border-primary/20 shadow-[0_0_15px_rgba(255,255,255,0.05)] transition-colors duration-500 hover:border-primary/50 hover:shadow-[0_0_25px_rgba(255,255,255,0.15)]">
                         <div class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.08] filter grayscale-[80%] brightness-50 group-hover:grayscale-[30%] group-hover:brightness-75 z-0"
-                            style="background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);"></div>
+                            style="background: linear-gradient(135deg, #555555 0%, #333333 100%);"></div>
                         <div class="absolute inset-0 z-10"
                             style="background: radial-gradient(circle, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.95) 100%);">
                         </div>
@@ -381,9 +381,9 @@
 
                     <!-- Color and Sound -->
                     <div
-                        class="service-card group relative h-[300px] rounded-[1.5rem] overflow-hidden flex flex-col justify-center items-center text-center p-6 bg-[#050507] border border-primary/20 shadow-[0_0_15px_rgba(0,229,255,0.05)] transition-colors duration-500 hover:border-primary/50 hover:shadow-[0_0_25px_rgba(0,229,255,0.15)]">
+                        class="service-card group relative h-[300px] rounded-[1.5rem] overflow-hidden flex flex-col justify-center items-center text-center p-6 bg-[#050507] border border-primary/20 shadow-[0_0_15px_rgba(255,255,255,0.05)] transition-colors duration-500 hover:border-primary/50 hover:shadow-[0_0_25px_rgba(255,255,255,0.15)]">
                         <div class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.08] filter grayscale-[80%] brightness-50 group-hover:grayscale-[30%] group-hover:brightness-75 z-0"
-                            style="background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);"></div>
+                            style="background: linear-gradient(135deg, #666666 0%, #444444 100%);"></div>
                         <div class="absolute inset-0 z-10"
                             style="background: radial-gradient(circle, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.95) 100%);">
                         </div>
@@ -472,7 +472,7 @@
                             </div>
                         </div>
                     </div>
-            </div>
+                </div>
         </section>
 
         <!-- Portfolio Section -->
@@ -607,7 +607,7 @@
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-8" style="perspective: 2000px;">
                     <!-- Testimonial 1 -->
                     <div
-                        class="glass-dark p-10 rounded-3xl space-y-8 relative border-t border-l border-white/10 border-r-0 border-b-0 shadow-[10px_10px_30px_rgba(0,0,0,0.5)] hover:shadow-[0_0_30px_rgba(0,229,255,0.05)] transition-shadow duration-500">
+                        class="glass-dark p-10 rounded-3xl space-y-8 relative border-t border-l border-white/10 border-r-0 border-b-0 shadow-[10px_10px_30px_rgba(0,0,0,0.5)] hover:shadow-[0_0_30px_rgba(255,255,255,0.05)] transition-shadow duration-500">
                         <span class="text-6xl absolute top-6 right-8 text-white/10">"</span>
                         <p class="text-lg leading-relaxed italic text-neutral">
                             "Dhruva's creativity, attention to detail, and deep understanding of the requirements helped
@@ -629,7 +629,7 @@
 
                     <!-- Testimonial 2 -->
                     <div
-                        class="glass-dark p-10 rounded-3xl space-y-8 relative border-t border-l border-white/10 border-r-0 border-b-0 shadow-[10px_10px_30px_rgba(0,0,0,0.5)] hover:shadow-[0_0_30px_rgba(0,229,255,0.05)] transition-shadow duration-500">
+                        class="glass-dark p-10 rounded-3xl space-y-8 relative border-t border-l border-white/10 border-r-0 border-b-0 shadow-[10px_10px_30px_rgba(0,0,0,0.5)] hover:shadow-[0_0_30px_rgba(255,255,255,0.05)] transition-shadow duration-500">
                         <span class="text-6xl absolute top-6 right-8 text-white/10">"</span>
                         <p class="text-lg leading-relaxed italic text-neutral">
                             "The video edits for ROBOVEDA'25 publicity done by Dhruva were excellent and highly
@@ -650,7 +650,7 @@
 
                     <!-- Testimonial 3 -->
                     <div
-                        class="glass-dark p-10 rounded-3xl space-y-8 relative border-t border-l border-white/10 border-r-0 border-b-0 shadow-[10px_10px_30px_rgba(0,0,0,0.5)] hover:shadow-[0_0_30px_rgba(0,229,255,0.05)] transition-shadow duration-500">
+                        class="glass-dark p-10 rounded-3xl space-y-8 relative border-t border-l border-white/10 border-r-0 border-b-0 shadow-[10px_10px_30px_rgba(0,0,0,0.5)] hover:shadow-[0_0_30px_rgba(255,255,255,0.05)] transition-shadow duration-500">
                         <span class="text-6xl absolute top-6 right-8 text-white/10">"</span>
                         <p class="text-lg leading-relaxed italic text-neutral">
                             "I really enjoyed working with Dhruva. Even though he is still growing in the field, his

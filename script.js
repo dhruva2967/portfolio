@@ -1,21 +1,21 @@
 // Helper function to format video URLs into iframe-compatible embeds
 function getEmbedUrl(url) {
     if (!url) return '';
-    
+
     // YouTube match
     const ytRegex = /(?:youtube\.com\/(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([^"&?\/ ]{11})/;
     const ytMatch = url.match(ytRegex);
     if (ytMatch && ytMatch[1]) {
         return `https://www.youtube.com/embed/${ytMatch[1]}?autoplay=1&enablejsapi=1&rel=0`;
     }
-    
+
     // Vimeo match
     const vimeoRegex = /(?:vimeo\.com\/|player\.vimeo\.com\/video\/)(\d+)/;
     const vimeoMatch = url.match(vimeoRegex);
     if (vimeoMatch && vimeoMatch[1]) {
         return `https://player.vimeo.com/video/${vimeoMatch[1]}?autoplay=1`;
     }
-    
+
     // Direct video files
     return url;
 }
@@ -77,10 +77,10 @@ window.addEventListener('DOMContentLoaded', () => {
     // Split active heading styles into individual letters or words.
     function initAnimatedText() {
         const charAnimatedTexts = document.querySelectorAll(".wave-text, .typing-text, .rotate-scale-text, .color-scale-text, .skew-slide-text");
-        
+
         charAnimatedTexts.forEach((textElement) => {
             let charClass, baseDelay;
-            
+
             if (textElement.classList.contains("wave-text")) {
                 charClass = "wave-char";
                 baseDelay = 0.06;
@@ -101,13 +101,13 @@ window.addEventListener('DOMContentLoaded', () => {
             const textContent = textElement.textContent.trim();
             const words = textContent.split(/\s+/);
             textElement.innerHTML = "";
-            
+
             let letterIndex = 0;
             words.forEach((word, wordIdx) => {
                 const wordSpan = document.createElement("span");
                 wordSpan.style.display = "inline-block";
                 wordSpan.style.whiteSpace = "nowrap";
-                
+
                 const letters = word.split("");
                 letters.forEach((letter) => {
                     const charSpan = document.createElement("span");
@@ -117,9 +117,9 @@ window.addEventListener('DOMContentLoaded', () => {
                     wordSpan.appendChild(charSpan);
                     letterIndex++;
                 });
-                
+
                 textElement.appendChild(wordSpan);
-                
+
                 if (wordIdx < words.length - 1) {
                     const spaceSpan = document.createElement("span");
                     spaceSpan.innerHTML = "&nbsp;";
@@ -139,10 +139,10 @@ window.addEventListener('DOMContentLoaded', () => {
         });
 
         const wordAnimatedTexts = document.querySelectorAll(".word-fade-rise-text");
-        
+
         wordAnimatedTexts.forEach((textElement) => {
             let wordClass, baseDelay;
-            
+
             if (textElement.classList.contains("word-fade-rise-text")) {
                 wordClass = "word-fade-rise-item";
                 baseDelay = 0.12;
@@ -151,14 +151,14 @@ window.addEventListener('DOMContentLoaded', () => {
             const textContent = textElement.textContent.trim();
             const words = textContent.split(/\s+/);
             textElement.innerHTML = "";
-            
+
             words.forEach((word, idx) => {
                 const wordSpan = document.createElement("span");
                 wordSpan.className = wordClass;
                 wordSpan.textContent = word;
                 wordSpan.style.animationDelay = `${idx * baseDelay}s`;
                 textElement.appendChild(wordSpan);
-                
+
                 if (idx < words.length - 1) {
                     const spaceSpan = document.createElement("span");
                     spaceSpan.innerHTML = "&nbsp;";
@@ -200,14 +200,14 @@ window.addEventListener('DOMContentLoaded', () => {
     heroTl.call(() => {
         document.querySelector(".hero-title-top")?.classList.add("animated");
     })
-    .call(() => {
-        document.querySelector(".hero-title-bot")?.classList.add("animated");
-    }, null, "+=0.35")
-    .from(".hero-copy p", { duration: 1, opacity: 0, x: 20, ease: "power3.out" }, "+=0.4")
-    .from(".hero-ctas", { duration: 1, y: 30, opacity: 0, ease: "power4.out" }, "-=0.8")
-    .to(".side-label-left, .side-label-right", { duration: 1, opacity: 1, stagger: 0.2, ease: "power3.out" }, "-=0.5");
+        .call(() => {
+            document.querySelector(".hero-title-bot")?.classList.add("animated");
+        }, null, "+=0.35")
+        .from(".hero-copy p", { duration: 1, opacity: 0, x: 20, ease: "power3.out" }, "+=0.4")
+        .from(".hero-ctas", { duration: 1, y: 30, opacity: 0, ease: "power4.out" }, "-=0.8")
+        .to(".side-label-left, .side-label-right", { duration: 1, opacity: 1, stagger: 0.2, ease: "power3.out" }, "-=0.5");
 
-    // Parallax fade & shift for side labels only. Keep hero content fully visible.
+    // Parallax shift for side labels only. Keep them visible while scrolling.
     gsap.to("#hero-section .side-label-left, #hero-section .side-label-right", {
         scrollTrigger: {
             trigger: "#hero-section",
@@ -216,7 +216,6 @@ window.addEventListener('DOMContentLoaded', () => {
             scrub: true
         },
         y: 80,
-        opacity: 0.1,
         ease: "none"
     });
 
@@ -316,10 +315,10 @@ window.addEventListener('scroll', () => {
     const heroHeight = heroSection?.offsetHeight || 600;
 
     if (winScroll > heroHeight * 0.8) {
-        navbar.style.transform = 'translate(-50%, -150%)';
+        navbar.style.transform = 'translateY(-100%)';
         floatingContainer.style.transform = 'translateY(0) scale(1)';
     } else {
-        navbar.style.transform = 'translate(-50%, 0)';
+        navbar.style.transform = 'translateY(0)';
         floatingContainer.style.transform = 'translateY(24px) scale(0)';
 
         // Ensure menu closes if user scrolls back up
@@ -429,7 +428,7 @@ let mouseY = 0;
 if (cursor) {
     // Only enable cursor follower on desktop (screen width >= 1024px and not touch-only devices)
     const isMobileDevice = window.matchMedia('(pointer: coarse)').matches || window.innerWidth < 1024;
-    
+
     if (!isMobileDevice) {
         window.addEventListener('mousemove', (e) => {
             mouseX = e.clientX;
@@ -559,16 +558,16 @@ function setupContactForm() {
         }
         contactForm.dataset.emailjsBound = 'true';
 
-        contactForm.addEventListener('submit', function(event) {
+        contactForm.addEventListener('submit', function (event) {
             event.preventDefault();
-            
+
             // Log form data for debugging
             const formData = new FormData(this);
             console.log('Form data being sent:');
             for (let [key, value] of formData.entries()) {
                 console.log(`${key}: ${value}`);
             }
-            
+
             const submitButton = this.querySelector('button[type="submit"]');
             const statusMessage = document.getElementById('contact-form-status');
             const originalText = submitButton.textContent;
@@ -578,9 +577,9 @@ function setupContactForm() {
                 statusMessage.textContent = '';
                 statusMessage.className = 'hidden text-sm font-semibold text-center';
             }
-            
+
             console.log(`Sending with ${EMAILJS_SERVICE_ID} and ${EMAILJS_TEMPLATE_ID}`);
-            
+
             emailjs.sendForm(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, this)
                 .then((response) => {
                     console.log('Email sent successfully!', response);
@@ -591,7 +590,7 @@ function setupContactForm() {
                         statusMessage.className = 'text-sm font-semibold text-center text-[#00c853]';
                     }
                     this.reset();
-                    
+
                     setTimeout(() => {
                         submitButton.textContent = originalText;
                         submitButton.style.backgroundColor = '';
@@ -607,7 +606,7 @@ function setupContactForm() {
                         statusMessage.textContent = 'Sorry, the message could not be sent. Please try again.';
                         statusMessage.className = 'text-sm font-semibold text-center text-[#ff1744]';
                     }
-                    
+
                     setTimeout(() => {
                         submitButton.textContent = originalText;
                         submitButton.style.backgroundColor = '';
@@ -627,7 +626,7 @@ function setupContactFormUnavailable() {
     }
 
     contactForm.dataset.emailjsBound = 'true';
-    contactForm.addEventListener('submit', function(event) {
+    contactForm.addEventListener('submit', function (event) {
         event.preventDefault();
         alert('Email service is not available. Please check your internet connection and try again.');
     });
