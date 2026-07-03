@@ -65,35 +65,17 @@ h4 {
 /* ======================== NAVBAR STYLES ======================== */
 #navbar {
     transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
-    border: 1px solid rgba(255, 255, 255, 0.08) !important;
-    background: rgba(0, 0, 0, 0.95) !important;
-    backdrop-filter: blur(12px);
+    box-shadow: none !important;
+    border: none !important;
+    background: transparent !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
     top: 0;
     left: 0;
     transform: none;
     width: 100%;
     max-width: none;
     border-radius: 0 !important;
-}
-
-#navbar.scrolled {
-    background: rgba(8, 8, 8, 0.96) !important;
-    backdrop-filter: blur(16px);
-    border-color: rgba(255, 255, 255, 0.12) !important;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.28);
-    padding-top: 0.35rem !important;
-    padding-bottom: 0.35rem !important;
-    width: 100% !important;
-    max-width: none !important;
-}
-
-#navbar.scrolled .nav-inner {
-    gap: 0.5rem;
-}
-
-#navbar.scrolled .nav-logo {
-    display: none;
 }
 
 .rotation-btn-wrapper {
@@ -103,12 +85,6 @@ h4 {
     height: 40px;
     cursor: pointer;
     flex-shrink: 0;
-}
-
-#navbar.scrolled .rotation-btn-wrapper {
-    display: flex;
-    align-items: center;
-    justify-content: center;
 }
 
 .rotation-btn {

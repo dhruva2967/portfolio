@@ -305,22 +305,20 @@ window.addEventListener('DOMContentLoaded', () => {
 // Scroll Progress Bar & Navbar Transformation
 window.addEventListener('scroll', () => {
     const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-    const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-
-
-    // Navbar: Hide top nav and show floating nav past hero
-    const navbar = document.getElementById('navbar');
     const floatingContainer = document.getElementById('floating-nav-container');
     const heroSection = document.getElementById('hero-section');
     const heroHeight = heroSection?.offsetHeight || 600;
 
+    // Show floating navigation past hero section
     if (winScroll > heroHeight * 0.8) {
-        navbar.style.transform = 'translateY(-100%)';
-        floatingContainer.style.transform = 'translateY(0) scale(1)';
+        if (floatingContainer) {
+            floatingContainer.style.transform = 'translateY(0) scale(1)';
+        }
     } else {
-        navbar.style.transform = 'translateY(0)';
-        floatingContainer.style.transform = 'translateY(24px) scale(0)';
-
+        if (floatingContainer) {
+            floatingContainer.style.transform = 'translateY(24px) scale(0)';
+        }
+        
         // Ensure menu closes if user scrolls back up
         const floatingMenu = document.getElementById('floating-nav-menu');
         if (floatingMenu && floatingMenu.style.opacity === '1') {
@@ -329,7 +327,6 @@ window.addEventListener('scroll', () => {
             floatingMenu.style.transform = 'translateX(10px)';
         }
     }
-
 });
 
 // Floating Nav Toggle Logic
