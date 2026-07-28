@@ -1,3 +1,34 @@
+// Inline intro video player — plays in place, no modal
+function playIntroVideo() {
+    const wrapper   = document.getElementById('intro-video-wrapper');
+    const video     = document.getElementById('intro-video');
+    const thumbnail = document.getElementById('intro-thumbnail');
+    const overlay   = document.getElementById('intro-play-overlay');
+
+    if (!video) return;
+
+    // Hide overlay + thumbnail
+    overlay.style.transition = 'opacity 0.4s ease';
+    overlay.style.opacity    = '0';
+    overlay.style.pointerEvents = 'none';
+    thumbnail.style.transition  = 'opacity 0.4s ease';
+    thumbnail.style.opacity     = '0';
+
+    // Remove hover/click from wrapper
+    wrapper.style.cursor = 'default';
+    wrapper.onclick = null;
+
+    // Play with controls after short fade
+    setTimeout(() => {
+        overlay.style.display   = 'none';
+        thumbnail.style.display = 'none';
+        video.controls  = true;
+        video.src = 'https://res.cloudinary.com/dqipo8g2g/video/upload/v1785197665/Explainer_uts8df.mp4';
+        video.load();
+        video.play().catch(() => {});
+    }, 380);
+}
+
 // Helper function to format video URLs into iframe-compatible embeds
 function getEmbedUrl(url) {
     if (!url) return '';
@@ -74,137 +105,22 @@ function createMediaPlayer(src, options = {}) {
 
 window.addEventListener('DOMContentLoaded', () => {
 
-    // Split active heading styles into individual letters or words.
-    function initAnimatedText() {
-        const charAnimatedTexts = document.querySelectorAll(".wave-text, .typing-text, .rotate-scale-text, .color-scale-text, .skew-slide-text");
-
-        charAnimatedTexts.forEach((textElement) => {
-            let charClass, baseDelay;
-
-            if (textElement.classList.contains("wave-text")) {
-                charClass = "wave-char";
-                baseDelay = 0.06;
-            } else if (textElement.classList.contains("typing-text")) {
-                charClass = "typing-char";
-                baseDelay = 0.03;
-            } else if (textElement.classList.contains("rotate-scale-text")) {
-                charClass = "rotate-scale-char";
-                baseDelay = 0.05;
-            } else if (textElement.classList.contains("color-scale-text")) {
-                charClass = "color-scale-char";
-                baseDelay = 0.04;
-            } else if (textElement.classList.contains("skew-slide-text")) {
-                charClass = "skew-slide-char";
-                baseDelay = 0.04;
-            }
-
-            const textContent = textElement.textContent.trim();
-            const words = textContent.split(/\s+/);
-            textElement.innerHTML = "";
-
-            let letterIndex = 0;
-            words.forEach((word, wordIdx) => {
-                const wordSpan = document.createElement("span");
-                wordSpan.style.display = "inline-block";
-                wordSpan.style.whiteSpace = "nowrap";
-
-                const letters = word.split("");
-                letters.forEach((letter) => {
-                    const charSpan = document.createElement("span");
-                    charSpan.textContent = letter === " " ? "\u00A0" : letter;
-                    charSpan.className = charClass;
-                    charSpan.style.animationDelay = `${letterIndex * baseDelay}s`;
-                    wordSpan.appendChild(charSpan);
-                    letterIndex++;
-                });
-
-                textElement.appendChild(wordSpan);
-
-                if (wordIdx < words.length - 1) {
-                    const spaceSpan = document.createElement("span");
-                    spaceSpan.innerHTML = "&nbsp;";
-                    spaceSpan.style.display = "inline-block";
-                    textElement.appendChild(spaceSpan);
-                }
-            });
-
-            if (!textElement.closest("#hero-section")) {
-                ScrollTrigger.create({
-                    trigger: textElement,
-                    start: "top 85%",
-                    onEnter: () => textElement.classList.add("animated"),
-                    once: true
-                });
-            }
-        });
-
-        const wordAnimatedTexts = document.querySelectorAll(".word-fade-rise-text");
-
-        wordAnimatedTexts.forEach((textElement) => {
-            let wordClass, baseDelay;
-
-            if (textElement.classList.contains("word-fade-rise-text")) {
-                wordClass = "word-fade-rise-item";
-                baseDelay = 0.12;
-            }
-
-            const textContent = textElement.textContent.trim();
-            const words = textContent.split(/\s+/);
-            textElement.innerHTML = "";
-
-            words.forEach((word, idx) => {
-                const wordSpan = document.createElement("span");
-                wordSpan.className = wordClass;
-                wordSpan.textContent = word;
-                wordSpan.style.animationDelay = `${idx * baseDelay}s`;
-                textElement.appendChild(wordSpan);
-
-                if (idx < words.length - 1) {
-                    const spaceSpan = document.createElement("span");
-                    spaceSpan.innerHTML = "&nbsp;";
-                    spaceSpan.style.display = "inline-block";
-                    textElement.appendChild(spaceSpan);
-                }
-            });
-
-            if (!textElement.closest("#hero-section")) {
-                ScrollTrigger.create({
-                    trigger: textElement,
-                    start: "top 85%",
-                    onEnter: () => textElement.classList.add("animated"),
-                    once: true
-                });
-            }
-        });
-    }
-
-    initAnimatedText();
-
-    // Fade & Rise Animation for Contact/Testimonials headings
-    gsap.to(".fade-rise-text", {
-        scrollTrigger: {
-            trigger: ".fade-rise-text",
+    // Trigger fade-and-rise animations on section headings when scrolled into view
+    document.querySelectorAll(".fade-rise-heading").forEach((element) => {
+        ScrollTrigger.create({
+            trigger: element,
             start: "top 85%",
-            markers: false,
+            onEnter: () => element.classList.add("animated"),
             once: true
-        },
-        duration: 1,
-        opacity: 1,
-        y: 0,
-        ease: "power3.out",
-        stagger: 0.2
+        });
     });
 
-    // 1. Wen Launch Hero Entry Timeline
+
+
+    // 1. Hero Entry Timeline
     const heroTl = gsap.timeline({ delay: 0.2 });
-    heroTl.call(() => {
-        document.querySelector(".hero-title-top")?.classList.add("animated");
-    })
-        .call(() => {
-            document.querySelector(".hero-title-bot")?.classList.add("animated");
-        }, null, "+=0.35")
-        .from(".hero-copy p", { duration: 1, opacity: 0, x: 20, ease: "power3.out" }, "+=0.4")
-        .from(".hero-ctas", { duration: 1, y: 30, opacity: 0, ease: "power4.out" }, "-=0.8")
+    heroTl.from(".hero-copy p", { duration: 1, opacity: 0, y: 20, ease: "power3.out" })
+        .from(".hero-ctas", { duration: 1, y: 30, opacity: 0, ease: "power4.out" }, "-=0.6")
         .to(".side-label-left, .side-label-right", { duration: 1, opacity: 1, stagger: 0.2, ease: "power3.out" }, "-=0.5");
 
     // Parallax shift for side labels only. Keep them visible while scrolling.
@@ -269,56 +185,29 @@ window.addEventListener('DOMContentLoaded', () => {
         imageObserver.observe(img);
     });
 
-    // --- Inline Showreel Playback Logic ---
-    const showreelContainer = document.getElementById('inline-showreel-container');
-    const showreelOverlay = document.getElementById('inline-showreel-overlay');
-    const showreelPoster = document.getElementById('inline-showreel-poster');
-    const showreelIframeContainer = document.getElementById('inline-showreel-iframe-container');
 
-    if (showreelContainer && showreelOverlay && showreelIframeContainer) {
-        showreelOverlay.addEventListener('click', (e) => {
-            e.stopPropagation();
-
-            if (!showreelIframeContainer.children.length) {
-                const videoSrc = showreelContainer.getAttribute('data-video-src');
-                const player = createMediaPlayer(videoSrc, {
-                    autoplay: true,
-                    poster: showreelPoster?.getAttribute('src')
-                });
-
-                showreelIframeContainer.appendChild(player);
-            }
-
-            showreelIframeContainer.classList.remove('opacity-0', 'pointer-events-none');
-            showreelIframeContainer.classList.add('opacity-100', 'pointer-events-auto');
-
-            showreelOverlay.style.opacity = '0';
-            showreelOverlay.style.pointerEvents = 'none';
-            if (showreelPoster) {
-                showreelPoster.style.opacity = '0';
-            }
-        });
-    }
 
 });
 
 // Scroll Progress Bar & Navbar Transformation
 window.addEventListener('scroll', () => {
     const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+    const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+
+
+    // Navbar: Hide top nav and show floating nav past hero
+    const navbar = document.getElementById('navbar');
     const floatingContainer = document.getElementById('floating-nav-container');
     const heroSection = document.getElementById('hero-section');
     const heroHeight = heroSection?.offsetHeight || 600;
 
-    // Show floating navigation past hero section
     if (winScroll > heroHeight * 0.8) {
-        if (floatingContainer) {
-            floatingContainer.style.transform = 'translateY(0) scale(1)';
-        }
+        navbar.style.transform = 'translateY(-100%)';
+        floatingContainer.style.transform = 'translateY(0) scale(1)';
     } else {
-        if (floatingContainer) {
-            floatingContainer.style.transform = 'translateY(24px) scale(0)';
-        }
-        
+        navbar.style.transform = 'translateY(0)';
+        floatingContainer.style.transform = 'translateY(24px) scale(0)';
+
         // Ensure menu closes if user scrolls back up
         const floatingMenu = document.getElementById('floating-nav-menu');
         if (floatingMenu && floatingMenu.style.opacity === '1') {
@@ -327,6 +216,7 @@ window.addEventListener('scroll', () => {
             floatingMenu.style.transform = 'translateX(10px)';
         }
     }
+
 });
 
 // Floating Nav Toggle Logic

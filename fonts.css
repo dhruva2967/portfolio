@@ -1,6 +1,28 @@
 /* Local Fonts - Works Completely Offline */
 /* All fonts are stored in the fonts/ folder */
 
+/* SF Pro Display - System font */
+@font-face {
+    font-family: 'SF Pro Display';
+    src: local('SF Pro Display'), local('SFProDisplay-Regular'), local('.SFProDisplay-Regular'), local('SF Pro Text'), local('SFUIDisplay'), local('SFUIText'), local('Helvetica Neue');
+    font-weight: 400;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'SF Pro Display';
+    src: local('SF Pro Display Medium'), local('SFProDisplay-Medium'), local('.SFProDisplay-Medium'), local('SF Pro Text Medium'), local('Helvetica Neue Medium');
+    font-weight: 500;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'SF Pro Display';
+    src: local('SF Pro Display Bold'), local('SFProDisplay-Bold'), local('.SFProDisplay-Bold'), local('SF Pro Text Bold'), local('Helvetica Neue Bold');
+    font-weight: 700;
+    font-display: swap;
+}
+
 /* Outfit Font */
 @font-face {
     font-family: 'Outfit';
