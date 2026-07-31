@@ -23,6 +23,35 @@
     font-display: swap;
 }
 
+/* SF Pro Text - UI font */
+@font-face {
+    font-family: 'SF Pro Text';
+    src: local('SF Pro Text'), local('SFProText-Regular'), local('.SFProText-Regular'), local('SF Pro Display'), local('SFProDisplay-Regular'), local('.SFProDisplay-Regular'), local('Helvetica Neue');
+    font-weight: 400;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'SF Pro Text';
+    src: local('SF Pro Text Medium'), local('SFProText-Medium'), local('.SFProText-Medium'), local('SF Pro Display Medium'), local('SFProDisplay-Medium'), local('.SFProDisplay-Medium'), local('Helvetica Neue Medium');
+    font-weight: 500;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'SF Pro Text';
+    src: local('SF Pro Text Semibold'), local('SFProText-Semibold'), local('.SFProText-Semibold'), local('SF Pro Display Semibold'), local('SFProDisplay-Semibold'), local('.SFProDisplay-Semibold'), local('Helvetica Neue Bold');
+    font-weight: 600;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'SF Pro Text';
+    src: local('SF Pro Text Bold'), local('SFProText-Bold'), local('.SFProText-Bold'), local('SF Pro Display Bold'), local('SFProDisplay-Bold'), local('.SFProDisplay-Bold'), local('Helvetica Neue Bold');
+    font-weight: 700;
+    font-display: swap;
+}
+
 /* Outfit Font */
 @font-face {
     font-family: 'Outfit';

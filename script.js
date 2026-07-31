@@ -1,34 +1,3 @@
-// Inline intro video player — plays in place, no modal
-function playIntroVideo() {
-    const wrapper   = document.getElementById('intro-video-wrapper');
-    const video     = document.getElementById('intro-video');
-    const thumbnail = document.getElementById('intro-thumbnail');
-    const overlay   = document.getElementById('intro-play-overlay');
-
-    if (!video) return;
-
-    // Hide overlay + thumbnail
-    overlay.style.transition = 'opacity 0.4s ease';
-    overlay.style.opacity    = '0';
-    overlay.style.pointerEvents = 'none';
-    thumbnail.style.transition  = 'opacity 0.4s ease';
-    thumbnail.style.opacity     = '0';
-
-    // Remove hover/click from wrapper
-    wrapper.style.cursor = 'default';
-    wrapper.onclick = null;
-
-    // Play with controls after short fade
-    setTimeout(() => {
-        overlay.style.display   = 'none';
-        thumbnail.style.display = 'none';
-        video.controls  = true;
-        video.src = 'https://res.cloudinary.com/dqipo8g2g/video/upload/v1785197665/Explainer_uts8df.mp4';
-        video.load();
-        video.play().catch(() => {});
-    }, 380);
-}
-
 // Helper function to format video URLs into iframe-compatible embeds
 function getEmbedUrl(url) {
     if (!url) return '';
@@ -135,14 +104,7 @@ window.addEventListener('DOMContentLoaded', () => {
         ease: "none"
     });
 
-    // 2. Showreel Reveal
-    gsap.from(".showreel-header", {
-        scrollTrigger: { trigger: "#showreel", start: "top 80%", once: true },
-        duration: 1.2, y: 50, opacity: 0, ease: "power4.out"
-    });
-
-
-    // 3. Services Animation
+    // 2. Services Animation
     gsap.from("#services .services-grid > .service-card", {
         scrollTrigger: { trigger: "#services", start: "top 75%", once: true },
         duration: 1.2, y: 60, opacity: 0, stagger: 0.2, ease: "power4.out"
@@ -163,6 +125,50 @@ window.addEventListener('DOMContentLoaded', () => {
         stagger: 0.2,
         ease: "power4.out",
         clearProps: "all"
+    });
+
+    // Count-up animation for stats
+    const countUpElements = document.querySelectorAll('.count-up');
+    if (countUpElements.length > 0) {
+        countUpElements.forEach(el => {
+            const target = parseInt(el.getAttribute('data-target')) || 0;
+            gsap.to(el, {
+                scrollTrigger: {
+                    trigger: el,
+                    start: "top 90%",
+                    once: true
+                },
+                innerHTML: target,
+                duration: 2,
+                snap: { innerHTML: 1 },
+                ease: "power2.out"
+            });
+        });
+    }
+
+    // FAQ Accordion
+    const faqItems = document.querySelectorAll('.faq-item');
+    faqItems.forEach(item => {
+        const btn = item.querySelector('.faq-btn');
+        if (btn) {
+            btn.addEventListener('click', () => {
+                const isOpen = item.classList.contains('is-open');
+                
+                // Close all items
+                faqItems.forEach(i => {
+                    i.classList.remove('is-open');
+                    const icon = i.querySelector('.faq-icon');
+                    if (icon) icon.classList.remove('rotate-45');
+                });
+                
+                // If it wasn't open, open it
+                if (!isOpen) {
+                    item.classList.add('is-open');
+                    const icon = item.querySelector('.faq-icon');
+                    if (icon) icon.classList.add('rotate-45');
+                }
+            });
+        }
     });
 
     // === LIGHTWEIGHT LAZY LOADING ===
@@ -195,66 +201,21 @@ window.addEventListener('scroll', () => {
     const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
 
 
-    // Navbar: Hide top nav and show floating nav past hero
+    // Navbar: Hide top nav and show floating CTA past hero
     const navbar = document.getElementById('navbar');
-    const floatingContainer = document.getElementById('floating-nav-container');
+    const floatingContainer = document.getElementById('floating-cta-container');
     const heroSection = document.getElementById('hero-section');
     const heroHeight = heroSection?.offsetHeight || 600;
 
     if (winScroll > heroHeight * 0.8) {
-        navbar.style.transform = 'translateY(-100%)';
-        floatingContainer.style.transform = 'translateY(0) scale(1)';
+        if (navbar) navbar.style.transform = 'translateY(-100%)';
+        if (floatingContainer) floatingContainer.style.transform = 'translateY(0) scale(1)';
     } else {
-        navbar.style.transform = 'translateY(0)';
-        floatingContainer.style.transform = 'translateY(24px) scale(0)';
-
-        // Ensure menu closes if user scrolls back up
-        const floatingMenu = document.getElementById('floating-nav-menu');
-        if (floatingMenu && floatingMenu.style.opacity === '1') {
-            floatingMenu.style.opacity = '0';
-            floatingMenu.style.pointerEvents = 'none';
-            floatingMenu.style.transform = 'translateX(10px)';
-        }
+        if (navbar) navbar.style.transform = 'translateY(0)';
+        if (floatingContainer) floatingContainer.style.transform = 'translateY(24px) scale(0)';
     }
 
 });
-
-// Floating Nav Toggle Logic
-const floatingToggle = document.getElementById('floating-nav-toggle');
-const floatingMenu = document.getElementById('floating-nav-menu');
-
-if (floatingToggle && floatingMenu) {
-
-    floatingToggle.addEventListener('click', (e) => {
-        e.stopPropagation(); // Prevent immediate close from document listener
-        const isOpen = floatingMenu.style.opacity === '1';
-        if (isOpen) {
-            closeFloatingMenu();
-        } else {
-            openFloatingMenu();
-        }
-    });
-
-    // Close menu when clicking outside
-    document.addEventListener('click', (e) => {
-        const isOpen = floatingMenu.style.opacity === '1';
-        if (isOpen && !floatingMenu.contains(e.target) && !floatingToggle.contains(e.target)) {
-            closeFloatingMenu();
-        }
-    });
-
-    function openFloatingMenu() {
-        floatingMenu.style.opacity = '1';
-        floatingMenu.style.pointerEvents = 'auto';
-        floatingMenu.style.transform = 'translateX(0)';
-    }
-
-    function closeFloatingMenu() {
-        floatingMenu.style.opacity = '0';
-        floatingMenu.style.pointerEvents = 'none';
-        floatingMenu.style.transform = 'translateX(10px)';
-    }
-}
 
 // Mobile Menu Logic (Top Nav)
 const mobileMenuBtn = document.querySelector('nav button.md\\:hidden');
@@ -298,50 +259,10 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             if (desktopMenu && !desktopMenu.classList.contains('hidden') && window.innerWidth < 768) {
                 mobileMenuBtn.click();
             }
-
-            // Close floating menu if open
-            if (floatingMenu && floatingMenu.style.opacity === '1') {
-                floatingToggle.click();
-            }
         }
     });
 });
 
-// --- Cursor Follower Logic ---
-const cursor = document.getElementById('cursor-follower');
-let mouseX = 0;
-let mouseY = 0;
-
-if (cursor) {
-    // Only enable cursor follower on desktop (screen width >= 1024px and not touch-only devices)
-    const isMobileDevice = window.matchMedia('(pointer: coarse)').matches || window.innerWidth < 1024;
-
-    if (!isMobileDevice) {
-        window.addEventListener('mousemove', (e) => {
-            mouseX = e.clientX;
-            mouseY = e.clientY;
-
-            if (cursor.style.opacity === '0' || cursor.style.opacity === '') {
-                cursor.style.opacity = '1';
-            }
-
-            gsap.to(cursor, {
-                x: mouseX, y: mouseY,
-                xPercent: -50, yPercent: -50,
-                duration: 0.1, ease: "none"
-            });
-        });
-
-        const pushCursorHover = () => cursor.classList.add('cursor-hover');
-        const popCursorHover = () => cursor.classList.remove('cursor-hover');
-
-        const interactiveElements = document.querySelectorAll('a, button, .glass, input, textarea, #floating-nav-toggle');
-        interactiveElements.forEach(el => {
-            el.addEventListener('mouseenter', pushCursorHover);
-            el.addEventListener('mouseleave', popCursorHover);
-        });
-    }
-}
 
 // --- Video Modal Logic ---
 const videoModal = document.getElementById('video-modal');
@@ -473,7 +394,7 @@ function setupContactForm() {
                     submitButton.textContent = 'Message Sent! \u2713';
                     submitButton.style.backgroundColor = '#00c853';
                     if (statusMessage) {
-                        statusMessage.textContent = 'Your message was sent successfully. I will get back to you soon.';
+                        statusMessage.textContent = 'Message sent — I\'ll reply within 24 hours.';
                         statusMessage.className = 'text-sm font-semibold text-center text-[#00c853]';
                     }
                     this.reset();

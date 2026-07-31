@@ -168,16 +168,6 @@ h4 {
 
 /* ======================== CINEMATIC LAYOUT ======================== */
 
-#showreel {
-    position: relative;
-    z-index: 20;
-}
-
-.showreel-video {
-    transform: scale(1);
-    transform-origin: center;
-}
-
 .reveal-none {
     opacity: 1 !important;
     transform: none !important;
@@ -198,33 +188,6 @@ h4 {
     text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
 }
 
-/* Cursor Follower */
-#cursor-follower {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 20px;
-    height: 20px;
-    background-color: white;
-    border-radius: 50%;
-    pointer-events: none;
-    z-index: 10000;
-    mix-blend-mode: difference;
-    transition: width 0.3s ease, height 0.3s ease, opacity 0.3s ease;
-    opacity: 0;
-}
-
-#cursor-follower.cursor-hover {
-    width: 60px;
-    height: 60px;
-}
-
-@media (hover: none) and (pointer: coarse),
-(max-width: 1023px) {
-    #cursor-follower {
-        display: none !important;
-    }
-}
 
 section {
     position: relative;
@@ -271,13 +234,21 @@ section>div {
     color: #ffffff !important;
 }
 
-#services h1, #services h2, #services h3, #services h4,
-#testimonials h1, #testimonials h2, #testimonials h3, #testimonials h4 {
+#services h1,
+#services h2,
+#services h3,
+#services h4,
+#testimonials h1,
+#testimonials h2,
+#testimonials h3,
+#testimonials h4 {
     color: #ffffff !important;
 }
 
-#services .text-neutral, #services p,
-#testimonials .text-neutral, #testimonials p {
+#services .text-neutral,
+#services p,
+#testimonials .text-neutral,
+#testimonials p {
     color: rgba(255, 255, 255, 0.62) !important;
 }
 
@@ -289,21 +260,26 @@ section>div {
     backdrop-filter: blur(26px) saturate(140%);
     -webkit-backdrop-filter: blur(26px) saturate(140%);
 }
+
 #services [class*="h-[300px]"][class*="rounded-[1.5rem]"]:hover {
     border-color: rgba(255, 255, 255, 0.34) !important;
     box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.16), 0 30px 90px rgba(0, 0, 0, 0.45) !important;
 }
+
 #services [class*="h-[300px]"][class*="rounded-[1.5rem]"]>div:first-child {
-    background: linear-gradient(145deg, rgba(255,255,255,0.14), rgba(255,255,255,0.02)) !important;
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.14), rgba(255, 255, 255, 0.02)) !important;
     opacity: 0.72;
     filter: grayscale(1) brightness(0.68) !important;
 }
+
 #services [class*="h-[300px]"][class*="rounded-[1.5rem]"]>div:nth-child(2) {
-    background: radial-gradient(circle at 50% 35%, rgba(255,255,255,0.08), rgba(0,0,0,0.86) 62%, rgba(0,0,0,0.96) 100%) !important;
+    background: radial-gradient(circle at 50% 35%, rgba(255, 255, 255, 0.08), rgba(0, 0, 0, 0.86) 62%, rgba(0, 0, 0, 0.96) 100%) !important;
 }
+
 #services [class*="h-[300px]"][class*="rounded-[1.5rem]"] p {
     color: rgba(255, 255, 255, 0.72) !important;
 }
+
 #services [class*="h-[300px]"][class*="rounded-[1.5rem]"] .silk-text {
     color: #ffffff !important;
 }
@@ -313,12 +289,14 @@ section>div {
     flex: 1 1 0;
     max-width: 10rem;
 }
+
 #services div:has(> .group\/tool) {
     display: flex;
     justify-content: space-evenly !important;
     gap: clamp(1rem, 4vw, 3rem) !important;
     width: 100%;
 }
+
 #services .group\/tool>div {
     width: 100% !important;
     aspect-ratio: 1;
@@ -329,40 +307,91 @@ section>div {
     backdrop-filter: blur(18px);
     -webkit-backdrop-filter: blur(18px);
 }
+
 #services .group\/tool:hover>div {
     border-color: rgba(255, 255, 255, 0.38) !important;
 }
+
 #services .group\/tool p {
     color: rgba(255, 255, 255, 0.8) !important;
 }
 
+.tool-stack {
+    position: relative;
+    min-height: 12rem;
+}
+
+.tool-card {
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%) rotate(var(--tool-rotate, 0deg));
+    transform-origin: bottom center;
+    transition: transform 0.5s ease, box-shadow 0.5s ease, z-index 0.2s ease;
+}
+
+.tool-card-left {
+    --tool-rotate: -14deg;
+}
+
+.tool-card-center {
+    --tool-rotate: 0deg;
+}
+
+.tool-card-right {
+    --tool-rotate: 14deg;
+}
+
+.tool-stack:hover .tool-card-left {
+    transform: translateX(calc(-50% - 7rem)) rotate(-8deg);
+}
+
+.tool-stack:hover .tool-card-center {
+    transform: translateX(-50%) translateY(-1.25rem);
+}
+
+.tool-stack:hover .tool-card-right {
+    transform: translateX(calc(-50% + 7rem)) rotate(8deg);
+}
+
+.tool-card:hover {
+    z-index: 40;
+    transform: translateX(-50%) translateY(-1.25rem) scale(1.08) rotate(0deg);
+}
+
+.tool-stack:hover .tool-label {
+    opacity: 1;
+}
+
 /* testimonial cards */
 #testimonials .glass-dark {
-    background: linear-gradient(145deg, rgba(12,12,12,0.92), rgba(0,0,0,0.78)) !important;
-    border: 1px solid rgba(255,255,255,0.14) !important;
-    box-shadow: inset 0 1px 0 rgba(255,255,255,0.1), 0 28px 80px rgba(0,0,0,0.35) !important;
+    background: linear-gradient(145deg, rgba(12, 12, 12, 0.92), rgba(0, 0, 0, 0.78)) !important;
+    border: 1px solid rgba(255, 255, 255, 0.14) !important;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1), 0 28px 80px rgba(0, 0, 0, 0.35) !important;
     backdrop-filter: blur(26px) saturate(140%);
     -webkit-backdrop-filter: blur(26px) saturate(140%);
 }
+
 #testimonials .glass-dark:hover {
-    border-color: rgba(255,255,255,0.34) !important;
-    box-shadow: inset 0 1px 0 rgba(255,255,255,0.16), 0 30px 90px rgba(0,0,0,0.45) !important;
+    border-color: rgba(255, 255, 255, 0.34) !important;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.16), 0 30px 90px rgba(0, 0, 0, 0.45) !important;
 }
+
 #testimonials .glass-dark p {
     color: rgba(255, 255, 255, 0.72) !important;
 }
+
 #testimonials .glass-dark .font-bold {
     color: #ffffff !important;
 }
+
 /* big quote mark stays subtle */
-#testimonials .glass-dark > span.text-6xl {
-    color: rgba(255,255,255,0.10) !important;
+#testimonials .glass-dark>span.text-6xl {
+    color: rgba(255, 255, 255, 0.10) !important;
 }
 
 /* ============================================================
-   LIGHT SECTIONS: #showreel, #portfolio, #contact
-   ============================================================ */
-#showreel,
+    LIGHT SECTIONS: #portfolio, #contact
+    ============================================================ */
 #portfolio,
 #contact {
     background-color: #f3f2ee !important;
@@ -370,50 +399,38 @@ section>div {
 }
 
 /* headings */
-#showreel h1, #showreel h2, #showreel h3, #showreel h4,
-#portfolio h1, #portfolio h2, #portfolio h3, #portfolio h4,
-#contact h1, #contact h2, #contact h3, #contact h4 {
+#portfolio h1,
+#portfolio h2,
+#portfolio h3,
+#portfolio h4,
+#contact h1,
+#contact h2,
+#contact h3,
+#contact h4 {
     color: #0d0d0d !important;
 }
 
 /* body / neutral text */
-#showreel .text-neutral, #showreel p,
-#portfolio .text-neutral, #portfolio p,
-#contact .text-neutral, #contact p {
+#portfolio .text-neutral,
+#portfolio p,
+#contact .text-neutral,
+#contact p {
     color: rgba(10, 10, 10, 0.55) !important;
 }
 
 /* small label / overline text */
-#showreel span[class*="tracking-"],
 #portfolio span[class*="tracking-"],
 #contact span[class*="tracking-"] {
     color: rgba(0, 0, 0, 0.45) !important;
 }
 
 /* glass cards on light background */
-#showreel .glass,
 #portfolio .glass {
     background: rgba(0, 0, 0, 0.04) !important;
     border-color: rgba(0, 0, 0, 0.10) !important;
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08) !important;
 }
 
-/* showreel video placeholder card */
-#showreel .glass-dark {
-    background: rgba(0, 0, 0, 0.06) !important;
-    border-color: rgba(0, 0, 0, 0.12) !important;
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.10) !important;
-}
-#showreel .glass-dark p,
-#showreel .glass-dark span {
-    color: rgba(0, 0, 0, 0.55) !important;
-}
-
-/* B&W thumbnail + play button on the intro video card */
-#showreel .group img {
-    filter: grayscale(100%) brightness(0.85);
-    transition: filter 0.6s ease, transform 0.7s ease;
-}
 #showreel .group:hover img {
     filter: grayscale(0%) brightness(1);
     transform: scale(1.04);
@@ -431,6 +448,7 @@ section>div {
     filter: grayscale(100%) brightness(0.85);
     transition: filter 0.6s ease, transform 0.7s ease;
 }
+
 #portfolio .group:hover img {
     filter: grayscale(0%) brightness(1);
 }
@@ -459,6 +477,7 @@ section>div {
     transition: opacity 0.4s ease, transform 0.4s ease, background-color 0.3s ease;
     pointer-events: none;
 }
+
 #portfolio .group:hover::after {
     opacity: 0;
     transform: translate(-50%, -50%) scale(0.8);
@@ -472,34 +491,42 @@ section>div {
     backdrop-filter: none;
     -webkit-backdrop-filter: none;
 }
+
 #contact-form-container:hover {
     border-color: #3a3a3a !important;
     box-shadow: 0 30px 90px rgba(0, 0, 0, 0.6) !important;
 }
+
 #contact-form-container label {
     color: #888888 !important;
 }
+
 #contact-form-container .absolute[class*="bg-white"] {
     background: rgba(255, 255, 255, 0.03) !important;
 }
+
 #contact-form input,
 #contact-form textarea {
     color: #e0e0e0 !important;
     border-color: #3a3a3a !important;
     background: transparent !important;
 }
+
 #contact-form input::placeholder,
 #contact-form textarea::placeholder {
-    color: rgba(255,255,255,0.25) !important;
+    color: rgba(255, 255, 255, 0.25) !important;
 }
+
 #contact-form button {
     background: #e0e0e0 !important;
     color: #111111 !important;
     box-shadow: 0 8px 32px rgba(255, 255, 255, 0.08) !important;
 }
+
 #contact-form button:hover {
     background: #ffffff !important;
 }
+
 #contact-form-status {
     color: #ffffff !important;
 }
@@ -510,9 +537,11 @@ section>div {
     border-color: rgba(0, 0, 0, 0.10) !important;
     box-shadow: none !important;
 }
+
 #contact .glass span {
     color: #0d0d0d !important;
 }
+
 /* contact-highlight word box stays inverted */
 .contact-highlight {
     background-color: #0d0d0d !important;
@@ -521,8 +550,15 @@ section>div {
 
 /* Hero Styles */
 .sf-pro-text {
-    font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-    font-weight: 700;
+    font-family: 'SF Pro Text', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    font-weight: 600;
+}
+
+.headline-display {
+    font-family: 'Times New Roman', Times, serif;
+    font-style: italic;
+    font-weight: 300;
+    letter-spacing: -0.04em;
 }
 
 .script-text {
@@ -530,6 +566,10 @@ section>div {
     text-transform: none;
     font-weight: 400;
     letter-spacing: 0.05em;
+}
+
+.font-ui {
+    font-family: 'SF Pro Text', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
 }
 
 /* =========================
@@ -599,7 +639,7 @@ section>div {
     justify-content: center;
     min-height: 100svh;
     padding-top: 5rem;
-    padding-bottom: 5rem;
+    padding-bottom: 3rem;
 }
 
 .hero-stage .hero-copy {
@@ -660,11 +700,37 @@ section>div {
 .side-label-left,
 .side-label-right {
     opacity: 0;
+    font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    letter-spacing: 0.4em;
 }
 
 /* Removed visible class rule, as visibility is controlled by letter splitting entry */
 
-/* Responsive adjustments */
+/* =========================
+    HERO VIDEO
+    ========================= */
+.hero-video {
+    position: relative;
+    border-radius: 1.5rem;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 24px 80px rgba(0, 0, 0, 0.5);
+}
+
+.hero-video video {
+    display: block;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+}
+
+@media (max-width: 768px) {
+    .hero-video {
+        border-radius: 1rem;
+        max-width: 100%;
+    }
+}
+
 @media (max-width: 768px) {
 
     .hero-title-top {
@@ -763,4 +829,46 @@ section>div {
 .fade-rise-heading.animated {
     opacity: 1;
     transform: translateY(0);
+}
+
+/* ==========================================================================
+   MARQUEE
+   ========================================================================== */
+.marquee-content {
+    animation: scroll-marquee 20s linear infinite;
+    width: max-content;
+}
+
+@keyframes scroll-marquee {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(calc(-50% - 1.5rem));
+        /* Adjust for gap */
+    }
+}
+
+/* ==========================================================================
+    FAQ ACCORDION
+    ========================================================================== */
+.faq-btn:focus {
+    outline: none;
+}
+
+.faq-icon.rotate-45 {
+    transform: rotate(45deg);
+}
+
+.faq-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    opacity: 0;
+}
+
+.faq-item.is-open .faq-content {
+    max-height: 500px;
+    opacity: 1;
 }
