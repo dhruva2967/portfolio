@@ -186,20 +186,130 @@
                         </a>
                     </div>
 
-                    <div class="hero-video mt-10 md:mt-16 w-full max-w-4xl mx-auto">
-                        <div onclick="openVideoModal('https://res.cloudinary.com/dqipo8g2g/video/upload/v1785603916/Explainer2_vnpb1i.mp4')"
-                            onkeydown="if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); openVideoModal('https://res.cloudinary.com/dqipo8g2g/video/upload/v1785603916/Explainer2_vnpb1i.mp4'); }"
-                            role="button" tabindex="0" aria-label="Open intro video"
-                            class="group relative cursor-pointer rounded-2xl overflow-hidden">
-                            <video class="w-full aspect-video rounded-2xl object-cover transition-transform duration-500 group-hover:scale-[1.02]"
-                                autoplay muted loop playsinline preload="metadata" poster="Thumbnails/brg.png">
-                                <source src="https://res.cloudinary.com/dqipo8g2g/video/upload/v1785603916/Explainer2_vnpb1i.mp4" type="video/mp4">
-                            </video>
-                            <div class="absolute inset-0 flex items-center justify-center rounded-2xl bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                                <div class="flex h-16 w-16 items-center justify-center rounded-full border border-white/60 bg-white/15 backdrop-blur-sm">
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="h-7 w-7 text-white ml-1">
-                                        <path d="M8 5v14l11-7z" />
-                                    </svg>
+                    <!-- Hero Video Carousel -->
+                    <div class="hero-carousel-wrapper mt-10 md:mt-16 w-full max-w-[1400px] mx-auto overflow-hidden relative py-4">
+                        <!-- Fade masks for edges -->
+                        <div class="absolute inset-y-0 left-0 w-8 md:w-32 bg-gradient-to-r from-black to-transparent z-10 pointer-events-none"></div>
+                        <div class="absolute inset-y-0 right-0 w-8 md:w-32 bg-gradient-to-l from-black to-transparent z-10 pointer-events-none"></div>
+                        
+                        <div class="hero-carousel-track flex w-max">
+                            <!-- Track 1 -->
+                            <div class="hero-carousel-group flex gap-4 md:gap-6 pr-4 md:pr-6 items-center">
+                                <!-- Card 1 -->
+                                <div class="hero-video-card group relative cursor-pointer shrink-0 w-[280px] sm:w-[400px] md:w-[480px]"
+                                    onclick="openVideoModal('https://res.cloudinary.com/dqipo8g2g/video/upload/v1785603916/Explainer2_vnpb1i.mp4')"
+                                    onkeydown="if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); openVideoModal('https://res.cloudinary.com/dqipo8g2g/video/upload/v1785603916/Explainer2_vnpb1i.mp4'); }"
+                                    role="button" tabindex="0" aria-label="Open video 1">
+                                    <video class="w-full aspect-video object-cover" autoplay muted loop playsinline preload="metadata">
+                                        <source src="https://res.cloudinary.com/dqipo8g2g/video/upload/v1785603916/Explainer2_vnpb1i.mp4" type="video/mp4">
+                                    </video>
+                                    <div class="absolute inset-0 flex items-center justify-center bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                                        <div class="flex h-16 w-16 items-center justify-center rounded-full border border-white/60 bg-white/15 backdrop-blur-sm transform scale-75 group-hover:scale-100 transition-transform duration-300">
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="h-7 w-7 text-white ml-1"><path d="M8 5v14l11-7z" /></svg>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Card 2 -->
+                                <div class="hero-video-card group relative cursor-pointer shrink-0 w-[280px] sm:w-[400px] md:w-[480px]"
+                                    onclick="openVideoModal('https://res.cloudinary.com/dqipo8g2g/video/upload/v1789188607/VN20260911_195533_s6qwhi.mp4')"
+                                    onkeydown="if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); openVideoModal('https://res.cloudinary.com/dqipo8g2g/video/upload/v1789188607/VN20260911_195533_s6qwhi.mp4'); }"
+                                    role="button" tabindex="0" aria-label="Open video 2">
+                                    <video class="w-full aspect-video object-cover" autoplay muted loop playsinline preload="metadata">
+                                        <source src="https://res.cloudinary.com/dqipo8g2g/video/upload/v1789188607/VN20260911_195533_s6qwhi.mp4" type="video/mp4">
+                                    </video>
+                                    <div class="absolute inset-0 flex items-center justify-center bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                                        <div class="flex h-16 w-16 items-center justify-center rounded-full border border-white/60 bg-white/15 backdrop-blur-sm transform scale-75 group-hover:scale-100 transition-transform duration-300">
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="h-7 w-7 text-white ml-1"><path d="M8 5v14l11-7z" /></svg>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Card 3 -->
+                                <div class="hero-video-card group relative cursor-pointer shrink-0 w-[280px] sm:w-[400px] md:w-[480px]"
+                                    onclick="openVideoModal('https://res.cloudinary.com/dqipo8g2g/video/upload/v1789188591/VN20260912_101013_g4r3cu.mp4')"
+                                    onkeydown="if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); openVideoModal('https://res.cloudinary.com/dqipo8g2g/video/upload/v1789188591/VN20260912_101013_g4r3cu.mp4'); }"
+                                    role="button" tabindex="0" aria-label="Open video 3">
+                                    <video class="w-full aspect-video object-cover" autoplay muted loop playsinline preload="metadata">
+                                        <source src="https://res.cloudinary.com/dqipo8g2g/video/upload/v1789188591/VN20260912_101013_g4r3cu.mp4" type="video/mp4">
+                                    </video>
+                                    <div class="absolute inset-0 flex items-center justify-center bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                                        <div class="flex h-16 w-16 items-center justify-center rounded-full border border-white/60 bg-white/15 backdrop-blur-sm transform scale-75 group-hover:scale-100 transition-transform duration-300">
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="h-7 w-7 text-white ml-1"><path d="M8 5v14l11-7z" /></svg>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Card 4 -->
+                                <div class="hero-video-card group relative cursor-pointer shrink-0 w-[280px] sm:w-[400px] md:w-[480px]"
+                                    onclick="openVideoModal('https://res.cloudinary.com/dqipo8g2g/video/upload/v1789188590/VN20260912_100735_v3av70.mp4')"
+                                    onkeydown="if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); openVideoModal('https://res.cloudinary.com/dqipo8g2g/video/upload/v1789188590/VN20260912_100735_v3av70.mp4'); }"
+                                    role="button" tabindex="0" aria-label="Open video 4">
+                                    <video class="w-full aspect-video object-cover" autoplay muted loop playsinline preload="metadata">
+                                        <source src="https://res.cloudinary.com/dqipo8g2g/video/upload/v1789188590/VN20260912_100735_v3av70.mp4" type="video/mp4">
+                                    </video>
+                                    <div class="absolute inset-0 flex items-center justify-center bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                                        <div class="flex h-16 w-16 items-center justify-center rounded-full border border-white/60 bg-white/15 backdrop-blur-sm transform scale-75 group-hover:scale-100 transition-transform duration-300">
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="h-7 w-7 text-white ml-1"><path d="M8 5v14l11-7z" /></svg>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Track 2 (Duplicate for infinite loop) -->
+                            <div class="hero-carousel-group flex gap-4 md:gap-6 pr-4 md:pr-6 items-center" aria-hidden="true">
+                                <!-- Card 1 -->
+                                <div class="hero-video-card group relative cursor-pointer shrink-0 w-[280px] sm:w-[400px] md:w-[480px]"
+                                    onclick="openVideoModal('https://res.cloudinary.com/dqipo8g2g/video/upload/v1785603916/Explainer2_vnpb1i.mp4')"
+                                    onkeydown="if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); openVideoModal('https://res.cloudinary.com/dqipo8g2g/video/upload/v1785603916/Explainer2_vnpb1i.mp4'); }"
+                                    role="button" tabindex="0" aria-label="Open video 1">
+                                    <video class="w-full aspect-video object-cover" autoplay muted loop playsinline preload="metadata">
+                                        <source src="https://res.cloudinary.com/dqipo8g2g/video/upload/v1785603916/Explainer2_vnpb1i.mp4" type="video/mp4">
+                                    </video>
+                                    <div class="absolute inset-0 flex items-center justify-center bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                                        <div class="flex h-16 w-16 items-center justify-center rounded-full border border-white/60 bg-white/15 backdrop-blur-sm transform scale-75 group-hover:scale-100 transition-transform duration-300">
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="h-7 w-7 text-white ml-1"><path d="M8 5v14l11-7z" /></svg>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Card 2 -->
+                                <div class="hero-video-card group relative cursor-pointer shrink-0 w-[280px] sm:w-[400px] md:w-[480px]"
+                                    onclick="openVideoModal('https://res.cloudinary.com/dqipo8g2g/video/upload/v1789188607/VN20260911_195533_s6qwhi.mp4')"
+                                    onkeydown="if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); openVideoModal('https://res.cloudinary.com/dqipo8g2g/video/upload/v1789188607/VN20260911_195533_s6qwhi.mp4'); }"
+                                    role="button" tabindex="0" aria-label="Open video 2">
+                                    <video class="w-full aspect-video object-cover" autoplay muted loop playsinline preload="metadata">
+                                        <source src="https://res.cloudinary.com/dqipo8g2g/video/upload/v1789188607/VN20260911_195533_s6qwhi.mp4" type="video/mp4">
+                                    </video>
+                                    <div class="absolute inset-0 flex items-center justify-center bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                                        <div class="flex h-16 w-16 items-center justify-center rounded-full border border-white/60 bg-white/15 backdrop-blur-sm transform scale-75 group-hover:scale-100 transition-transform duration-300">
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="h-7 w-7 text-white ml-1"><path d="M8 5v14l11-7z" /></svg>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Card 3 -->
+                                <div class="hero-video-card group relative cursor-pointer shrink-0 w-[280px] sm:w-[400px] md:w-[480px]"
+                                    onclick="openVideoModal('https://res.cloudinary.com/dqipo8g2g/video/upload/v1789188591/VN20260912_101013_g4r3cu.mp4')"
+                                    onkeydown="if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); openVideoModal('https://res.cloudinary.com/dqipo8g2g/video/upload/v1789188591/VN20260912_101013_g4r3cu.mp4'); }"
+                                    role="button" tabindex="0" aria-label="Open video 3">
+                                    <video class="w-full aspect-video object-cover" autoplay muted loop playsinline preload="metadata">
+                                        <source src="https://res.cloudinary.com/dqipo8g2g/video/upload/v1789188591/VN20260912_101013_g4r3cu.mp4" type="video/mp4">
+                                    </video>
+                                    <div class="absolute inset-0 flex items-center justify-center bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                                        <div class="flex h-16 w-16 items-center justify-center rounded-full border border-white/60 bg-white/15 backdrop-blur-sm transform scale-75 group-hover:scale-100 transition-transform duration-300">
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="h-7 w-7 text-white ml-1"><path d="M8 5v14l11-7z" /></svg>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Card 4 -->
+                                <div class="hero-video-card group relative cursor-pointer shrink-0 w-[280px] sm:w-[400px] md:w-[480px]"
+                                    onclick="openVideoModal('https://res.cloudinary.com/dqipo8g2g/video/upload/v1789188590/VN20260912_100735_v3av70.mp4')"
+                                    onkeydown="if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); openVideoModal('https://res.cloudinary.com/dqipo8g2g/video/upload/v1789188590/VN20260912_100735_v3av70.mp4'); }"
+                                    role="button" tabindex="0" aria-label="Open video 4">
+                                    <video class="w-full aspect-video object-cover" autoplay muted loop playsinline preload="metadata">
+                                        <source src="https://res.cloudinary.com/dqipo8g2g/video/upload/v1789188590/VN20260912_100735_v3av70.mp4" type="video/mp4">
+                                    </video>
+                                    <div class="absolute inset-0 flex items-center justify-center bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                                        <div class="flex h-16 w-16 items-center justify-center rounded-full border border-white/60 bg-white/15 backdrop-blur-sm transform scale-75 group-hover:scale-100 transition-transform duration-300">
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="h-7 w-7 text-white ml-1"><path d="M8 5v14l11-7z" /></svg>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>

@@ -707,27 +707,44 @@ section>div {
 /* Removed visible class rule, as visibility is controlled by letter splitting entry */
 
 /* =========================
-    HERO VIDEO
+    HERO CAROUSEL
     ========================= */
-.hero-video {
+.hero-carousel-wrapper:hover .hero-carousel-group {
+    animation-play-state: paused;
+}
+
+.hero-carousel-group {
+    animation: scroll-hero-carousel 30s linear infinite;
+}
+
+@keyframes scroll-hero-carousel {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+.hero-video-card {
     position: relative;
     border-radius: 1.5rem;
     overflow: hidden;
     border: 1px solid rgba(255, 255, 255, 0.08);
-    box-shadow: 0 24px 80px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.4s ease;
 }
 
-.hero-video video {
-    display: block;
-    width: 100%;
-    aspect-ratio: 16 / 9;
-    object-fit: cover;
+.hero-video-card:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.6);
+    border-color: rgba(255, 255, 255, 0.25);
+    z-index: 20;
 }
 
 @media (max-width: 768px) {
-    .hero-video {
+    .hero-video-card {
         border-radius: 1rem;
-        max-width: 100%;
     }
 }
 
