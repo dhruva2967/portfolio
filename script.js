@@ -116,15 +116,13 @@ window.addEventListener('DOMContentLoaded', () => {
         duration: 1.2, y: 80, opacity: 0, stagger: 0.1, ease: "power4.out"
     });
 
-    // 5. Testimonials Animation (Slide Up)
-    gsap.from("#testimonials .glass-dark", {
+    // 5. Testimonials Animation (Fade & Rise container)
+    gsap.from("#testimonials .testimonials-horizontal-container", {
         scrollTrigger: { trigger: "#testimonials", start: "top 80%", once: true },
         duration: 1.2,
-        x: 100,
+        y: 40,
         opacity: 0,
-        stagger: 0.2,
-        ease: "power4.out",
-        clearProps: "all"
+        ease: "power4.out"
     });
 
     // Count-up animation for stats
@@ -190,6 +188,32 @@ window.addEventListener('DOMContentLoaded', () => {
         img.style.opacity = "0.7"; // Start slightly transparent for fade-in effect
         imageObserver.observe(img);
     });
+
+    // === HERO CAROUSEL VIDEO PERFORMANCE OBSERVER ===
+    // Pause hero videos when out of view to eliminate mobile GPU/CPU lag
+    const heroVideos = document.querySelectorAll('.hero-carousel-wrapper video');
+    const heroSection = document.getElementById('hero-section');
+    if (heroVideos.length > 0 && heroSection && 'IntersectionObserver' in window) {
+        const heroVideoObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    heroVideos.forEach(v => {
+                        if (v.paused) {
+                            v.play().catch(() => {});
+                        }
+                    });
+                } else {
+                    heroVideos.forEach(v => {
+                        if (!v.paused) {
+                            v.pause();
+                        }
+                    });
+                }
+            });
+        }, { threshold: 0.05 });
+
+        heroVideoObserver.observe(heroSection);
+    }
 
 
 
