@@ -69,7 +69,8 @@
         <div class="nav-inner flex items-center justify-between w-full">
             <!-- Left: Logo -->
             <div class="nav-logo flex items-center">
-                <a href="#hero-section" class="flex items-center gap-0 hover:opacity-80 transition-opacity duration-300">
+                <a href="#hero-section"
+                    class="flex items-center gap-0 hover:opacity-80 transition-opacity duration-300">
                     <img src="logos/logo-transparent.png" alt="Logo"
                         class="h-6 w-auto opacity-90 relative z-0 mix-blend-screen">
                     <span
@@ -135,47 +136,131 @@
         <div class="fixed inset-0 pointer-events-none z-[100] opacity-[0.03] mix-blend-screen noise-bg"></div>
         <!-- Hero Section -->
         <section id="hero-section"
-            class="relative w-full min-h-[100svh] overflow-hidden flex flex-col items-center justify-center bg-black">
+            class="relative w-full min-h-[100svh] overflow-hidden flex flex-col items-center justify-center bg-transparent">
+            <!-- Translucent Overlay -->
+            <div class="hero-bg-overlay"></div>
             <div class="absolute left-8 top-1/2 -translate-y-1/2 hidden lg:block z-20">
-                <span class="text-[10px] font-bold uppercase tracking-[0.5em] text-white/20 vertical-text side-label-left">Video
+                <span
+                    class="text-[10px] font-bold uppercase tracking-[0.5em] text-white/20 vertical-text side-label-left">Video
                     Editor</span>
             </div>
             <div class="absolute right-8 top-1/2 -translate-y-1/2 hidden lg:block z-20">
-                <span class="text-[10px] font-bold uppercase tracking-[0.5em] text-white/20 vertical-text side-label-right">Motion
+                <span
+                    class="text-[10px] font-bold uppercase tracking-[0.5em] text-white/20 vertical-text side-label-right">Motion
                     Designer</span>
             </div>
-            <div class="hero-stage relative z-10 w-full max-w-7xl px-6 flex flex-col items-center justify-center text-center">
+            <div
+                class="hero-stage relative z-10 w-full max-w-7xl px-6 flex flex-col items-center justify-center text-center">
                 <div class="hero-copy relative z-20 flex flex-col items-center text-center w-full mx-auto">
-                    <div class="relative flex flex-col w-full max-w-[1200px] select-none mb-12 mt-8 md:mt-12 gap-2 sm:gap-4 md:gap-6">
-                        <div class="relative z-10 text-center w-full">
-                            <div class="flex items-center justify-center gap-4">
-                                <h1 class="text-[3rem] sm:text-6xl md:text-[6.5rem] lg:text-[7.5rem] font-medium tracking-tight leading-[1.2] text-transparent bg-clip-text bg-gradient-to-b from-white to-white/80 drop-shadow-[0_0_20px_rgba(255,255,255,0.25)] text-center py-2 px-1"
-                                    style="font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; text-transform: none;">
-                                    Editing That Keeps
-                                </h1>
-                            </div>
-                        </div>
-                        <!-- Line 2 -->
-                        <div class="relative z-20 text-center w-full mt-2">
-                            <h1 class="text-[3rem] sm:text-6xl md:text-[6.5rem] lg:text-[7.5rem] font-medium tracking-tight leading-[1.2] text-transparent bg-clip-text bg-gradient-to-b from-white to-white/80 drop-shadow-[0_0_20px_rgba(255,255,255,0.25)] text-center py-2 px-1"
-                                style="font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; text-transform: none;">
-                                People, <span
-                                    style="font-family: 'Times New Roman', Times, serif; font-style: italic; font-weight: 400; padding-left: 0.15em;">Watching.</span>
+                    <div
+                        class="relative flex flex-col items-center justify-center w-full max-w-[1200px] select-none mb-6 mt-4 md:mt-8">
+                        <div class="relative inline-block text-left mx-auto">
+                            <!-- Small Serif Italic floating phrase (matching reference style) -->
+                            <span
+                                class="block font-serif italic text-xl sm:text-3xl md:text-4xl text-white/90 mb-[-0.15em] ml-1 sm:ml-2 tracking-tight font-normal">
+                                editing that keeps,
+                            </span>
+
+                            <!-- Main Headline -->
+                            <h1
+                                class="text-[2.2rem] sm:text-5xl md:text-[6.5rem] lg:text-[7.8rem] font-black tracking-tighter leading-[0.98] font-sans whitespace-nowrap">
+                                <span
+                                    class="text-[#e2ff00] drop-shadow-[0_0_35px_rgba(226,255,0,0.4)]">People</span><span
+                                    class="text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.25)]"> Watching.</span>
                             </h1>
                         </div>
                     </div>
 
                     <!-- Subtitle / Note below -->
-                    <div class="hero-note max-w-[500px] mx-auto text-center mt-2 mb-6 md:mb-12">
+                    <div class="hero-note max-w-[500px] mx-auto text-center mt-2 mb-3 md:mb-4">
                         <p class="text-sm md:text-base text-white/80 leading-relaxed font-medium text-center font-ui">
                             Cinematic video editing and motion design for creators, startups, and SaaS brands that want
                             content people actually watch.
                         </p>
                     </div>
 
+                    <!-- Hero Video Carousel -->
+                    <div
+                        class="hero-carousel-wrapper mt-4 md:mt-6 w-full max-w-[1400px] mx-auto overflow-hidden relative py-4">
+                        <!-- Fade masks for edges -->
+                        <div
+                            class="absolute inset-y-0 left-0 w-8 md:w-32 bg-gradient-to-r from-black to-transparent z-10 pointer-events-none">
+                        </div>
+                        <div
+                            class="absolute inset-y-0 right-0 w-8 md:w-32 bg-gradient-to-l from-black to-transparent z-10 pointer-events-none">
+                        </div>
+
+                        <div class="hero-carousel-track flex w-max">
+                            <!-- Track 1 -->
+                            <div class="hero-carousel-group flex gap-4 md:gap-6 pr-4 md:pr-6 items-center">
+                                <!-- Card 1 -->
+                                <div class="hero-video-card relative shrink-0 w-[280px] sm:w-[400px] md:w-[480px]">
+                                    <video class="hero-video w-full aspect-video object-cover pointer-events-none" muted
+                                        loop playsinline webkit-playsinline disableRemotePlayback
+                                        disablePictureInPicture preload="metadata"
+                                        data-src="https://res.cloudinary.com/dqipo8g2g/video/upload/v1785603916/Explainer2_vnpb1i.mp4"></video>
+                                </div>
+                                <!-- Card 2 -->
+                                <div class="hero-video-card relative shrink-0 w-[280px] sm:w-[400px] md:w-[480px]">
+                                    <video class="hero-video w-full aspect-video object-cover pointer-events-none" muted
+                                        loop playsinline webkit-playsinline disableRemotePlayback
+                                        disablePictureInPicture preload="metadata"
+                                        data-src="https://res.cloudinary.com/dqipo8g2g/video/upload/v1789188607/VN20260911_195533_s6qwhi.mp4"></video>
+                                </div>
+                                <!-- Card 3 -->
+                                <div class="hero-video-card relative shrink-0 w-[280px] sm:w-[400px] md:w-[480px]">
+                                    <video class="hero-video w-full aspect-video object-cover pointer-events-none" muted
+                                        loop playsinline webkit-playsinline disableRemotePlayback
+                                        disablePictureInPicture preload="metadata"
+                                        data-src="https://res.cloudinary.com/dqipo8g2g/video/upload/v1789188591/VN20260912_101013_g4r3cu.mp4"></video>
+                                </div>
+                                <!-- Card 4 -->
+                                <div class="hero-video-card relative shrink-0 w-[280px] sm:w-[400px] md:w-[480px]">
+                                    <video class="hero-video w-full aspect-video object-cover pointer-events-none" muted
+                                        loop playsinline webkit-playsinline disableRemotePlayback
+                                        disablePictureInPicture preload="metadata"
+                                        data-src="https://res.cloudinary.com/dqipo8g2g/video/upload/v1789188590/VN20260912_100735_v3av70.mp4"></video>
+                                </div>
+                            </div>
+
+                            <!-- Track 2 (Duplicate for infinite loop) -->
+                            <div class="hero-carousel-group flex gap-4 md:gap-6 pr-4 md:pr-6 items-center"
+                                aria-hidden="true">
+                                <!-- Card 1 -->
+                                <div class="hero-video-card relative shrink-0 w-[280px] sm:w-[400px] md:w-[480px]">
+                                    <video class="hero-video w-full aspect-video object-cover pointer-events-none" muted
+                                        loop playsinline webkit-playsinline disableRemotePlayback
+                                        disablePictureInPicture preload="metadata"
+                                        data-src="https://res.cloudinary.com/dqipo8g2g/video/upload/v1785603916/Explainer2_vnpb1i.mp4"></video>
+                                </div>
+                                <!-- Card 2 -->
+                                <div class="hero-video-card relative shrink-0 w-[280px] sm:w-[400px] md:w-[480px]">
+                                    <video class="hero-video w-full aspect-video object-cover pointer-events-none" muted
+                                        loop playsinline webkit-playsinline disableRemotePlayback
+                                        disablePictureInPicture preload="metadata"
+                                        data-src="https://res.cloudinary.com/dqipo8g2g/video/upload/v1789188607/VN20260911_195533_s6qwhi.mp4"></video>
+                                </div>
+                                <!-- Card 3 -->
+                                <div class="hero-video-card relative shrink-0 w-[280px] sm:w-[400px] md:w-[480px]">
+                                    <video class="hero-video w-full aspect-video object-cover pointer-events-none" muted
+                                        loop playsinline webkit-playsinline disableRemotePlayback
+                                        disablePictureInPicture preload="metadata"
+                                        data-src="https://res.cloudinary.com/dqipo8g2g/video/upload/v1789188591/VN20260912_101013_g4r3cu.mp4"></video>
+                                </div>
+                                <!-- Card 4 -->
+                                <div class="hero-video-card relative shrink-0 w-[280px] sm:w-[400px] md:w-[480px]">
+                                    <video class="hero-video w-full aspect-video object-cover pointer-events-none" muted
+                                        loop playsinline webkit-playsinline disableRemotePlayback
+                                        disablePictureInPicture preload="metadata"
+                                        data-src="https://res.cloudinary.com/dqipo8g2g/video/upload/v1789188590/VN20260912_100735_v3av70.mp4"></video>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
                     <!-- CTA Buttons -->
                     <div
-                        class="hero-ctas flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 mt-4 w-full">
+                        class="hero-ctas flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 mt-6 md:mt-8 w-full">
                         <a href="#portfolio"
                             class="px-8 py-4 bg-white text-black font-bold uppercase text-[10px] tracking-[0.3em] rounded-full transition-all duration-500 hover:bg-white/90 hover:scale-105 shadow-[0_8px_32px_rgba(255,255,255,0.25)] min-w-[180px] text-center font-ui">
                             View Portfolio
@@ -185,82 +270,12 @@
                             Get in touch
                         </a>
                     </div>
-
-                    <!-- Hero Video Carousel -->
-                    <div class="hero-carousel-wrapper mt-10 md:mt-16 w-full max-w-[1400px] mx-auto overflow-hidden relative py-4">
-                        <!-- Fade masks for edges -->
-                        <div class="absolute inset-y-0 left-0 w-8 md:w-32 bg-gradient-to-r from-black to-transparent z-10 pointer-events-none"></div>
-                        <div class="absolute inset-y-0 right-0 w-8 md:w-32 bg-gradient-to-l from-black to-transparent z-10 pointer-events-none"></div>
-                        
-                        <div class="hero-carousel-track flex w-max">
-                            <!-- Track 1 -->
-                            <div class="hero-carousel-group flex gap-4 md:gap-6 pr-4 md:pr-6 items-center">
-                                <!-- Card 1 -->
-                                <div class="hero-video-card relative shrink-0 w-[280px] sm:w-[400px] md:w-[480px]">
-                                    <video class="hero-video w-full aspect-video object-cover pointer-events-none" muted loop playsinline webkit-playsinline disableRemotePlayback disablePictureInPicture preload="metadata" data-src="https://res.cloudinary.com/dqipo8g2g/video/upload/v1785603916/Explainer2_vnpb1i.mp4"></video>
-                                </div>
-                                <!-- Card 2 -->
-                                <div class="hero-video-card relative shrink-0 w-[280px] sm:w-[400px] md:w-[480px]">
-                                    <video class="hero-video w-full aspect-video object-cover pointer-events-none" muted loop playsinline webkit-playsinline disableRemotePlayback disablePictureInPicture preload="metadata" data-src="https://res.cloudinary.com/dqipo8g2g/video/upload/v1789188607/VN20260911_195533_s6qwhi.mp4"></video>
-                                </div>
-                                <!-- Card 3 -->
-                                <div class="hero-video-card relative shrink-0 w-[280px] sm:w-[400px] md:w-[480px]">
-                                    <video class="hero-video w-full aspect-video object-cover pointer-events-none" muted loop playsinline webkit-playsinline disableRemotePlayback disablePictureInPicture preload="metadata" data-src="https://res.cloudinary.com/dqipo8g2g/video/upload/v1789188591/VN20260912_101013_g4r3cu.mp4"></video>
-                                </div>
-                                <!-- Card 4 -->
-                                <div class="hero-video-card relative shrink-0 w-[280px] sm:w-[400px] md:w-[480px]">
-                                    <video class="hero-video w-full aspect-video object-cover pointer-events-none" muted loop playsinline webkit-playsinline disableRemotePlayback disablePictureInPicture preload="metadata" data-src="https://res.cloudinary.com/dqipo8g2g/video/upload/v1789188590/VN20260912_100735_v3av70.mp4"></video>
-                                </div>
-                            </div>
-                            
-                            <!-- Track 2 (Duplicate for infinite loop) -->
-                            <div class="hero-carousel-group flex gap-4 md:gap-6 pr-4 md:pr-6 items-center" aria-hidden="true">
-                                <!-- Card 1 -->
-                                <div class="hero-video-card relative shrink-0 w-[280px] sm:w-[400px] md:w-[480px]">
-                                    <video class="hero-video w-full aspect-video object-cover pointer-events-none" muted loop playsinline webkit-playsinline disableRemotePlayback disablePictureInPicture preload="metadata" data-src="https://res.cloudinary.com/dqipo8g2g/video/upload/v1785603916/Explainer2_vnpb1i.mp4"></video>
-                                </div>
-                                <!-- Card 2 -->
-                                <div class="hero-video-card relative shrink-0 w-[280px] sm:w-[400px] md:w-[480px]">
-                                    <video class="hero-video w-full aspect-video object-cover pointer-events-none" muted loop playsinline webkit-playsinline disableRemotePlayback disablePictureInPicture preload="metadata" data-src="https://res.cloudinary.com/dqipo8g2g/video/upload/v1789188607/VN20260911_195533_s6qwhi.mp4"></video>
-                                </div>
-                                <!-- Card 3 -->
-                                <div class="hero-video-card relative shrink-0 w-[280px] sm:w-[400px] md:w-[480px]">
-                                    <video class="hero-video w-full aspect-video object-cover pointer-events-none" muted loop playsinline webkit-playsinline disableRemotePlayback disablePictureInPicture preload="metadata" data-src="https://res.cloudinary.com/dqipo8g2g/video/upload/v1789188591/VN20260912_101013_g4r3cu.mp4"></video>
-                                </div>
-                                <!-- Card 4 -->
-                                <div class="hero-video-card relative shrink-0 w-[280px] sm:w-[400px] md:w-[480px]">
-                                    <video class="hero-video w-full aspect-video object-cover pointer-events-none" muted loop playsinline webkit-playsinline disableRemotePlayback disablePictureInPicture preload="metadata" data-src="https://res.cloudinary.com/dqipo8g2g/video/upload/v1789188590/VN20260912_100735_v3av70.mp4"></video>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </div>
 
 
         </section>
 
-        <!-- Stats Bar -->
-        <section class="py-8 bg-black border-b border-white/5 relative z-10">
-            <div
-                class="max-w-4xl mx-auto flex flex-col md:flex-row items-center justify-center gap-8 md:gap-0 divide-y md:divide-y-0 md:divide-x divide-white/10 text-center">
-                <div class="flex-1 pt-4 md:pt-0">
-                    <p class="font-display font-bold text-4xl text-white tracking-tighter mb-1"><span class="count-up"
-                            data-target="20">0</span>+</p>
-                    <p class="text-[10px] uppercase tracking-widest text-neutral font-bold">Projects Delivered</p>
-                </div>
-                <div class="flex-1 pt-4 md:pt-0">
-                    <p class="font-display font-bold text-4xl text-white tracking-tighter mb-1"><span class="count-up"
-                            data-target="98">0</span>%</p>
-                    <p class="text-[10px] uppercase tracking-widest text-neutral font-bold">Happy Customer Rate</p>
-                </div>
-                <div class="flex-1 pt-4 md:pt-0">
-                    <p class="font-display font-bold text-4xl text-white tracking-tighter mb-1"><span class="count-up"
-                            data-target="2">0</span>+</p>
-                    <p class="text-[10px] uppercase tracking-widest text-neutral font-bold">Years of Editing</p>
-                </div>
-            </div>
-        </section>
 
         <!-- Combined Services & Process Section -->
         <section id="services" class="py-32 px-6 relative">
@@ -447,14 +462,17 @@
         </section>
 
         <!-- Portfolio Section -->
-        <section id="portfolio" class="py-32 px-6 relative overflow-hidden">
+        <section id="portfolio" class="portfolio-bg py-32 px-6 relative overflow-hidden">
+            <!-- Blurred background + translucent overlay -->
+            <div class="portfolio-bg-image"></div>
+            <div class="portfolio-bg-overlay"></div>
             <div class="max-w-7xl mx-auto relative z-10">
                 <div class="flex flex-col md:flex-row items-center md:items-end justify-between mb-20 gap-6">
                     <div class="space-y-4 text-center md:text-left">
-                        <span class="text-[10px] font-bold uppercase tracking-[0.4em] text-neutral">Selected
+                        <span class="text-white text-[10px] font-bold uppercase tracking-[0.4em] text-neutral">Selected
                             Works</span>
                         <h2
-                            class="fade-rise-heading text-4xl sm:text-5xl md:text-7xl font-display font-black tracking-[-0.04em]">
+                            class="fade-rise-heading text-4xl sm:text-5xl md:text-7xl font-display font-black tracking-[-0.04em] text-white">
                             Portfolio</h2>
                     </div>
                 </div>
@@ -565,25 +583,38 @@
             </div>
 
             <!-- Testimonials Horizontal Dual-Row Carousel Container -->
-            <div class="testimonials-horizontal-container relative z-10 w-full max-w-[1600px] mx-auto space-y-4 sm:space-y-6">
-                
+            <div
+                class="testimonials-horizontal-container relative z-10 w-full max-w-[1600px] mx-auto space-y-4 sm:space-y-6">
+
                 <!-- TOP CAROUSEL ROW (Above) -->
                 <div class="testimonials-carousel-wrapper relative w-full overflow-hidden py-1.5">
                     <!-- Edge fade masks -->
-                    <div class="absolute inset-y-0 left-0 w-16 sm:w-28 md:w-44 bg-gradient-to-r from-[#050507] to-transparent z-10 pointer-events-none"></div>
-                    <div class="absolute inset-y-0 right-0 w-16 sm:w-28 md:w-44 bg-gradient-to-l from-[#050507] to-transparent z-10 pointer-events-none"></div>
-                    
+                    <div
+                        class="absolute inset-y-0 left-0 w-16 sm:w-28 md:w-44 bg-gradient-to-r from-[#050507] to-transparent z-10 pointer-events-none">
+                    </div>
+                    <div
+                        class="absolute inset-y-0 right-0 w-16 sm:w-28 md:w-44 bg-gradient-to-l from-[#050507] to-transparent z-10 pointer-events-none">
+                    </div>
+
                     <div class="testimonials-carousel-track flex w-max">
                         <!-- Group 1 -->
-                        <div class="testimonials-carousel-group testimonials-scroll-left flex gap-4 sm:gap-6 pr-4 sm:pr-6 items-stretch">
+                        <div
+                            class="testimonials-carousel-group testimonials-scroll-left flex gap-4 sm:gap-6 pr-4 sm:pr-6 items-stretch">
                             <!-- Testimonial 1 -->
-                            <div class="glass-dark p-6 sm:p-7 rounded-2xl sm:rounded-3xl space-y-4 sm:space-y-5 relative border-t border-l border-white/10 border-r-0 border-b-0 shadow-[10px_10px_30px_rgba(0,0,0,0.5)] hover:shadow-[0_0_25px_rgba(255,255,255,0.08)] transition-all duration-300 w-[290px] sm:w-[350px] md:w-[390px] shrink-0 flex flex-col justify-between">
-                                <span class="text-4xl sm:text-5xl absolute top-4 right-6 text-white/10 pointer-events-none select-none font-serif">&ldquo;</span>
-                                <p class="testimonial-quote text-sm sm:text-base leading-relaxed text-white/90 font-normal">
-                                    &ldquo;Dhruva's creativity, attention to detail, and deep understanding of the requirements helped transform the vision into a compelling and engaging video. The final output has significantly elevated the event and successfully captured the attention and excitement of the audience.&rdquo;
+                            <div
+                                class="glass-dark p-6 sm:p-7 rounded-2xl sm:rounded-3xl space-y-4 sm:space-y-5 relative border-t border-l border-white/10 border-r-0 border-b-0 shadow-[10px_10px_30px_rgba(0,0,0,0.5)] hover:shadow-[0_0_25px_rgba(255,255,255,0.08)] transition-all duration-300 w-[290px] sm:w-[350px] md:w-[390px] shrink-0 flex flex-col justify-between">
+                                <span
+                                    class="text-4xl sm:text-5xl absolute top-4 right-6 text-white/10 pointer-events-none select-none font-serif">&ldquo;</span>
+                                <p
+                                    class="testimonial-quote text-sm sm:text-base leading-relaxed text-white/90 font-normal">
+                                    &ldquo;Dhruva's creativity, attention to detail, and deep understanding of the
+                                    requirements helped transform the vision into a compelling and engaging video. The
+                                    final output has significantly elevated the event and successfully captured the
+                                    attention and excitement of the audience.&rdquo;
                                 </p>
                                 <div class="flex items-center space-x-3.5 pt-3.5 border-t border-white/10">
-                                    <div class="w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-white/10 flex items-center justify-center border border-white/10 shrink-0">
+                                    <div
+                                        class="w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-white/10 flex items-center justify-center border border-white/10 shrink-0">
                                         <span class="text-white/60 text-xl sm:text-2xl">&#128100;</span>
                                     </div>
                                     <div>
@@ -594,13 +625,19 @@
                             </div>
 
                             <!-- Testimonial 2 -->
-                            <div class="glass-dark p-6 sm:p-7 rounded-2xl sm:rounded-3xl space-y-4 sm:space-y-5 relative border-t border-l border-white/10 border-r-0 border-b-0 shadow-[10px_10px_30px_rgba(0,0,0,0.5)] hover:shadow-[0_0_25px_rgba(255,255,255,0.08)] transition-all duration-300 w-[290px] sm:w-[350px] md:w-[390px] shrink-0 flex flex-col justify-between">
-                                <span class="text-4xl sm:text-5xl absolute top-4 right-6 text-white/10 pointer-events-none select-none font-serif">&ldquo;</span>
-                                <p class="testimonial-quote text-sm sm:text-base leading-relaxed text-white/90 font-normal">
-                                    &ldquo;The video edits for ROBOVEDA'25 publicity done by Dhruva were excellent and highly professional. His talent in video editing greatly contributed to the event's publicity and overall presentation.&rdquo;
+                            <div
+                                class="glass-dark p-6 sm:p-7 rounded-2xl sm:rounded-3xl space-y-4 sm:space-y-5 relative border-t border-l border-white/10 border-r-0 border-b-0 shadow-[10px_10px_30px_rgba(0,0,0,0.5)] hover:shadow-[0_0_25px_rgba(255,255,255,0.08)] transition-all duration-300 w-[290px] sm:w-[350px] md:w-[390px] shrink-0 flex flex-col justify-between">
+                                <span
+                                    class="text-4xl sm:text-5xl absolute top-4 right-6 text-white/10 pointer-events-none select-none font-serif">&ldquo;</span>
+                                <p
+                                    class="testimonial-quote text-sm sm:text-base leading-relaxed text-white/90 font-normal">
+                                    &ldquo;The video edits for ROBOVEDA'25 publicity done by Dhruva were excellent and
+                                    highly professional. His talent in video editing greatly contributed to the event's
+                                    publicity and overall presentation.&rdquo;
                                 </p>
                                 <div class="flex items-center space-x-3.5 pt-3.5 border-t border-white/10">
-                                    <div class="w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-white/10 flex items-center justify-center border border-white/10 shrink-0">
+                                    <div
+                                        class="w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-white/10 flex items-center justify-center border border-white/10 shrink-0">
                                         <span class="text-white/60 text-xl sm:text-2xl">&#128100;</span>
                                     </div>
                                     <div>
@@ -611,13 +648,20 @@
                             </div>
 
                             <!-- Testimonial 3 -->
-                            <div class="glass-dark p-6 sm:p-7 rounded-2xl sm:rounded-3xl space-y-4 sm:space-y-5 relative border-t border-l border-white/10 border-r-0 border-b-0 shadow-[10px_10px_30px_rgba(0,0,0,0.5)] hover:shadow-[0_0_25px_rgba(255,255,255,0.08)] transition-all duration-300 w-[290px] sm:w-[350px] md:w-[390px] shrink-0 flex flex-col justify-between">
-                                <span class="text-4xl sm:text-5xl absolute top-4 right-6 text-white/10 pointer-events-none select-none font-serif">&ldquo;</span>
-                                <p class="testimonial-quote text-sm sm:text-base leading-relaxed text-white/90 font-normal">
-                                    &ldquo;I really enjoyed working with Dhruva. Even though he is still growing in the field, his creativity and editing sense are really good. He listens to feedback well and puts genuine effort into making the content better. I liked the smooth cuts, clean transitions, and overall flow of the video.&rdquo;
+                            <div
+                                class="glass-dark p-6 sm:p-7 rounded-2xl sm:rounded-3xl space-y-4 sm:space-y-5 relative border-t border-l border-white/10 border-r-0 border-b-0 shadow-[10px_10px_30px_rgba(0,0,0,0.5)] hover:shadow-[0_0_25px_rgba(255,255,255,0.08)] transition-all duration-300 w-[290px] sm:w-[350px] md:w-[390px] shrink-0 flex flex-col justify-between">
+                                <span
+                                    class="text-4xl sm:text-5xl absolute top-4 right-6 text-white/10 pointer-events-none select-none font-serif">&ldquo;</span>
+                                <p
+                                    class="testimonial-quote text-sm sm:text-base leading-relaxed text-white/90 font-normal">
+                                    &ldquo;I really enjoyed working with Dhruva. Even though he is still growing in the
+                                    field, his creativity and editing sense are really good. He listens to feedback well
+                                    and puts genuine effort into making the content better. I liked the smooth cuts,
+                                    clean transitions, and overall flow of the video.&rdquo;
                                 </p>
                                 <div class="flex items-center space-x-3.5 pt-3.5 border-t border-white/10">
-                                    <div class="w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-white/10 flex items-center justify-center border border-white/10 shrink-0">
+                                    <div
+                                        class="w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-white/10 flex items-center justify-center border border-white/10 shrink-0">
                                         <span class="text-white/60 text-xl sm:text-2xl">&#128100;</span>
                                     </div>
                                     <div>
@@ -629,15 +673,23 @@
                         </div>
 
                         <!-- Group 2 (Duplicate for infinite seamless loop) -->
-                        <div class="testimonials-carousel-group testimonials-scroll-left flex gap-4 sm:gap-6 pr-4 sm:pr-6 items-stretch" aria-hidden="true">
+                        <div class="testimonials-carousel-group testimonials-scroll-left flex gap-4 sm:gap-6 pr-4 sm:pr-6 items-stretch"
+                            aria-hidden="true">
                             <!-- Testimonial 1 -->
-                            <div class="glass-dark p-6 sm:p-7 rounded-2xl sm:rounded-3xl space-y-4 sm:space-y-5 relative border-t border-l border-white/10 border-r-0 border-b-0 shadow-[10px_10px_30px_rgba(0,0,0,0.5)] hover:shadow-[0_0_25px_rgba(255,255,255,0.08)] transition-all duration-300 w-[290px] sm:w-[350px] md:w-[390px] shrink-0 flex flex-col justify-between">
-                                <span class="text-4xl sm:text-5xl absolute top-4 right-6 text-white/10 pointer-events-none select-none font-serif">&ldquo;</span>
-                                <p class="testimonial-quote text-sm sm:text-base leading-relaxed text-white/90 font-normal">
-                                    &ldquo;Dhruva's creativity, attention to detail, and deep understanding of the requirements helped transform the vision into a compelling and engaging video. The final output has significantly elevated the event and successfully captured the attention and excitement of the audience.&rdquo;
+                            <div
+                                class="glass-dark p-6 sm:p-7 rounded-2xl sm:rounded-3xl space-y-4 sm:space-y-5 relative border-t border-l border-white/10 border-r-0 border-b-0 shadow-[10px_10px_30px_rgba(0,0,0,0.5)] hover:shadow-[0_0_25px_rgba(255,255,255,0.08)] transition-all duration-300 w-[290px] sm:w-[350px] md:w-[390px] shrink-0 flex flex-col justify-between">
+                                <span
+                                    class="text-4xl sm:text-5xl absolute top-4 right-6 text-white/10 pointer-events-none select-none font-serif">&ldquo;</span>
+                                <p
+                                    class="testimonial-quote text-sm sm:text-base leading-relaxed text-white/90 font-normal">
+                                    &ldquo;Dhruva's creativity, attention to detail, and deep understanding of the
+                                    requirements helped transform the vision into a compelling and engaging video. The
+                                    final output has significantly elevated the event and successfully captured the
+                                    attention and excitement of the audience.&rdquo;
                                 </p>
                                 <div class="flex items-center space-x-3.5 pt-3.5 border-t border-white/10">
-                                    <div class="w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-white/10 flex items-center justify-center border border-white/10 shrink-0">
+                                    <div
+                                        class="w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-white/10 flex items-center justify-center border border-white/10 shrink-0">
                                         <span class="text-white/60 text-xl sm:text-2xl">&#128100;</span>
                                     </div>
                                     <div>
@@ -648,13 +700,19 @@
                             </div>
 
                             <!-- Testimonial 2 -->
-                            <div class="glass-dark p-6 sm:p-7 rounded-2xl sm:rounded-3xl space-y-4 sm:space-y-5 relative border-t border-l border-white/10 border-r-0 border-b-0 shadow-[10px_10px_30px_rgba(0,0,0,0.5)] hover:shadow-[0_0_25px_rgba(255,255,255,0.08)] transition-all duration-300 w-[290px] sm:w-[350px] md:w-[390px] shrink-0 flex flex-col justify-between">
-                                <span class="text-4xl sm:text-5xl absolute top-4 right-6 text-white/10 pointer-events-none select-none font-serif">&ldquo;</span>
-                                <p class="testimonial-quote text-sm sm:text-base leading-relaxed text-white/90 font-normal">
-                                    &ldquo;The video edits for ROBOVEDA'25 publicity done by Dhruva were excellent and highly professional. His talent in video editing greatly contributed to the event's publicity and overall presentation.&rdquo;
+                            <div
+                                class="glass-dark p-6 sm:p-7 rounded-2xl sm:rounded-3xl space-y-4 sm:space-y-5 relative border-t border-l border-white/10 border-r-0 border-b-0 shadow-[10px_10px_30px_rgba(0,0,0,0.5)] hover:shadow-[0_0_25px_rgba(255,255,255,0.08)] transition-all duration-300 w-[290px] sm:w-[350px] md:w-[390px] shrink-0 flex flex-col justify-between">
+                                <span
+                                    class="text-4xl sm:text-5xl absolute top-4 right-6 text-white/10 pointer-events-none select-none font-serif">&ldquo;</span>
+                                <p
+                                    class="testimonial-quote text-sm sm:text-base leading-relaxed text-white/90 font-normal">
+                                    &ldquo;The video edits for ROBOVEDA'25 publicity done by Dhruva were excellent and
+                                    highly professional. His talent in video editing greatly contributed to the event's
+                                    publicity and overall presentation.&rdquo;
                                 </p>
                                 <div class="flex items-center space-x-3.5 pt-3.5 border-t border-white/10">
-                                    <div class="w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-white/10 flex items-center justify-center border border-white/10 shrink-0">
+                                    <div
+                                        class="w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-white/10 flex items-center justify-center border border-white/10 shrink-0">
                                         <span class="text-white/60 text-xl sm:text-2xl">&#128100;</span>
                                     </div>
                                     <div>
@@ -665,13 +723,20 @@
                             </div>
 
                             <!-- Testimonial 3 -->
-                            <div class="glass-dark p-6 sm:p-7 rounded-2xl sm:rounded-3xl space-y-4 sm:space-y-5 relative border-t border-l border-white/10 border-r-0 border-b-0 shadow-[10px_10px_30px_rgba(0,0,0,0.5)] hover:shadow-[0_0_25px_rgba(255,255,255,0.08)] transition-all duration-300 w-[290px] sm:w-[350px] md:w-[390px] shrink-0 flex flex-col justify-between">
-                                <span class="text-4xl sm:text-5xl absolute top-4 right-6 text-white/10 pointer-events-none select-none font-serif">&ldquo;</span>
-                                <p class="testimonial-quote text-sm sm:text-base leading-relaxed text-white/90 font-normal">
-                                    &ldquo;I really enjoyed working with Dhruva. Even though he is still growing in the field, his creativity and editing sense are really good. He listens to feedback well and puts genuine effort into making the content better. I liked the smooth cuts, clean transitions, and overall flow of the video.&rdquo;
+                            <div
+                                class="glass-dark p-6 sm:p-7 rounded-2xl sm:rounded-3xl space-y-4 sm:space-y-5 relative border-t border-l border-white/10 border-r-0 border-b-0 shadow-[10px_10px_30px_rgba(0,0,0,0.5)] hover:shadow-[0_0_25px_rgba(255,255,255,0.08)] transition-all duration-300 w-[290px] sm:w-[350px] md:w-[390px] shrink-0 flex flex-col justify-between">
+                                <span
+                                    class="text-4xl sm:text-5xl absolute top-4 right-6 text-white/10 pointer-events-none select-none font-serif">&ldquo;</span>
+                                <p
+                                    class="testimonial-quote text-sm sm:text-base leading-relaxed text-white/90 font-normal">
+                                    &ldquo;I really enjoyed working with Dhruva. Even though he is still growing in the
+                                    field, his creativity and editing sense are really good. He listens to feedback well
+                                    and puts genuine effort into making the content better. I liked the smooth cuts,
+                                    clean transitions, and overall flow of the video.&rdquo;
                                 </p>
                                 <div class="flex items-center space-x-3.5 pt-3.5 border-t border-white/10">
-                                    <div class="w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-white/10 flex items-center justify-center border border-white/10 shrink-0">
+                                    <div
+                                        class="w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-white/10 flex items-center justify-center border border-white/10 shrink-0">
                                         <span class="text-white/60 text-xl sm:text-2xl">&#128100;</span>
                                     </div>
                                     <div>
@@ -687,20 +752,31 @@
                 <!-- BOTTOM CAROUSEL ROW (Below) -->
                 <div class="testimonials-carousel-wrapper relative w-full overflow-hidden py-1.5">
                     <!-- Edge fade masks -->
-                    <div class="absolute inset-y-0 left-0 w-16 sm:w-28 md:w-44 bg-gradient-to-r from-[#050507] to-transparent z-10 pointer-events-none"></div>
-                    <div class="absolute inset-y-0 right-0 w-16 sm:w-28 md:w-44 bg-gradient-to-l from-[#050507] to-transparent z-10 pointer-events-none"></div>
-                    
+                    <div
+                        class="absolute inset-y-0 left-0 w-16 sm:w-28 md:w-44 bg-gradient-to-r from-[#050507] to-transparent z-10 pointer-events-none">
+                    </div>
+                    <div
+                        class="absolute inset-y-0 right-0 w-16 sm:w-28 md:w-44 bg-gradient-to-l from-[#050507] to-transparent z-10 pointer-events-none">
+                    </div>
+
                     <div class="testimonials-carousel-track flex w-max">
                         <!-- Group 1 -->
-                        <div class="testimonials-carousel-group testimonials-scroll-right flex gap-4 sm:gap-6 pr-4 sm:pr-6 items-stretch">
+                        <div
+                            class="testimonials-carousel-group testimonials-scroll-right flex gap-4 sm:gap-6 pr-4 sm:pr-6 items-stretch">
                             <!-- Testimonial 2 -->
-                            <div class="glass-dark p-6 sm:p-7 rounded-2xl sm:rounded-3xl space-y-4 sm:space-y-5 relative border-t border-l border-white/10 border-r-0 border-b-0 shadow-[10px_10px_30px_rgba(0,0,0,0.5)] hover:shadow-[0_0_25px_rgba(255,255,255,0.08)] transition-all duration-300 w-[290px] sm:w-[350px] md:w-[390px] shrink-0 flex flex-col justify-between">
-                                <span class="text-4xl sm:text-5xl absolute top-4 right-6 text-white/10 pointer-events-none select-none font-serif">&ldquo;</span>
-                                <p class="testimonial-quote text-sm sm:text-base leading-relaxed text-white/90 font-normal">
-                                    &ldquo;The video edits for ROBOVEDA'25 publicity done by Dhruva were excellent and highly professional. His talent in video editing greatly contributed to the event's publicity and overall presentation.&rdquo;
+                            <div
+                                class="glass-dark p-6 sm:p-7 rounded-2xl sm:rounded-3xl space-y-4 sm:space-y-5 relative border-t border-l border-white/10 border-r-0 border-b-0 shadow-[10px_10px_30px_rgba(0,0,0,0.5)] hover:shadow-[0_0_25px_rgba(255,255,255,0.08)] transition-all duration-300 w-[290px] sm:w-[350px] md:w-[390px] shrink-0 flex flex-col justify-between">
+                                <span
+                                    class="text-4xl sm:text-5xl absolute top-4 right-6 text-white/10 pointer-events-none select-none font-serif">&ldquo;</span>
+                                <p
+                                    class="testimonial-quote text-sm sm:text-base leading-relaxed text-white/90 font-normal">
+                                    &ldquo;The video edits for ROBOVEDA'25 publicity done by Dhruva were excellent and
+                                    highly professional. His talent in video editing greatly contributed to the event's
+                                    publicity and overall presentation.&rdquo;
                                 </p>
                                 <div class="flex items-center space-x-3.5 pt-3.5 border-t border-white/10">
-                                    <div class="w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-white/10 flex items-center justify-center border border-white/10 shrink-0">
+                                    <div
+                                        class="w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-white/10 flex items-center justify-center border border-white/10 shrink-0">
                                         <span class="text-white/60 text-xl sm:text-2xl">&#128100;</span>
                                     </div>
                                     <div>
@@ -711,13 +787,20 @@
                             </div>
 
                             <!-- Testimonial 3 -->
-                            <div class="glass-dark p-6 sm:p-7 rounded-2xl sm:rounded-3xl space-y-4 sm:space-y-5 relative border-t border-l border-white/10 border-r-0 border-b-0 shadow-[10px_10px_30px_rgba(0,0,0,0.5)] hover:shadow-[0_0_25px_rgba(255,255,255,0.08)] transition-all duration-300 w-[290px] sm:w-[350px] md:w-[390px] shrink-0 flex flex-col justify-between">
-                                <span class="text-4xl sm:text-5xl absolute top-4 right-6 text-white/10 pointer-events-none select-none font-serif">&ldquo;</span>
-                                <p class="testimonial-quote text-sm sm:text-base leading-relaxed text-white/90 font-normal">
-                                    &ldquo;I really enjoyed working with Dhruva. Even though he is still growing in the field, his creativity and editing sense are really good. He listens to feedback well and puts genuine effort into making the content better. I liked the smooth cuts, clean transitions, and overall flow of the video.&rdquo;
+                            <div
+                                class="glass-dark p-6 sm:p-7 rounded-2xl sm:rounded-3xl space-y-4 sm:space-y-5 relative border-t border-l border-white/10 border-r-0 border-b-0 shadow-[10px_10px_30px_rgba(0,0,0,0.5)] hover:shadow-[0_0_25px_rgba(255,255,255,0.08)] transition-all duration-300 w-[290px] sm:w-[350px] md:w-[390px] shrink-0 flex flex-col justify-between">
+                                <span
+                                    class="text-4xl sm:text-5xl absolute top-4 right-6 text-white/10 pointer-events-none select-none font-serif">&ldquo;</span>
+                                <p
+                                    class="testimonial-quote text-sm sm:text-base leading-relaxed text-white/90 font-normal">
+                                    &ldquo;I really enjoyed working with Dhruva. Even though he is still growing in the
+                                    field, his creativity and editing sense are really good. He listens to feedback well
+                                    and puts genuine effort into making the content better. I liked the smooth cuts,
+                                    clean transitions, and overall flow of the video.&rdquo;
                                 </p>
                                 <div class="flex items-center space-x-3.5 pt-3.5 border-t border-white/10">
-                                    <div class="w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-white/10 flex items-center justify-center border border-white/10 shrink-0">
+                                    <div
+                                        class="w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-white/10 flex items-center justify-center border border-white/10 shrink-0">
                                         <span class="text-white/60 text-xl sm:text-2xl">&#128100;</span>
                                     </div>
                                     <div>
@@ -728,13 +811,20 @@
                             </div>
 
                             <!-- Testimonial 1 -->
-                            <div class="glass-dark p-6 sm:p-7 rounded-2xl sm:rounded-3xl space-y-4 sm:space-y-5 relative border-t border-l border-white/10 border-r-0 border-b-0 shadow-[10px_10px_30px_rgba(0,0,0,0.5)] hover:shadow-[0_0_25px_rgba(255,255,255,0.08)] transition-all duration-300 w-[290px] sm:w-[350px] md:w-[390px] shrink-0 flex flex-col justify-between">
-                                <span class="text-4xl sm:text-5xl absolute top-4 right-6 text-white/10 pointer-events-none select-none font-serif">&ldquo;</span>
-                                <p class="testimonial-quote text-sm sm:text-base leading-relaxed text-white/90 font-normal">
-                                    &ldquo;Dhruva's creativity, attention to detail, and deep understanding of the requirements helped transform the vision into a compelling and engaging video. The final output has significantly elevated the event and successfully captured the attention and excitement of the audience.&rdquo;
+                            <div
+                                class="glass-dark p-6 sm:p-7 rounded-2xl sm:rounded-3xl space-y-4 sm:space-y-5 relative border-t border-l border-white/10 border-r-0 border-b-0 shadow-[10px_10px_30px_rgba(0,0,0,0.5)] hover:shadow-[0_0_25px_rgba(255,255,255,0.08)] transition-all duration-300 w-[290px] sm:w-[350px] md:w-[390px] shrink-0 flex flex-col justify-between">
+                                <span
+                                    class="text-4xl sm:text-5xl absolute top-4 right-6 text-white/10 pointer-events-none select-none font-serif">&ldquo;</span>
+                                <p
+                                    class="testimonial-quote text-sm sm:text-base leading-relaxed text-white/90 font-normal">
+                                    &ldquo;Dhruva's creativity, attention to detail, and deep understanding of the
+                                    requirements helped transform the vision into a compelling and engaging video. The
+                                    final output has significantly elevated the event and successfully captured the
+                                    attention and excitement of the audience.&rdquo;
                                 </p>
                                 <div class="flex items-center space-x-3.5 pt-3.5 border-t border-white/10">
-                                    <div class="w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-white/10 flex items-center justify-center border border-white/10 shrink-0">
+                                    <div
+                                        class="w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-white/10 flex items-center justify-center border border-white/10 shrink-0">
                                         <span class="text-white/60 text-xl sm:text-2xl">&#128100;</span>
                                     </div>
                                     <div>
@@ -746,15 +836,22 @@
                         </div>
 
                         <!-- Group 2 (Duplicate for infinite seamless loop) -->
-                        <div class="testimonials-carousel-group testimonials-scroll-right flex gap-4 sm:gap-6 pr-4 sm:pr-6 items-stretch" aria-hidden="true">
+                        <div class="testimonials-carousel-group testimonials-scroll-right flex gap-4 sm:gap-6 pr-4 sm:pr-6 items-stretch"
+                            aria-hidden="true">
                             <!-- Testimonial 2 -->
-                            <div class="glass-dark p-6 sm:p-7 rounded-2xl sm:rounded-3xl space-y-4 sm:space-y-5 relative border-t border-l border-white/10 border-r-0 border-b-0 shadow-[10px_10px_30px_rgba(0,0,0,0.5)] hover:shadow-[0_0_25px_rgba(255,255,255,0.08)] transition-all duration-300 w-[290px] sm:w-[350px] md:w-[390px] shrink-0 flex flex-col justify-between">
-                                <span class="text-4xl sm:text-5xl absolute top-4 right-6 text-white/10 pointer-events-none select-none font-serif">&ldquo;</span>
-                                <p class="testimonial-quote text-sm sm:text-base leading-relaxed text-white/90 font-normal">
-                                    &ldquo;The video edits for ROBOVEDA'25 publicity done by Dhruva were excellent and highly professional. His talent in video editing greatly contributed to the event's publicity and overall presentation.&rdquo;
+                            <div
+                                class="glass-dark p-6 sm:p-7 rounded-2xl sm:rounded-3xl space-y-4 sm:space-y-5 relative border-t border-l border-white/10 border-r-0 border-b-0 shadow-[10px_10px_30px_rgba(0,0,0,0.5)] hover:shadow-[0_0_25px_rgba(255,255,255,0.08)] transition-all duration-300 w-[290px] sm:w-[350px] md:w-[390px] shrink-0 flex flex-col justify-between">
+                                <span
+                                    class="text-4xl sm:text-5xl absolute top-4 right-6 text-white/10 pointer-events-none select-none font-serif">&ldquo;</span>
+                                <p
+                                    class="testimonial-quote text-sm sm:text-base leading-relaxed text-white/90 font-normal">
+                                    &ldquo;The video edits for ROBOVEDA'25 publicity done by Dhruva were excellent and
+                                    highly professional. His talent in video editing greatly contributed to the event's
+                                    publicity and overall presentation.&rdquo;
                                 </p>
                                 <div class="flex items-center space-x-3.5 pt-3.5 border-t border-white/10">
-                                    <div class="w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-white/10 flex items-center justify-center border border-white/10 shrink-0">
+                                    <div
+                                        class="w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-white/10 flex items-center justify-center border border-white/10 shrink-0">
                                         <span class="text-white/60 text-xl sm:text-2xl">&#128100;</span>
                                     </div>
                                     <div>
@@ -765,13 +862,20 @@
                             </div>
 
                             <!-- Testimonial 3 -->
-                            <div class="glass-dark p-6 sm:p-7 rounded-2xl sm:rounded-3xl space-y-4 sm:space-y-5 relative border-t border-l border-white/10 border-r-0 border-b-0 shadow-[10px_10px_30px_rgba(0,0,0,0.5)] hover:shadow-[0_0_25px_rgba(255,255,255,0.08)] transition-all duration-300 w-[290px] sm:w-[350px] md:w-[390px] shrink-0 flex flex-col justify-between">
-                                <span class="text-4xl sm:text-5xl absolute top-4 right-6 text-white/10 pointer-events-none select-none font-serif">&ldquo;</span>
-                                <p class="testimonial-quote text-sm sm:text-base leading-relaxed text-white/90 font-normal">
-                                    &ldquo;I really enjoyed working with Dhruva. Even though he is still growing in the field, his creativity and editing sense are really good. He listens to feedback well and puts genuine effort into making the content better. I liked the smooth cuts, clean transitions, and overall flow of the video.&rdquo;
+                            <div
+                                class="glass-dark p-6 sm:p-7 rounded-2xl sm:rounded-3xl space-y-4 sm:space-y-5 relative border-t border-l border-white/10 border-r-0 border-b-0 shadow-[10px_10px_30px_rgba(0,0,0,0.5)] hover:shadow-[0_0_25px_rgba(255,255,255,0.08)] transition-all duration-300 w-[290px] sm:w-[350px] md:w-[390px] shrink-0 flex flex-col justify-between">
+                                <span
+                                    class="text-4xl sm:text-5xl absolute top-4 right-6 text-white/10 pointer-events-none select-none font-serif">&ldquo;</span>
+                                <p
+                                    class="testimonial-quote text-sm sm:text-base leading-relaxed text-white/90 font-normal">
+                                    &ldquo;I really enjoyed working with Dhruva. Even though he is still growing in the
+                                    field, his creativity and editing sense are really good. He listens to feedback well
+                                    and puts genuine effort into making the content better. I liked the smooth cuts,
+                                    clean transitions, and overall flow of the video.&rdquo;
                                 </p>
                                 <div class="flex items-center space-x-3.5 pt-3.5 border-t border-white/10">
-                                    <div class="w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-white/10 flex items-center justify-center border border-white/10 shrink-0">
+                                    <div
+                                        class="w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-white/10 flex items-center justify-center border border-white/10 shrink-0">
                                         <span class="text-white/60 text-xl sm:text-2xl">&#128100;</span>
                                     </div>
                                     <div>
@@ -782,13 +886,20 @@
                             </div>
 
                             <!-- Testimonial 1 -->
-                            <div class="glass-dark p-6 sm:p-7 rounded-2xl sm:rounded-3xl space-y-4 sm:space-y-5 relative border-t border-l border-white/10 border-r-0 border-b-0 shadow-[10px_10px_30px_rgba(0,0,0,0.5)] hover:shadow-[0_0_25px_rgba(255,255,255,0.08)] transition-all duration-300 w-[290px] sm:w-[350px] md:w-[390px] shrink-0 flex flex-col justify-between">
-                                <span class="text-4xl sm:text-5xl absolute top-4 right-6 text-white/10 pointer-events-none select-none font-serif">&ldquo;</span>
-                                <p class="testimonial-quote text-sm sm:text-base leading-relaxed text-white/90 font-normal">
-                                    &ldquo;Dhruva's creativity, attention to detail, and deep understanding of the requirements helped transform the vision into a compelling and engaging video. The final output has significantly elevated the event and successfully captured the attention and excitement of the audience.&rdquo;
+                            <div
+                                class="glass-dark p-6 sm:p-7 rounded-2xl sm:rounded-3xl space-y-4 sm:space-y-5 relative border-t border-l border-white/10 border-r-0 border-b-0 shadow-[10px_10px_30px_rgba(0,0,0,0.5)] hover:shadow-[0_0_25px_rgba(255,255,255,0.08)] transition-all duration-300 w-[290px] sm:w-[350px] md:w-[390px] shrink-0 flex flex-col justify-between">
+                                <span
+                                    class="text-4xl sm:text-5xl absolute top-4 right-6 text-white/10 pointer-events-none select-none font-serif">&ldquo;</span>
+                                <p
+                                    class="testimonial-quote text-sm sm:text-base leading-relaxed text-white/90 font-normal">
+                                    &ldquo;Dhruva's creativity, attention to detail, and deep understanding of the
+                                    requirements helped transform the vision into a compelling and engaging video. The
+                                    final output has significantly elevated the event and successfully captured the
+                                    attention and excitement of the audience.&rdquo;
                                 </p>
                                 <div class="flex items-center space-x-3.5 pt-3.5 border-t border-white/10">
-                                    <div class="w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-white/10 flex items-center justify-center border border-white/10 shrink-0">
+                                    <div
+                                        class="w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-white/10 flex items-center justify-center border border-white/10 shrink-0">
                                         <span class="text-white/60 text-xl sm:text-2xl">&#128100;</span>
                                     </div>
                                     <div>
@@ -945,16 +1056,17 @@
                     <div class="space-y-6 pt-10">
                         <div class="flex items-center space-x-4 reveal-none">
                             <div class="w-12 h-12 rounded-full glass flex items-center justify-center">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.8"
-                                    stroke="currentColor" class="w-6 h-6 text-white">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                    stroke-width="1.8" stroke="currentColor" class="w-6 h-6 text-white">
                                     <path stroke-linecap="round" stroke-linejoin="round"
                                         d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75" />
                                 </svg>
                             </div>
                             <div>
                                 <p class="text-[10px] uppercase tracking-widest text-neutral font-bold">Email</p>
-                                <a href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=studio.dhruva@gmail.com" target="_blank"
-                                    rel="noopener noreferrer" class="text-xl font-bold hover:underline">studio.dhruva@gmail.com</a>
+                                <a href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=studio.dhruva@gmail.com"
+                                    target="_blank" rel="noopener noreferrer"
+                                    class="text-xl font-bold hover:underline">studio.dhruva@gmail.com</a>
                             </div>
                         </div>
                         <div class="flex items-center space-x-4 reveal-none">
@@ -1055,7 +1167,8 @@
             <div class="grid grid-cols-1 md:grid-cols-4 gap-12">
                 <!-- Logo -->
                 <div class="md:col-span-2 flex flex-col items-start gap-4">
-                    <a href="#hero-section" class="flex items-center gap-0 hover:opacity-80 transition-opacity duration-300">
+                    <a href="#hero-section"
+                        class="flex items-center gap-0 hover:opacity-80 transition-opacity duration-300">
                         <img src="logos/logo-transparent.png" alt="Logo"
                             class="h-6 w-auto opacity-90 relative z-0 mix-blend-screen">
                         <span

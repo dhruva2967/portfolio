@@ -390,25 +390,45 @@ section>div {
 }
 
 /* big quote mark stays subtle */
-#testimonials .glass-dark > span.text-6xl,
-#testimonials .glass-dark > span.text-7xl {
+#testimonials .glass-dark>span.text-6xl,
+#testimonials .glass-dark>span.text-7xl {
     color: rgba(255, 255, 255, 0.10) !important;
 }
 
 /* ============================================================
-    LIGHT SECTIONS: #portfolio, #contact
+    PORTFOLIO SECTION (Translucent with blurred background)
     ============================================================ */
-#portfolio,
+#portfolio {
+    background-color: transparent !important;
+    color: #ffffff !important;
+}
+
+#portfolio h1,
+#portfolio h2,
+#portfolio h3,
+#portfolio h4,
+#portfolio .fade-rise-heading {
+    color: #ffffff !important;
+}
+
+#portfolio .text-neutral,
+#portfolio p {
+    color: rgba(255, 255, 255, 0.7) !important;
+}
+
+#portfolio span[class*="tracking-"] {
+    color: rgba(255, 255, 255, 0.65) !important;
+}
+
+/* ============================================================
+    LIGHT SECTIONS: #contact
+    ============================================================ */
 #contact {
     background-color: #f3f2ee !important;
     color: #0d0d0d !important;
 }
 
 /* headings */
-#portfolio h1,
-#portfolio h2,
-#portfolio h3,
-#portfolio h4,
 #contact h1,
 #contact h2,
 #contact h3,
@@ -417,21 +437,18 @@ section>div {
 }
 
 /* body / neutral text */
-#portfolio .text-neutral,
-#portfolio p,
 #contact .text-neutral,
 #contact p {
     color: rgba(10, 10, 10, 0.55) !important;
 }
 
 /* small label / overline text */
-#portfolio span[class*="tracking-"],
 #contact span[class*="tracking-"] {
     color: rgba(0, 0, 0, 0.45) !important;
 }
 
 /* glass cards on light background */
-#portfolio .glass {
+#contact .glass {
     background: rgba(0, 0, 0, 0.04) !important;
     border-color: rgba(0, 0, 0, 0.10) !important;
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08) !important;
@@ -584,12 +601,59 @@ section>div {
 
 #hero-section {
     background-color: #030303;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Blurred laptop.png background layer */
+#hero-section::before {
+    content: "";
+    position: absolute;
+    inset: -40px;
     background-image: url('laptop.png');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    position: relative;
-    overflow: hidden;
+    filter: blur(28px) brightness(0.65) contrast(1.1);
+    transform: scale(1.12);
+    z-index: 0;
+}
+
+/* Translucent dark overlay */
+#hero-section .hero-bg-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(5, 5, 7, 0.55);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    z-index: 1;
+    pointer-events: none;
+}
+
+/* =========================
+   PORTFOLIO BLURRED BG
+   ========================= */
+
+.portfolio-bg-image {
+    position: absolute;
+    inset: -40px;
+    background-image: url('laptop.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    filter: blur(28px) brightness(0.55) contrast(1.1);
+    transform: scale(1.12);
+    z-index: 0;
+}
+
+.portfolio-bg-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(5, 5, 7, 0.6);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    z-index: 1;
+    pointer-events: none;
 }
 
 
@@ -742,6 +806,7 @@ section>div {
     0% {
         transform: translate3d(0, 0, 0);
     }
+
     100% {
         transform: translate3d(-100%, 0, 0);
     }
@@ -830,6 +895,7 @@ section>div {
     0% {
         transform: translate3d(0, 0, 0);
     }
+
     100% {
         transform: translate3d(-100%, 0, 0);
     }
@@ -839,16 +905,19 @@ section>div {
     0% {
         transform: translate3d(-100%, 0, 0);
     }
+
     100% {
         transform: translate3d(0, 0, 0);
     }
 }
 
 @media (max-width: 768px) {
+
     .testimonials-scroll-left,
     .testimonials-scroll-right {
         animation-duration: 24s;
     }
+
     .testimonials-carousel-group {
         gap: 1rem;
         padding-right: 1rem;
