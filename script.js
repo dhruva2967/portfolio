@@ -24,17 +24,30 @@ function isDirectVideoUrl(url) {
     return /\.(mp4|webm|ogg)(?:[?#].*)?$/i.test(url || '');
 }
 
-function getOptimizedVideoUrl(url) {
-    if (!url) return '';
-    if (url.includes('res.cloudinary.com') && url.includes('/video/upload/') && !url.includes('/q_auto')) {
-        return url.replace('/video/upload/', '/video/upload/q_auto:good/');
+function getCloudinaryUrl(url, mode) {
+    if (!url || !url.includes('res.cloudinary.com') || !url.includes('/video/upload/')) return url;
+    
+    const parts = url.split('/video/upload/');
+    const baseUrl = parts[0] + '/video/upload/';
+    let path = parts[1];
+    
+    if (path.startsWith('q_auto')) {
+        path = path.substring(path.indexOf('/') + 1);
+    }
+
+    if (mode === 'loop') {
+        return baseUrl + 'f_auto,q_auto:eco,w_1080,ac_none/' + path;
+    } else if (mode === 'poster') {
+        return baseUrl + 'f_auto,q_auto,w_800,so_0/' + path.replace(/\.[^/.]+$/, '.jpg');
+    } else if (mode === 'demand') {
+        return baseUrl + 'f_auto,q_auto,w_1080,vc_auto/' + path;
     }
     return url;
 }
 
 function createVideoPlayer(src, options = {}) {
     const video = document.createElement('video');
-    video.src = getOptimizedVideoUrl(src);
+    video.src = getCloudinaryUrl(src, 'demand');
     video.controls = true;
     video.controlsList = 'nodownload';
     video.setAttribute('controlsList', 'nodownload');
@@ -191,28 +204,47 @@ window.addEventListener('DOMContentLoaded', () => {
 
     // === HERO CAROUSEL VIDEO PERFORMANCE OBSERVER ===
     // Pause hero videos when out of view to eliminate mobile GPU/CPU lag
-    const heroVideos = document.querySelectorAll('.hero-carousel-wrapper video');
-    const heroSection = document.getElementById('hero-section');
-    if (heroVideos.length > 0 && heroSection && 'IntersectionObserver' in window) {
+    const heroVideos = document.querySelectorAll('.hero-video');
+    
+    // Initialize hero videos with optimized Cloudinary URLs
+    heroVideos.forEach(v => {
+        const originalSrc = v.getAttribute('data-src');
+        if (originalSrc) {
+            v.poster = getCloudinaryUrl(originalSrc, 'poster');
+            v.src = getCloudinaryUrl(originalSrc, 'loop');
+        }
+    });
+
+    if (heroVideos.length > 0 && 'IntersectionObserver' in window) {
         const heroVideoObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
+                const video = entry.target;
                 if (entry.isIntersecting) {
-                    heroVideos.forEach(v => {
-                        if (v.paused) {
-                            v.play().catch(() => {});
-                        }
-                    });
+                    if (video.paused) {
+                        video.play().catch(() => {});
+                    }
                 } else {
-                    heroVideos.forEach(v => {
-                        if (!v.paused) {
-                            v.pause();
-                        }
-                    });
+                    if (!video.paused) {
+                        video.pause();
+                    }
                 }
             });
-        }, { threshold: 0.05 });
+        }, { threshold: 0.25 });
 
-        heroVideoObserver.observe(heroSection);
+        heroVideos.forEach(v => {
+            heroVideoObserver.observe(v);
+        });
+        
+        // Cleanup on window unload to prevent memory leaks
+        window.addEventListener('unload', () => {
+            heroVideos.forEach(v => {
+                heroVideoObserver.unobserve(v);
+                v.pause();
+                v.removeAttribute('src');
+                v.load();
+            });
+            heroVideoObserver.disconnect();
+        });
     }
 
 
