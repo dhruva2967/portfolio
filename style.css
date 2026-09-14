@@ -789,6 +789,7 @@ section>div {
 .hero-carousel-track {
     display: flex;
     width: max-content;
+    animation: scroll-hero-carousel 22s linear infinite;
     will-change: transform;
     transform: translate3d(0, 0, 0);
     -webkit-transform: translate3d(0, 0, 0);
@@ -796,10 +797,10 @@ section>div {
 
 .hero-carousel-group {
     display: flex;
+    flex: 0 0 auto;
     will-change: transform;
     transform: translate3d(0, 0, 0);
     -webkit-transform: translate3d(0, 0, 0);
-    animation: scroll-hero-carousel 22s linear infinite;
 }
 
 @keyframes scroll-hero-carousel {
@@ -808,7 +809,7 @@ section>div {
     }
 
     100% {
-        transform: translate3d(-100%, 0, 0);
+        transform: translate3d(-50%, 0, 0);
     }
 }
 
@@ -862,7 +863,7 @@ section>div {
     contain: paint;
 }
 
-.testimonials-carousel-wrapper:hover .testimonials-carousel-group {
+.testimonials-carousel-wrapper:hover .testimonials-carousel-track {
     animation-play-state: paused;
 }
 
@@ -876,6 +877,7 @@ section>div {
 
 .testimonials-carousel-group {
     display: flex;
+    flex: 0 0 auto;
     gap: 1.25rem;
     padding-right: 1.25rem;
     will-change: transform;
@@ -883,11 +885,11 @@ section>div {
     -webkit-transform: translate3d(0, 0, 0);
 }
 
-.testimonials-scroll-left {
+.testimonials-carousel-track.testimonials-scroll-left {
     animation: scroll-testimonials-left 28s linear infinite;
 }
 
-.testimonials-scroll-right {
+.testimonials-carousel-track.testimonials-scroll-right {
     animation: scroll-testimonials-right 28s linear infinite;
 }
 
@@ -897,13 +899,13 @@ section>div {
     }
 
     100% {
-        transform: translate3d(-100%, 0, 0);
+        transform: translate3d(-50%, 0, 0);
     }
 }
 
 @keyframes scroll-testimonials-right {
     0% {
-        transform: translate3d(-100%, 0, 0);
+        transform: translate3d(-50%, 0, 0);
     }
 
     100% {
@@ -913,8 +915,8 @@ section>div {
 
 @media (max-width: 768px) {
 
-    .testimonials-scroll-left,
-    .testimonials-scroll-right {
+    .testimonials-carousel-track.testimonials-scroll-left,
+    .testimonials-carousel-track.testimonials-scroll-right {
         animation-duration: 24s;
     }
 
